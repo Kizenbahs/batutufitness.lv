@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    @apply overflow-x-hidden;
+    width: 100%;
+    position: relative;
+  }
+  
   body {
     @apply font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
   }
@@ -37,6 +43,15 @@
     @apply p-8 rounded-2xl bg-white dark:bg-gray-800
            transform hover:scale-105 transition-transform duration-300
            shadow-lg hover:shadow-xl;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
   }
 }
 
