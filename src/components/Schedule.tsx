@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { scheduleData, TrainingSession } from '../data/scheduleData';
+import { useState } from 'react';
+import { scheduleData } from '../data/scheduleData';
 import { BookingForm } from './BookingForm';
+import { SelectedSession } from '../types';
+import type { TrainingSession } from '../data/scheduleData';
 
-interface SelectedSession extends TrainingSession {
-  day: string;
-  location: string;
+interface ScheduleProps {
+  language: 'lv' | 'en';
 }
 
-export const Schedule: React.FC<{ language: string }> = ({ language }) => {
+export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
   const [activeLocation, setActiveLocation] = useState<string>(Object.keys(scheduleData)[0]);
   const [activeDay, setActiveDay] = useState<string>(Object.keys(scheduleData[activeLocation])[0]);
   const [selectedSessions, setSelectedSessions] = useState<SelectedSession[]>([]);
@@ -16,27 +17,31 @@ export const Schedule: React.FC<{ language: string }> = ({ language }) => {
   const days = ['Pirmdiena', 'Otrdiena', 'Trešdiena', 'Ceturtdiena', 'Piektdiena', 'Sestdiena', 'Svētdiena'];
   const locations = Object.keys(scheduleData);
 
-  const handleSessionSelect = (session: TrainingSession, day: string) => {
-    const sessionWithDetails = {
-      ...session,
-      day: day,
-      location: activeLocation
+  const handleSessionSelect = (session: TrainingSession) => {
+    const newSession: SelectedSession = {
+      id: `${session.time}-${activeDay}-${activeLocation}`,
+      time: session.time,
+      type: session.type,
+      duration: session.duration,
+      trainer: session.trainer,
+      maxParticipants: session.maxParticipants,
+      day: activeDay,
+      location: activeLocation,
+      selected: true
     };
 
-    const isAlreadySelected = selectedSessions.some(
-      s => s.day === day && 
-          s.time === session.time && 
-          s.location === activeLocation
-    );
+    setSelectedSessions(prev => {
+      const exists = prev.find(s => s.id === newSession.id);
+      if (exists) {
+        return prev.filter(s => s.id !== newSession.id);
+      }
+      return [...prev, newSession];
+    });
+  };
 
-    if (isAlreadySelected) {
-      setSelectedSessions(selectedSessions.filter(
-        s => !(s.day === day && 
-              s.time === session.time && 
-              s.location === activeLocation)
-      ));
-    } else {
-      setSelectedSessions([...selectedSessions, sessionWithDetails]);
+  const handleSubmit = () => {
+    if (selectedSessions.length > 0) {
+      setShowBookingForm(true);
     }
   };
 
@@ -45,8 +50,12 @@ export const Schedule: React.FC<{ language: string }> = ({ language }) => {
     setShowBookingForm(false);
   };
 
+  const handleRemoveSession = (session: SelectedSession) => {
+    setSelectedSessions(prev => prev.filter(s => s.id !== session.id));
+  };
+
   return (
-    <div id="schedule" className="space-y-8">
+    <div className="min-h-screen bg-gray-900 py-20">
       {/* Location Toggle */}
       <div className="flex justify-center">
         <div className="bg-gray-100 p-1 rounded-lg inline-flex">
@@ -98,7 +107,7 @@ export const Schedule: React.FC<{ language: string }> = ({ language }) => {
                   }`}
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleSessionSelect(session, day);
+                    handleSessionSelect(session);
                   }}
                 >
                   <div className="font-medium">{session.time}</div>
@@ -121,7 +130,7 @@ export const Schedule: React.FC<{ language: string }> = ({ language }) => {
                   : `${selectedSessions.length} session${selectedSessions.length === 1 ? '' : 's'} selected`}
               </span>
               <button
-                onClick={() => setShowBookingForm(true)}
+                onClick={handleSubmit}
                 className="px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-all"
               >
                 {language === 'lv' ? 'Pieteikties' : 'Book Now'}
@@ -136,20 +145,9 @@ export const Schedule: React.FC<{ language: string }> = ({ language }) => {
         <BookingForm
           selectedSessions={selectedSessions}
           onClose={() => setShowBookingForm(false)}
-          onSuccess={() => {
-            setShowBookingForm(false);
-            setSelectedSessions([]);
-          }}
+          onSuccess={handleBookingSuccess}
+          onRemoveSession={handleRemoveSession}
           language={language}
-          onRemoveSession={(session) => {
-            setSelectedSessions(prev => 
-              prev.filter(s => 
-                !(s.day === session.day && 
-                  s.time === session.time && 
-                  s.location === session.location)
-              )
-            );
-          }}
         />
       )}
     </div>

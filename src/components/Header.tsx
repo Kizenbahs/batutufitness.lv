@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MenuIcon, X, SunIcon, MoonIcon } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,7 +14,6 @@ interface HeaderProps {
 
 export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageToggle }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +29,6 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
 
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -72,14 +67,6 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
         scheduleSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 300);
-  };
-
-  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (isMenuOpen) {
-      onMenuToggle();
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const menuItems = [

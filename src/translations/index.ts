@@ -1,3 +1,5 @@
+type Language = 'lv' | 'en';
+
 export const translations = {
   lv: {
     menu: {
@@ -111,20 +113,19 @@ export const translations = {
       }
     },
   },
-};
+} as const;
 
-// Helper function to get translation
-export const t = (key: string, language: string) => {
+export const getTranslation = (key: string, language: Language): string => {
   const keys = key.split('.');
-  let value = translations[language];
+  let value: any = translations[language];
   
   for (const k of keys) {
     if (value && typeof value === 'object' && k in value) {
       value = value[k];
     } else {
-      return key; // Return key if translation not found
+      return key;
     }
   }
   
-  return value as string;
+  return typeof value === 'string' ? value : key;
 }; 

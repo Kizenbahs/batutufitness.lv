@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { cn } from '../lib/utils';
 
 interface ImageProps {
   src: string;
@@ -10,55 +11,45 @@ interface ImageProps {
   priority?: boolean;
 }
 
-export const Image = ({ 
-  src, 
-  alt, 
-  className = '', 
-  width, 
+export const Image = ({
+  src,
+  alt,
+  width,
   height,
-  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+  className,
   priority = false
 }: ImageProps) => {
-  const [loading, setLoading] = useState(!priority);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Generate WebP sources if available
-  const generateSrcSet = () => {
-    const basePath = src.substring(0, src.lastIndexOf('.')) || src;
-    const ext = src.substring(src.lastIndexOf('.')) || '';
-    return `
-      ${basePath}-small${ext} 300w,
-      ${basePath}-medium${ext} 600w,
-      ${basePath}-large${ext} 900w
-    `;
-  };
-
   useEffect(() => {
-    if (priority) {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => setLoading(false);
-      img.onerror = () => setError(true);
+    if (!src) {
+      setError(true);
+      return;
     }
-  }, [priority, src]);
+
+    const img = new window.Image();
+    img.src = src;
+    img.onload = () => setIsLoading(false);
+    img.onerror = () => setError(true);
+  }, [src]);
 
   if (error) {
-    return <div className={`bg-gray-200 ${className}`} style={{ width, height }} />;
+    return <div className={cn("bg-gray-200", className)} style={{ width, height }} />;
   }
 
   return (
     <img
       src={src}
-      srcSet={generateSrcSet()}
-      sizes={sizes}
       alt={alt}
       width={width}
       height={height}
-      loading={priority ? 'eager' : 'lazy'}
-      decoding="async"
-      className={`${className} transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}
-      onLoad={() => setLoading(false)}
-      onError={() => setError(true)}
+      className={cn(
+        "transition-opacity duration-300",
+        isLoading ? "opacity-0" : "opacity-100",
+        className
+      )}
+      loading={priority ? "eager" : "lazy"}
     />
   );
 }; 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface AboutUsSectionProps {
   language: 'lv' | 'en';
 }

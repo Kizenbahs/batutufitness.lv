@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaPhone, FaFacebook, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaTimes, FaBars } from 'react-icons/fa';
+import { FaTimes, FaBars } from 'react-icons/fa';
 import { Footer } from '../components/Footer';
 
 interface AboutProps {
