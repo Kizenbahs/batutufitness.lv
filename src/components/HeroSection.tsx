@@ -37,7 +37,7 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
               </span>
             </div>
             <span className="block text-white mt-1 sm:mt-0 sm:inline">
-              {language === 'lv' ? 'Rezultāti' : 'Results'}
+              {language === 'lv' ? 'Rezultāti!' : 'Results!'}
             </span>
           </h1>
 
@@ -74,7 +74,7 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
             </div>
 
             <div className="flex flex-row items-start space-x-3 sm:flex-col sm:items-center sm:space-x-0">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-3 md:mb-4 sm:h-12 sm:w-12">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-3 md:mb-4 sm:h-12 sm:w-12 pulse-effect">
                 <Target className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div className="min-w-0 flex-1 text-left sm:text-center">

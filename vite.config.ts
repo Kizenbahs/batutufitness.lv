@@ -7,18 +7,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/batutufitness.lv/',
-  plugins: [
-    react(),
-    viteCompression(),
-    visualizer({
-      template: 'treemap',
-      open: true,
-      gzipSize: true,
-      brotliSize: true,
-      filename: 'analyze.html',
-    }),
-  ],
+  plugins: [react()],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -32,27 +21,24 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    sourcemap: true,
+    sourcemap: false,
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: false,
+        drop_console: true,
         drop_debugger: true,
       },
     },
   },
   server: {
-    port: 5173,
-    strictPort: true,
-    host: true,
-    open: true,
+    port: 3000,
+    strictPort: false,
+    host: 'localhost',
+    open: false,
     hmr: {
-      overlay: true,
-      timeout: 120000
-    },
-    watch: {
-      usePolling: true,
-      interval: 1000
+      protocol: 'ws',
+      host: 'localhost',
+      port: 3000
     }
   },
   resolve: {
@@ -61,9 +47,9 @@ export default defineConfig({
     },
   },
   preview: {
-    port: 5173,
-    strictPort: true,
-    host: true,
-    open: true
+    port: 3000,
+    strictPort: false,
+    host: 'localhost',
+    open: false
   }
 }); 

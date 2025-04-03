@@ -2,7 +2,6 @@ import React from 'react';
 import {
   FacebookIcon,
   InstagramIcon,
-  YoutubeIcon,
   PhoneIcon,
   MessageCircleIcon,
 } from "lucide-react";
@@ -60,15 +59,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               aria-label="Instagram"
             >
               <InstagramIcon className="w-5 h-5 md:w-5 md:h-5" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-[#FBBF24] transition-colors"
-              aria-label="YouTube"
-            >
-              <YoutubeIcon className="w-5 h-5 md:w-5 md:h-5" />
             </a>
             <a
               href="tel:+37126858674"
