@@ -32,57 +32,45 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     setError('');
 
     try {
-      console.log('Sending booking request:', {
-        sessions: selectedSessions,
-        contactDetails: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone
-        }
-      });
-
-      const response = await fetch('http://localhost:3002/api/book', {
+      const response = await fetch('/api/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
         },
         body: JSON.stringify({
           sessions: selectedSessions,
-          contactDetails: {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone
-          }
+          contactDetails: formData
         })
       });
 
-      console.log('Response status:', response.status);
       const data = await response.json();
-      console.log('Response data:', data);
 
       if (!response.ok) {
         throw new Error(data.error || 'Server responded with an error');
       }
 
-      if (data.success) {
-        setShowSuccess(true);
-        setTimeout(() => {
-          setShowSuccess(false);
-          onSuccess();
-        }, 2000);
-        setFormData({
-          name: '',
-          email: '',
-          phone: ''
-        });
-        onRemoveSession(selectedSessions[0]);
-      } else {
-        throw new Error(data.error || 'Failed to submit booking');
-      }
+      // Show success message
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+        onSuccess();
+      }, 2000);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: ''
+      });
+      
+      // Remove booked sessions
+      selectedSessions.forEach(session => onRemoveSession(session));
+
     } catch (err) {
       console.error('Booking error:', err);
-      setError(err instanceof Error ? err.message : 'Failed to submit booking. Please try again.');
+      setError(language === 'lv' 
+        ? 'Kļūda nosūtot pieteikumu. Lūdzu, mēģiniet vēlreiz vai sazinieties ar mums.'
+        : 'Error submitting booking. Please try again or contact us directly.');
     } finally {
       setLoading(false);
     }
