@@ -68,14 +68,29 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       // Create owner notification data
       const ownerEmailData = {
         to_email: EMAIL_CONFIG.OWNER_EMAIL,
-        to_name: 'Batutu Fitness',
-        from_name: 'Batutu Fitness Booking',
-        sender_name: 'Batutu Fitness Booking',
-        from: 'Batutu Fitness Booking',
-        message: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
-        content: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
-        body: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
-        text: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
+        to_name: 'Batutu Fitness Admin',
+        from_name: 'Batutu Fitness Booking System',
+        sender_name: 'Batutu Fitness Booking System',
+        from: 'Batutu Fitness Booking System',
+        subject: `New Booking - ${formData.name}`,
+        message: `JAUNS PIETEIKUMS / NEW BOOKING\n\n` +
+                `Klienta informācija / Customer Details:\n` +
+                `------------------------\n` +
+                `Vārds / Name: ${formData.name}\n` +
+                `E-pasts / Email: ${formData.email}\n` +
+                `Telefons / Phone: ${formData.phone}\n\n` +
+                `Izvēlētās nodarbības / Booked Sessions:\n` +
+                `------------------------\n` +
+                `${sessionsText}`,
+        content: `JAUNS PIETEIKUMS / NEW BOOKING\n\n` +
+                `Klienta informācija / Customer Details:\n` +
+                `------------------------\n` +
+                `Vārds / Name: ${formData.name}\n` +
+                `E-pasts / Email: ${formData.email}\n` +
+                `Telefons / Phone: ${formData.phone}\n\n` +
+                `Izvēlētās nodarbības / Booked Sessions:\n` +
+                `------------------------\n` +
+                `${sessionsText}`,
         phone: formData.phone,
         customer_email: formData.email,
         customer_name: formData.name,

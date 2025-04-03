@@ -8,10 +8,6 @@ import Header from './components/Header';
 import AboutUsSection from './components/AboutUsSection';
 import HeroSection from './components/HeroSection';
 
-// Lazy load pages
-const About = React.lazy(() => import('./pages/About'));
-const Sessions = React.lazy(() => import('./pages/Sessions'));
-
 function App() {
   const [language, setLanguage] = useState<'lv' | 'en'>('lv');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
