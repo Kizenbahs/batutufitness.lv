@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -6,7 +7,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: './',
   plugins: [
     react(),
     viteCompression(),
@@ -38,8 +39,10 @@ export default defineConfig({
     },
   },
   server: {
-    open: true,
     port: 5173,
+    strictPort: false,
+    host: true,
+    open: true,
     hmr: {
       overlay: true
     }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { SelectedSession } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { EMAIL_CONFIG } from '../config/email';
 
 interface BookingFormProps {
   selectedSessions: SelectedSession[];
@@ -26,46 +28,87 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const [error, setError] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
 
+  const formatSessionsForEmail = (sessions: SelectedSession[]) => {
+    return sessions.map(session => 
+      `${session.day} - ${session.time} - ${session.location} - ${session.type}`
+    ).join('\n');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
     try {
-      const response = await fetch('/api/book', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sessions: selectedSessions,
-          contactDetails: formData
-        })
-      });
+      // Format sessions for email
+      const sessionsText = formatSessionsForEmail(selectedSessions);
 
-      const data = await response.json();
+      // Create email data with multiple possible field names for the message
+      const emailData = {
+        to_email: formData.email,
+        to_name: formData.name,
+        from_name: 'Batutu Fitness',
+        sender_name: 'Batutu Fitness',
+        from: 'Batutu Fitness',
+        message: sessionsText,
+        content: sessionsText,
+        body: sessionsText,
+        text: sessionsText,
+        phone: formData.phone,
+        reply_to: EMAIL_CONFIG.REPLY_TO
+      };
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Server responded with an error');
+      // Send email to customer
+      const customerEmailResult = await emailjs.send(
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.TEMPLATE_ID,
+        emailData
+      );
+
+      // Create owner notification data
+      const ownerEmailData = {
+        to_email: EMAIL_CONFIG.OWNER_EMAIL,
+        to_name: 'Batutu Fitness',
+        from_name: 'Batutu Fitness Booking',
+        sender_name: 'Batutu Fitness Booking',
+        from: 'Batutu Fitness Booking',
+        message: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
+        content: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
+        body: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
+        text: `New booking from ${formData.name}\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nBooked sessions:\n${sessionsText}`,
+        phone: formData.phone,
+        customer_email: formData.email,
+        customer_name: formData.name,
+        reply_to: formData.email
+      };
+
+      // Send notification email to business owner
+      const ownerEmailResult = await emailjs.send(
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.OWNER_TEMPLATE_ID,
+        ownerEmailData
+      );
+
+      if (customerEmailResult.status === 200 && ownerEmailResult.status === 200) {
+        // Show success message
+        setShowSuccess(true);
+        setTimeout(() => {
+          setShowSuccess(false);
+          onSuccess();
+        }, 2000);
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: ''
+        });
+        
+        // Remove booked sessions
+        selectedSessions.forEach(session => onRemoveSession(session));
+      } else {
+        throw new Error('Failed to send email');
       }
-
-      // Show success message
-      setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-        onSuccess();
-      }, 2000);
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: ''
-      });
-      
-      // Remove booked sessions
-      selectedSessions.forEach(session => onRemoveSession(session));
-
     } catch (err) {
       console.error('Booking error:', err);
       setError(language === 'lv' 

@@ -61,7 +61,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
   };
 
   return (
-    <div className="w-full bg-black relative py-4 sm:py-8 overflow-hidden">
+    <div className="w-full bg-black relative py-16 sm:py-24 overflow-hidden" id="schedule">
       {/* Desktop Gradient Pattern - hidden on mobile */}
       <div className="hidden md:block absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-gray-800/30"></div>
@@ -69,6 +69,18 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
       </div>
       
       <div className="w-full max-w-[95%] lg:max-w-6xl mx-auto px-4 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            {language === 'lv' ? 'Nodarbību grafiks' : 'Class schedule'}
+          </h2>
+          <p className="text-gray-400">
+            {language === 'lv' 
+              ? 'Izvēlieties sev piemērotāko laiku un vietu' 
+              : 'Choose the most convenient time and location'}
+          </p>
+        </div>
+
         {/* Location Toggle */}
         <div className="flex justify-center mb-8">
           <div className="bg-gray-900/90 backdrop-blur-sm p-1.5 rounded-2xl inline-flex shadow-xl">
@@ -147,7 +159,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
         </div>
 
         {/* Sessions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto mb-16">
           {scheduleData[activeLocation][activeDay].map((session, index) => {
             const isSelected = selectedSessions.some(s => 
               s.day === activeDay && 
@@ -207,12 +219,14 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
                     : `${selectedSessions.length} session${selectedSessions.length === 1 ? '' : 's'} selected`}
                 </span>
               </div>
-              <button
-                onClick={handleSubmit}
-                className="px-8 py-2.5 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
-              >
-                {language === 'lv' ? 'Pieteikties' : 'Book Now'}
-              </button>
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={handleSubmit}
+                  className="px-8 py-2.5 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                >
+                  {language === 'lv' ? 'Pieteikties' : 'Book Now'}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -220,13 +234,17 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
 
       {/* Booking Form Modal */}
       {showBookingForm && (
-        <BookingForm
-          selectedSessions={selectedSessions}
-          onClose={() => setShowBookingForm(false)}
-          onSuccess={handleBookingSuccess}
-          onRemoveSession={handleRemoveSession}
-          language={language}
-        />
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="w-full max-w-lg bg-gray-900 rounded-2xl shadow-2xl">
+            <BookingForm
+              selectedSessions={selectedSessions}
+              language={language}
+              onSuccess={handleBookingSuccess}
+              onClose={() => setShowBookingForm(false)}
+              onRemoveSession={handleRemoveSession}
+            />
+          </div>
+        </div>
       )}
     </div>
   );
