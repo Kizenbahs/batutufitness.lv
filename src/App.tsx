@@ -58,13 +58,13 @@ function App() {
                 />
                 <AboutUsSection language={language} />
                 <PricingTable language={language} />
-                <section id="schedule" className="py-16 bg-white relative overflow-hidden">
+                <section id="schedule" className="py-16 bg-black relative overflow-hidden">
                   <div className="w-full max-w-[95%] lg:max-w-6xl mx-auto">
                     <div className="text-center mb-12">
-                      <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                      <h2 className="text-4xl font-bold text-white mb-4">
                         {language === 'lv' ? 'Nodarbību grafiks' : 'Class schedule'}
                       </h2>
-                      <p className="text-gray-600">
+                      <p className="text-gray-400">
                         {language === 'lv' 
                           ? 'Izvēlieties sev piemērotāko laiku un vietu' 
                           : 'Choose the most convenient time and location'}

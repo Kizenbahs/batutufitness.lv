@@ -25,22 +25,24 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center">
-        <div className="w-full max-w-[85rem] px-4 text-center pt-16 sm:pt-20 md:pt-24">
+        <div className="w-full max-w-[85rem] px-4 text-center pt-12 sm:pt-20 md:pt-24">
           {/* Main Heading */}
           <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl lg:text-6xl sm:mb-6 md:mb-8">
-            <span className="block text-white sm:inline">
-              {language === 'lv' ? 'Kustība.' : 'Movement.'}
-            </span>{' '}
-            <span className="block text-[#FBBF24] sm:inline">
-              {language === 'lv' ? 'Enerģija.' : 'Energy.'}
-            </span>{' '}
-            <span className="block text-white sm:inline">
+            <div className="flex items-center justify-center space-x-2 sm:block">
+              <span className="text-white">
+                {language === 'lv' ? 'Kustība.' : 'Movement.'}
+              </span>
+              <span className="text-[#FBBF24]">
+                {language === 'lv' ? 'Enerģija.' : 'Energy.'}
+              </span>
+            </div>
+            <span className="block text-white mt-1 sm:mt-0 sm:inline">
               {language === 'lv' ? 'Rezultāti' : 'Results'}
             </span>
           </h1>
 
           {/* Description */}
-          <div className="mx-auto mb-8 w-full max-w-2xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12">
+          <div className="mx-auto mb-6 w-full max-w-2xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12">
             <p className="mb-2">
               {language === 'lv' 
                 ? 'Latvijas vadošais batutu fitnesa centrs kopā ar Aleksandru Kurusovu piedāvā enerģiskas, efektīvas un jautras treniņa pieredzes visiem fiziskās sagatavotības līmeņiem.'
@@ -105,16 +107,16 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
           </div>
 
           {/* Two Buttons */}
-          <div className="flex w-full flex-col space-y-3 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
+          <div className="flex w-full flex-col items-center space-y-3 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
             <button
               onClick={onScheduleClick}
-              className="w-full rounded-lg bg-primary px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-primary/90 sm:w-auto sm:px-6 sm:py-3.5"
+              className="w-[80%] max-w-[300px] rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 hover:bg-primary/90 sm:w-auto sm:px-6 sm:py-3.5"
             >
               {language === 'lv' ? 'SĀKT TRENĒTIES' : 'BOOK NOW'}
             </button>
             <button
               onClick={onContactClick}
-              className="w-full rounded-lg border-2 border-white/30 bg-transparent px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-6 sm:py-3.5"
+              className="w-[80%] max-w-[300px] rounded-lg border-2 border-white/30 bg-transparent px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-6 sm:py-3.5"
             >
               {language === 'lv' ? 'SKATĪT GRAFIKU' : 'VIEW SCHEDULE'}
             </button>
