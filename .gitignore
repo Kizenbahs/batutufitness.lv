@@ -17,6 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+stats.html
 
 # Logs
 npm-debug.log*
@@ -33,3 +34,11 @@ yarn-error.log*
 .pm2/
 logs/ 
 node_modules
+
+# PWA
+**/public/sw.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/sw.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map
