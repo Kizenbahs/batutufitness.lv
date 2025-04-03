@@ -12,7 +12,7 @@ export default defineConfig({
     react(),
     viteCompression(),
     visualizer({
-      template: 'treemap', // or sunburst
+      template: 'treemap',
       open: true,
       gzipSize: true,
       brotliSize: true,
@@ -20,6 +20,9 @@ export default defineConfig({
     }),
   ],
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -33,7 +36,7 @@ export default defineConfig({
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: false, // Keep console logs for debugging
+        drop_console: false,
         drop_debugger: true,
       },
     },
