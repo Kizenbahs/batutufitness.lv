@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { Footer } from '../components/Footer';
+import { PricingTable } from '../components/PricingTable';
 
 interface AboutProps {
   language: 'lv' | 'en';
@@ -243,6 +244,9 @@ const About: React.FC<AboutProps> = ({ language, toggleLanguage }) => {
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <PricingTable language={language} />
 
       {/* Footer */}
       <Footer language={language} />

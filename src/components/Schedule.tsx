@@ -55,15 +55,15 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 py-20">
+    <div className="bg-gray-900 py-8">
       {/* Location Toggle */}
-      <div className="flex justify-center">
-        <div className="bg-gray-100 p-1 rounded-lg inline-flex">
+      <div className="flex justify-center mb-4">
+        <div className="bg-gray-100 p-0.5 rounded-lg inline-flex">
           {locations.map((loc) => (
             <button
               key={loc}
               onClick={() => setActiveLocation(loc)}
-              className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
                 activeLocation === loc
                   ? 'bg-white text-primary shadow-sm'
                   : 'text-gray-600 hover:text-gray-900'
@@ -76,27 +76,27 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
       </div>
 
       {/* Days Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
+      <div className="grid grid-cols-7 gap-2 max-w-6xl mx-auto px-2">
         {days.map((day) => (
           <div
             key={day}
-            className={`p-4 rounded-lg border transition-all cursor-pointer ${
+            className={`p-2 rounded-lg border transition-all cursor-pointer ${
               activeDay === day
                 ? 'border-primary bg-primary/5'
                 : 'border-gray-200 hover:border-primary/50'
             }`}
             onClick={() => setActiveDay(day)}
           >
-            <h3 className={`font-semibold mb-2 ${
+            <h3 className={`font-semibold text-sm mb-1 ${
               activeDay === day ? 'text-primary' : 'text-gray-900'
             }`}>
               {language === 'lv' ? day : day}
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {scheduleData[activeLocation][day].map((session, index) => (
                 <div
                   key={index}
-                  className={`p-2 rounded text-sm ${
+                  className={`p-1.5 rounded text-xs ${
                     selectedSessions.some(s => 
                       s.day === day && 
                       s.time === session.time && 
@@ -111,7 +111,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
                   }}
                 >
                   <div className="font-medium">{session.time}</div>
-                  <div className="text-xs opacity-90">{session.type}</div>
+                  <div className="text-[10px] opacity-90">{session.type}</div>
                 </div>
               ))}
             </div>
@@ -121,17 +121,17 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
 
       {/* Selected Sessions */}
       {selectedSessions.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 shadow-lg z-50">
           <div className="container mx-auto">
             <div className="flex items-center justify-between">
-              <span className="text-gray-900 font-medium">
+              <span className="text-gray-900 text-sm font-medium">
                 {language === 'lv' 
                   ? `${selectedSessions.length} izvēlēt${selectedSessions.length === 1 ? 's' : 'i'} treniņ${selectedSessions.length === 1 ? 's' : 'i'}`
                   : `${selectedSessions.length} session${selectedSessions.length === 1 ? '' : 's'} selected`}
               </span>
               <button
                 onClick={handleSubmit}
-                className="px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-all"
+                className="px-4 py-1.5 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary/90 transition-all"
               >
                 {language === 'lv' ? 'Pieteikties' : 'Book Now'}
               </button>
