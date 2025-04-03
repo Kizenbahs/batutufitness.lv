@@ -1,12 +1,12 @@
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS
-emailjs.init('scR1M1iDqwYE75s6r');
+// Initialize EmailJS with public key from environment variable
+emailjs.init(import.meta.env.VITE_EMAIL_PUBLIC_KEY);
 
 export const EMAIL_CONFIG = {
-  SERVICE_ID: 'service_88084ew',
-  OWNER_TEMPLATE_ID: 'template_4pbdxzk',
-  REPLY_TO: 'girts.kizenbahs@gmail.com',
+  SERVICE_ID: import.meta.env.VITE_EMAIL_SERVICE_ID,
+  OWNER_TEMPLATE_ID: import.meta.env.VITE_EMAIL_OWNER_TEMPLATE_ID,
+  REPLY_TO: import.meta.env.VITE_OWNER_EMAIL,
   FROM_NAME: 'Batutu Fitness',
-  OWNER_EMAIL: 'girts.kizenbahs@gmail.com'
+  OWNER_EMAIL: import.meta.env.VITE_OWNER_EMAIL
 }; 

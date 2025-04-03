@@ -43,11 +43,16 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    strictPort: false,
+    strictPort: true,
     host: true,
     open: true,
     hmr: {
-      overlay: true
+      overlay: true,
+      timeout: 120000
+    },
+    watch: {
+      usePolling: true,
+      interval: 1000
     }
   },
   resolve: {
@@ -57,7 +62,7 @@ export default defineConfig({
   },
   preview: {
     port: 5173,
-    strictPort: false,
+    strictPort: true,
     host: true,
     open: true
   }
