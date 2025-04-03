@@ -7,7 +7,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '',
+  base: '/',
   plugins: [
     react(),
     viteCompression(),
@@ -55,4 +55,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  preview: {
+    port: 5173,
+    strictPort: false,
+    host: true,
+    open: true
+  }
 }); 
