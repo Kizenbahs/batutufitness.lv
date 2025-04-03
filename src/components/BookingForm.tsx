@@ -43,28 +43,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       // Format sessions for email
       const sessionsText = formatSessionsForEmail(selectedSessions);
 
-      // Create email data with multiple possible field names for the message
-      const emailData = {
-        to_email: formData.email,
-        to_name: formData.name,
-        from_name: 'Batutu Fitness',
-        sender_name: 'Batutu Fitness',
-        from: 'Batutu Fitness',
-        message: sessionsText,
-        content: sessionsText,
-        body: sessionsText,
-        text: sessionsText,
-        phone: formData.phone,
-        reply_to: EMAIL_CONFIG.REPLY_TO
-      };
-
-      // Send email to customer
-      const customerEmailResult = await emailjs.send(
-        EMAIL_CONFIG.SERVICE_ID,
-        EMAIL_CONFIG.TEMPLATE_ID,
-        emailData
-      );
-
       // Create owner notification data
       const ownerEmailData = {
         to_email: EMAIL_CONFIG.OWNER_EMAIL,
@@ -97,14 +75,14 @@ export const BookingForm: React.FC<BookingFormProps> = ({
         reply_to: formData.email
       };
 
-      // Send notification email to business owner
+      // Send notification email to business owner only
       const ownerEmailResult = await emailjs.send(
         EMAIL_CONFIG.SERVICE_ID,
         EMAIL_CONFIG.OWNER_TEMPLATE_ID,
         ownerEmailData
       );
 
-      if (customerEmailResult.status === 200 && ownerEmailResult.status === 200) {
+      if (ownerEmailResult.status === 200) {
         // Show success message
         setShowSuccess(true);
         setTimeout(() => {
