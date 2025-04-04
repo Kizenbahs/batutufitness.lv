@@ -62,7 +62,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">Kas iekļauts maratonā?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kas iekļauts maratonā?</h3>
                     <ul className="text-gray-300 space-y-2 list-disc pl-6">
                       <li>18 batuta fitnesa nodarbības (3x nedēļā)</li>
                       <li>Individuāli izstrādāta ēdienkarte sadarbībā ar uztura speciālistu</li>
@@ -75,7 +75,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">Kur un Kad?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kur un Kad?</h3>
                     <p className="text-gray-300 mb-4">
                       Startējam: 15. aprīlī<br />
                       Ilgums: līdz 26. maijam
@@ -90,7 +90,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">Kā pieteikties?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kā pieteikties?</h3>
                     <p className="text-gray-300 mb-4">
                       Vienkārši aizpildi pieteikuma formu vai uzraksti mums sociālajos tīklos – mēs ar Tevi sazināsimies personīgi.
                     </p>
@@ -111,7 +111,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">What's included in the marathon?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">What's included in the marathon?</h3>
                     <ul className="text-gray-300 space-y-2 list-disc pl-6">
                       <li>18 trampoline fitness classes (3x per week)</li>
                       <li>Individually designed meal plan in collaboration with a nutrition specialist</li>
@@ -124,7 +124,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">Where and When?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Where and When?</h3>
                     <p className="text-gray-300 mb-4">
                       Start: April 15th<br />
                       Duration: until May 26th
@@ -139,7 +139,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-white mb-4">How to register?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">How to register?</h3>
                     <p className="text-gray-300 mb-4">
                       Simply fill out the registration form or write to us on social media – we'll contact you personally.
                     </p>
