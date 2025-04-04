@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../config/email';
+import { FaArrowRight } from 'react-icons/fa';
 
 interface MarathonContactFormProps {
   language: 'lv' | 'en';
@@ -209,13 +210,14 @@ const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) =
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-2.5 sm:py-3 px-6 rounded-lg bg-[#25D366] text-white font-bold uppercase transition-all hover:scale-105 hover:bg-[#25D366]/90 shadow-md shadow-[#25D366]/30 hover:shadow-lg hover:shadow-[#25D366]/40 active:shadow-sm active:scale-95 ${
+                className={`w-full py-3 px-6 rounded-lg bg-[#128c7e] text-white font-bold uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-[#0a6b5f] shadow-lg shadow-[#128c7e]/30 hover:shadow-xl hover:shadow-[#128c7e]/40 active:shadow-md active:scale-[0.98] ${
                   isLoading ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
                 {isLoading
                   ? (language === 'lv' ? 'SŪTA...' : 'SENDING...')
                   : (language === 'lv' ? 'GRIBU PIETEIKTIES' : 'REGISTER')}
+                {!isLoading && <FaArrowRight className="ml-2 -mt-1 inline-block" />}
               </button>
 
               {submitStatus === 'success' && (
@@ -239,30 +241,30 @@ const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) =
               <p className="text-center text-yellow-400 font-semibold mb-4">
                 {language === 'lv' ? 'Līdz maratona sākumam atlicis:' : 'Time until marathon starts:'}
               </p>
-              <div className="grid auto-cols-max grid-flow-col gap-5 text-center justify-center">
-                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
-                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+              <div className="grid auto-cols-max grid-flow-col gap-1 sm:gap-2 text-center justify-center">
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-1 min-w-[60px]">
+                  <span className="font-mono text-3xl sm:text-4xl font-bold text-[#cccccc]">
                     {formatNumber(time.days)}
                   </span>
-                  <span className="text-sm mt-1">{language === 'lv' ? 'dienas' : 'days'}</span>
+                  <span className="text-xs sm:text-sm mt-1">{language === 'lv' ? 'dienas' : 'days'}</span>
                 </div>
-                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
-                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-1 min-w-[60px]">
+                  <span className="font-mono text-3xl sm:text-4xl font-bold text-[#cccccc]">
                     {formatNumber(time.hours)}
                   </span>
-                  <span className="text-sm mt-1">{language === 'lv' ? 'stundas' : 'hours'}</span>
+                  <span className="text-xs sm:text-sm mt-1">{language === 'lv' ? 'stundas' : 'hours'}</span>
                 </div>
-                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
-                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-1 min-w-[60px]">
+                  <span className="font-mono text-3xl sm:text-4xl font-bold text-[#cccccc]">
                     {formatNumber(time.minutes)}
                   </span>
-                  <span className="text-sm mt-1">{language === 'lv' ? 'min' : 'min'}</span>
+                  <span className="text-xs sm:text-sm mt-1">{language === 'lv' ? 'min' : 'min'}</span>
                 </div>
-                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
-                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-1 min-w-[60px]">
+                  <span className="font-mono text-3xl sm:text-4xl font-bold text-[#cccccc]">
                     {formatNumber(time.seconds)}
                   </span>
-                  <span className="text-sm mt-1">{language === 'lv' ? 'sek' : 'sec'}</span>
+                  <span className="text-xs sm:text-sm mt-1">{language === 'lv' ? 'sek' : 'sec'}</span>
                 </div>
               </div>
             </div>

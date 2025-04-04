@@ -33,7 +33,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
             <h1 className="text-4xl font-bold text-white mb-4">
               {language === 'lv' ? 'Batutu fitnesa tievēšanas maratons' : 'Trampoline Fitness Weight Loss Marathon'}
             </h1>
-            <p className="text-yellow-400">
+            <p className="text-xl font-semibold text-yellow-400">
               {language === 'lv' 
                 ? '15. aprīlis - 26. maijs'
                 : 'April 15 - May 26'}
@@ -166,7 +166,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
               className="max-w-3xl"
             >
               <div className="sticky top-24">
-                <h3 className="text-xl font-semibold text-yellow-400 mb-6">
+                <h3 className="text-xl font-semibold text-yellow-400 mb-6 pl-0 sm:pl-12">
                   {language === 'lv' ? 'Piesakies maratonam' : 'Register for the marathon'}
                 </h3>
                 <MarathonContactForm language={language} />
