@@ -38,6 +38,8 @@
     "terser": "^5.39.0",
     "typescript": "^5.0.2",
     "vite": "^6.2.5",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-image-optimizer": "^1.1.8",
+    "vite-plugin-pwa": "^1.0.0"
   }
 }
