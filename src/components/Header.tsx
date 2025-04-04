@@ -81,6 +81,11 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
       onClick: handleAboutClick 
     },
     { 
+      label: language === 'lv' ? 'MARATONI' : 'MARATHONS', 
+      path: "#",
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
+    },
+    { 
       label: language === 'lv' ? 'KONTAKTI' : 'CONTACTS', 
       path: "#contact",
       onClick: handleContactClick 
