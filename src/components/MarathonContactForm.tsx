@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../config/email';
@@ -17,6 +17,44 @@ const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) =
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [phoneError, setPhoneError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [time, setTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    // Set target date to April 14, 2025 at 23:59:59 in local timezone
+    const targetDate = new Date('2025-04-14T23:59:59');
+    
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTime({ days, hours, minutes, seconds });
+      } else {
+        setTime({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Run immediately and then every second
+    calculateTimeLeft();
+    const timerId = setInterval(calculateTimeLeft, 1000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(timerId);
+  }, []); // Empty dependency array = run once on mount
+
+  const formatNumber = (num: number): string => {
+    return num < 10 ? `0${num}` : String(num);
+  };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ''); // Remove non-digits
@@ -171,13 +209,13 @@ const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) =
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-2.5 sm:py-3 px-6 rounded-lg bg-primary text-white font-bold transition-all hover:scale-105 hover:bg-primary/90 shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 active:shadow-sm active:scale-95 ${
+                className={`w-full py-2.5 sm:py-3 px-6 rounded-lg bg-[#25D366] text-white font-bold uppercase transition-all hover:scale-105 hover:bg-[#25D366]/90 shadow-md shadow-[#25D366]/30 hover:shadow-lg hover:shadow-[#25D366]/40 active:shadow-sm active:scale-95 ${
                   isLoading ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
                 {isLoading
-                  ? (language === 'lv' ? 'Sūta...' : 'Sending...')
-                  : (language === 'lv' ? 'Pieteikties' : 'Register')}
+                  ? (language === 'lv' ? 'SŪTA...' : 'SENDING...')
+                  : (language === 'lv' ? 'GRIBU PIETEIKTIES' : 'REGISTER')}
               </button>
 
               {submitStatus === 'success' && (
@@ -196,6 +234,38 @@ const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) =
                 </p>
               )}
             </form>
+
+            <div className="mt-8">
+              <p className="text-center text-yellow-400 font-semibold mb-4">
+                {language === 'lv' ? 'Līdz maratona sākumam atlicis:' : 'Time until marathon starts:'}
+              </p>
+              <div className="grid auto-cols-max grid-flow-col gap-5 text-center justify-center">
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
+                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                    {formatNumber(time.days)}
+                  </span>
+                  <span className="text-sm mt-1">{language === 'lv' ? 'dienas' : 'days'}</span>
+                </div>
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
+                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                    {formatNumber(time.hours)}
+                  </span>
+                  <span className="text-sm mt-1">{language === 'lv' ? 'stundas' : 'hours'}</span>
+                </div>
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
+                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                    {formatNumber(time.minutes)}
+                  </span>
+                  <span className="text-sm mt-1">{language === 'lv' ? 'min' : 'min'}</span>
+                </div>
+                <div className="bg-black/50 rounded-lg text-white flex flex-col p-2 min-w-[80px]">
+                  <span className="font-mono text-4xl sm:text-5xl font-bold text-white">
+                    {formatNumber(time.seconds)}
+                  </span>
+                  <span className="text-sm mt-1">{language === 'lv' ? 'sek' : 'sec'}</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
