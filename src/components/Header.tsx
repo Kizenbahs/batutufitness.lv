@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { MenuIcon, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   onMenuToggle: () => void;
@@ -14,6 +15,8 @@ interface HeaderProps {
 
 export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageToggle }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,12 +38,16 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
     if (isMenuOpen) {
       onMenuToggle();
     }
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300);
+    if (location.pathname !== '/') {
+      navigate('/#contact');
+    } else {
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
   };
 
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -48,12 +55,16 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
     if (isMenuOpen) {
       onMenuToggle();
     }
-    setTimeout(() => {
-      const aboutSection = document.getElementById('about');
-      if (aboutSection) {
-        aboutSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300);
+    if (location.pathname !== '/') {
+      navigate('/#about');
+    } else {
+      setTimeout(() => {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
   };
 
   const handleScheduleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -61,12 +72,24 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
     if (isMenuOpen) {
       onMenuToggle();
     }
-    setTimeout(() => {
-      const scheduleSection = document.getElementById('schedule');
-      if (scheduleSection) {
-        scheduleSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300);
+    if (location.pathname !== '/') {
+      navigate('/#schedule');
+    } else {
+      setTimeout(() => {
+        const scheduleSection = document.getElementById('schedule');
+        if (scheduleSection) {
+          scheduleSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  };
+
+  const handleMarathonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (isMenuOpen) {
+      onMenuToggle();
+    }
+    navigate('/marathon');
   };
 
   const menuItems = [
@@ -82,8 +105,8 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
     },
     { 
       label: language === 'lv' ? 'MARATONI' : 'MARATHONS', 
-      path: "#",
-      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
+      path: "/marathon",
+      onClick: handleMarathonClick
     },
     { 
       label: language === 'lv' ? 'KONTAKTI' : 'CONTACTS', 
@@ -105,10 +128,10 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
         {/* Logo */}
         <a href="/" className="flex items-center">
           <span className="text-white font-bold text-xl md:text-2xl">
-            BATUTU
+            BATUTU.
           </span>
           <span className="text-[#FBBF24] font-bold text-xl md:text-2xl">
-            .FITNESS
+            FITNESS
           </span>
         </a>
 

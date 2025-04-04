@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useState, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LoadingSpinner } from './components/LoadingSpinner';
 import { Footer } from './components/Footer';
@@ -8,6 +8,9 @@ import AboutUsSection from './components/AboutUsSection';
 import HeroSection from './components/HeroSection';
 import FAQ from './components/FAQ';
 import { MaintenanceNotification } from './components/MaintenanceNotification';
+
+// Lazy load the Marathon page
+const MarathonPage = lazy(() => import('./pages/marathon'));
 
 function App() {
   const [language, setLanguage] = useState<'lv' | 'en'>('lv');
@@ -56,6 +59,11 @@ function App() {
                 <FAQ language={language} />
                 <Footer language={language} />
               </>
+            } />
+            <Route path="/marathon" element={
+              <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+                <MarathonPage language={language} onLanguageToggle={onLanguageToggle} />
+              </Suspense>
             } />
           </Routes>
         </Suspense>

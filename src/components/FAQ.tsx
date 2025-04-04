@@ -75,8 +75,8 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
         en: "How can I sign up for classes?"
       },
       answer: {
-        lv: `Ērti pieteikties varat šeit tiešsaistē vai pieteikties WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a>`,
-        en: `You can easily sign up online here or via WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a>`
+        lv: `Raksti un piesakies WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a> vai šeit tiešsaistē`,
+        en: `Write and sign up via WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a> or book online here`
       }
     }
   ];

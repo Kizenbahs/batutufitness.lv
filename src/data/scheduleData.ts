@@ -18,21 +18,21 @@ export const scheduleData: ScheduleData = {
     "Pirmdiena": [
       { 
         time: "09:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "15:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "18:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -41,21 +41,21 @@ export const scheduleData: ScheduleData = {
     "Otrdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "16:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "19:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -64,21 +64,21 @@ export const scheduleData: ScheduleData = {
     "Trešdiena": [
       { 
         time: "09:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "15:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "18:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -87,21 +87,21 @@ export const scheduleData: ScheduleData = {
     "Ceturtdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "16:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "19:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -110,21 +110,21 @@ export const scheduleData: ScheduleData = {
     "Piektdiena": [
       { 
         time: "09:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "15:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "18:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -133,21 +133,21 @@ export const scheduleData: ScheduleData = {
     "Sestdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "13:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "16:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -156,21 +156,21 @@ export const scheduleData: ScheduleData = {
     "Svētdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "13:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
       },
       { 
         time: "16:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 8
@@ -181,162 +181,162 @@ export const scheduleData: ScheduleData = {
     "Pirmdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "14:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "17:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ],
     "Otrdiena": [
       { 
         time: "09:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "15:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "18:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ],
     "Trešdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "14:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "17:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ],
     "Ceturtdiena": [
       { 
         time: "09:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "15:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "18:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ],
     "Piektdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "14:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "17:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ],
     "Sestdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "13:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "16:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ],
     "Svētdiena": [
       { 
         time: "10:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "13:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       },
       { 
         time: "16:00",
-        type: "Grupu Treniņš",
+        type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
-        maxParticipants: 8
+        maxParticipants: 10
       }
     ]
   }
