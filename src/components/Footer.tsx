@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           {/* Contact Info - Center */}
           <div className="flex flex-col items-center md:flex-row md:items-center space-y-1.5 md:space-y-0 text-white/80 text-xs md:text-sm text-center md:text-left">
             <div className="flex items-center">
-              <a href="tel:+37126858674" className="hover:text-[#FBBF24] transition-colors whitespace-nowrap">
+              <a href="tel:+37126858674" className="text-[#FBBF24] hover:text-[#FBBF24]/80 transition-colors whitespace-nowrap">
                 +371 26 858 674
               </a>
               <span className="text-[#FBBF24] mx-4">|</span>
