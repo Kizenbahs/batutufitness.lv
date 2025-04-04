@@ -56,7 +56,7 @@ export default function AboutUsSection({ language }: AboutUsSectionProps) {
             data-pol-file-type="component"
           >
             {language === 'lv'
-              ? 'Enerģiskākās grupu nodarbības – Lion Gym, Jūrmalas iela 14, Piņķi un Joker klubs, Katrīnas iela 12, Rīga.'
+              ? 'Enerģiskas grupu nodarbības – Lion Gym, Jūrmalas iela 14, Piņķi un Joker klubs, Katrīnas iela 12, Rīga.'
               : 'The most energetic group workouts – Lion Gym, Jurmalas street 14, Pinki and Joker Club, Katrinas street 12, Riga.'}
           </p>
         </div>

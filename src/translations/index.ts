@@ -39,7 +39,7 @@ export const translations = {
     hero: {
       title: 'BATUTU FITNESS',
       subtitle: 'LATVIJĀ',
-      description: '#1 batutu fitness Latvijā – kopā ar Aleksandru Kurusovu!\nEnerģiskākās grupu nodarbības Rīgā un Piņķos. Lēkā, sporto un baudi kustību kā vēl nekad!',
+      description: '#1 batutu fitness Latvijā – kopā ar Aleksandru Kurusovu!\nEnerģiskas grupu nodarbības Rīgā un Piņķos. Lēkā, sporto un baudi kustību kā vēl nekad!',
       startButton: 'Sākt Ceļojumu',
       learnMore: 'Uzzināt Vairāk',
       scrollDown: 'Rullē zemāk'
