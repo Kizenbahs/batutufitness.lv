@@ -21,22 +21,22 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
   const faqItems: FAQItem[] = [
     {
       question: {
-        lv: "Vai man ir nepieciešama iepriekšēja pieredze?",
-        en: "Do I need previous experience?"
+        lv: "Vai man vajag iepriekšēju fizisko sagatavotību?",
+        en: "Do I need previous fitness experience?"
       },
       answer: {
-        lv: "Nē, iepriekšēja pieredze nav nepieciešama. Mūsu nodarbības ir piemērotas visiem līmeņiem, un treneri sniegs individuālus padomus.",
-        en: "No, previous experience is not required. Our classes are suitable for all levels, and trainers will provide individual guidance."
+        lv: "Nē! Mūsu nodarbības ir draudzīgas iesācējiem – tu pielāgo intensitāti sev piemērotā līmenī.",
+        en: "No! Our classes are beginner-friendly – you adjust the intensity to your comfortable level."
       }
     },
     {
       question: {
-        lv: "Kas man jāņem līdzi uz nodarbību?",
-        en: "What should I bring to class?"
+        lv: "Ko vilkt uz nodarbību?",
+        en: "What to wear to class?"
       },
       answer: {
-        lv: "Ērtus sporta tērpus, ūdeni un dvieli. Viss pārējais nepieciešamais inventārs būs pieejams uz vietas.",
-        en: "Comfortable workout clothes, water, and a towel. All other necessary equipment will be provided on site."
+        lv: "Ērts sporta apģērbs un zeķes ar neslīdošu zoli. Batutus nodrošinām mēs!",
+        en: "Comfortable workout clothes and non-slip socks. We provide the trampolines!"
       }
     },
     {
@@ -45,28 +45,38 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
         en: "How long is one session?"
       },
       answer: {
-        lv: "Viena nodarbība ilgst 55 minūtes, kas ietver iesildīšanos un atsildīšanos.",
-        en: "One session lasts 55 minutes, which includes warm-up and cool-down."
+        lv: "Viena nodarbība ilgst 60 minūtes.",
+        en: "One session lasts 60 minutes."
       }
     },
     {
       question: {
-        lv: "Vai ir kādi vecuma ierobežojumi?",
-        en: "Are there any age restrictions?"
+        lv: "Kur notiek nodarbības?",
+        en: "Where are the classes held?"
       },
       answer: {
-        lv: "Nodarbības ir piemērotas personām no 16 gadu vecuma. Jaunākiem dalībniekiem nepieciešama vecāku atļauja.",
-        en: "Classes are suitable for individuals aged 16 and above. Younger participants require parental consent."
+        lv: "Nodarbības notiek Joker klubs, Katrīnas iela 12, Rīga un Lion Gym, Jūrmalas iela 14, Piņķi",
+        en: "Classes are held at Joker Club, Katrinas Street 12, Riga and Lion Gym, Jurmalas Street 14, Pinki"
       }
     },
     {
       question: {
-        lv: "Kā es varu pieteikties nodarbībai?",
-        en: "How can I sign up for a class?"
+        lv: "Kad notiek nodarbības?",
+        en: "When are the classes held?"
       },
       answer: {
-        lv: "Jūs varat pieteikties nodarbībai, izmantojot mūsu tiešsaistes grafiku vai sazinoties ar mums pa tālruni.",
-        en: "You can sign up for a class using our online schedule or by contacting us by phone."
+        lv: `Nodarbību grafiku varat skatīt sadaļā - Nodarbību grafiks. Nodarbību laiki tiek regulāri atjaunoti. Seko mums Instagram un Facebook, lai nepalaistu garām savu vietu! Neskaidrību vai jautājumu gadījumā varat zvanīt vai rakstīt WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a>`,
+        en: `You can view the class schedule in the Schedule section. Class times are regularly updated. Follow us on Instagram and Facebook to secure your spot! For any questions or concerns, you can call or text via WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a>`
+      }
+    },
+    {
+      question: {
+        lv: "Kā es varu pieteikties nodarbībām?",
+        en: "How can I sign up for classes?"
+      },
+      answer: {
+        lv: `Ērti pieteikties varat šeit tiešsaistē vai pieteikties WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a>`,
+        en: `You can easily sign up online here or via WhatsApp <a href="https://wa.me/37129664931" target="_blank" class="text-primary hover:underline">+371 29 664 931</a>`
       }
     }
   ];
@@ -84,8 +94,8 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             {language === 'lv' 
-              ? 'Atbildes uz populārākajiem jautājumiem par mūsu batutu fitnesa nodarbībām'
-              : 'Answers to the most common questions about our trampoline fitness classes'}
+              ? 'Atbildes uz populārākajiem jautājumiem batutu fitnesa nodarbībām'
+              : 'Answers to the most common questions about trampoline fitness classes'}
           </p>
         </div>
 
@@ -121,8 +131,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
                   openIndex === index ? 'max-h-40 pb-4' : 'max-h-0'
                 }`}
               >
-                <p className="text-gray-400">
-                  {language === 'lv' ? item.answer.lv : item.answer.en}
+                <p className="text-gray-400" dangerouslySetInnerHTML={{ __html: language === 'lv' ? item.answer.lv : item.answer.en }}>
                 </p>
               </div>
             </div>
