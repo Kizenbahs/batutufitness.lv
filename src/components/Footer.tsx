@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               <div className="flex items-center whitespace-nowrap">
                 <span className="text-[#FBBF24] mx-4">|</span>
                 <span className="text-center">
-                  {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24] mx-4">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'}
+                  {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24] mx-4">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'} <span className="text-[#FBBF24] mx-4">|</span> V.0-38
                 </span>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Target, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface HeroSectionProps {
   language: 'lv' | 'en';
@@ -28,21 +29,56 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
         <div className="w-full max-w-[85rem] px-4 text-center pt-12 sm:pt-20 md:pt-24">
           {/* Main Heading */}
           <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl lg:text-6xl sm:mb-6 md:mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-            <div className="flex items-center justify-center space-x-2 sm:block">
-              <span className="text-white">
+            <div className="relative flex items-center justify-center space-x-2 sm:block">
+              <motion.span 
+                className="text-white inline-block"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.5,
+                  ease: "easeOut"
+                }}
+              >
                 {language === 'lv' ? 'Kustība.' : 'Movement.'}
-              </span>
-              <span className="text-[#FBBF24]">
+              </motion.span>
+              <motion.span 
+                className="text-[#FBBF24] inline-block"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: 0.15,
+                  ease: "easeOut"
+                }}
+              >
                 {language === 'lv' ? 'Enerģija²' : 'Energy²'}
-              </span>
+              </motion.span>
             </div>
-            <span className="block text-white mt-1 sm:mt-0 sm:inline">
+            <motion.span 
+              className="block text-white mt-1 sm:mt-0 sm:inline"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ 
+                duration: 0.5,
+                delay: 0.3,
+                ease: "easeOut"
+              }}
+            >
               {language === 'lv' ? 'Rezultāti!' : 'Results!'}
-            </span>
+            </motion.span>
           </h1>
 
           {/* Description */}
-          <div className="mx-auto mb-6 w-full max-w-4xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+          <motion.div 
+            className="mx-auto mb-6 w-full max-w-4xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+              duration: 0.8,
+              delay: 0.6,
+              ease: "easeOut"
+            }}
+          >
             <p className="mb-2">
               {language === 'lv' 
                 ? <>Latvijas vadošais batutu fitnesa centrs <span className="text-[#FBBF24]">ar Aleksandru Kurusovu</span> piedāvā efektīvas un jautras treniņa pieredzes visiem fiziskās sagatavotības līmeņiem.</>
@@ -53,7 +89,7 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
                 ? <>Enerģiskas grupu <span className="text-[#FBBF24]">nodarbības Rīgā un Piņķos</span> – lēkā, sporto un baudi kustību kā vēl nekad!</>
                 : 'The most energetic group classes in Riga and Pinki – jump, exercise and enjoy movement like never before!'}
             </p>
-          </div>
+          </motion.div>
 
           {/* Three Feature Points with Icons */}
           <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8 md:gap-12 lg:gap-16 sm:mb-10 md:mb-12">
