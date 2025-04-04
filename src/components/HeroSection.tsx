@@ -1,6 +1,7 @@
 import React from 'react';
 import { Users, Target, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 interface HeroSectionProps {
   language: 'lv' | 'en';
@@ -9,6 +10,13 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ language, onScheduleClick, onContactClick }: HeroSectionProps) {
+  const navigate = useNavigate();
+
+  const handleMarathonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/marathon');
+  };
+
   return (
     <section
       className="relative w-screen overflow-hidden bg-gray-950"
@@ -151,10 +159,10 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
               {language === 'lv' ? 'GRIBU SĀKT' : 'BOOK NOW'}
             </button>
             <button
-              onClick={onContactClick}
+              onClick={handleMarathonClick}
               className="w-[80%] max-w-[300px] rounded-lg border-2 border-white/30 bg-transparent px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-6 sm:py-3.5"
             >
-              {language === 'lv' ? 'APSKATĪT GRAFIKU' : 'VIEW SCHEDULE'}
+              {language === 'lv' ? 'PIESAKIES MARATONAM' : 'JOIN MARATHON'}
             </button>
           </div>
         </div>
