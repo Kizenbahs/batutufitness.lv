@@ -42,7 +42,7 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
           </h1>
 
           {/* Description */}
-          <div className="mx-auto mb-6 w-full max-w-2xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12">
+          <div className="mx-auto mb-6 w-full max-w-4xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12">
             <p className="mb-2">
               {language === 'lv' 
                 ? 'Latvijas vadošais batutu fitnesa centrs kopā ar Aleksandru Kurusovu piedāvā enerģiskas, efektīvas un jautras treniņa pieredzes visiem fiziskās sagatavotības līmeņiem.'
