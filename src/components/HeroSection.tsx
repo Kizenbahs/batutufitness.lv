@@ -45,8 +45,8 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
           <div className="mx-auto mb-6 w-full max-w-4xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
             <p className="mb-2">
               {language === 'lv' 
-                ? <>Latvijas vadošais batutu fitnesa centrs <span className="text-[#FBBF24]">ar Aleksandru Kurusovu</span> piedāvā enerģiskas, efektīvas un jautras treniņa pieredzes visiem fiziskās sagatavotības līmeņiem.</>
-                : <>Latvia's premier trampoline fitness center <span className="text-[#FBBF24]">with Alexandra Kurusova</span> offers energetic, effective, and fun workout experiences for all fitness levels.</>}
+                ? <>Latvijas vadošais batutu fitnesa centrs <span className="text-[#FBBF24]">ar Aleksandru Kurusovu</span> piedāvā efektīvas un jautras treniņa pieredzes visiem fiziskās sagatavotības līmeņiem.</>
+                : <>Latvia's premier trampoline fitness center <span className="text-[#FBBF24]">with Alexandra Kurusova</span> offers effective and fun workout experiences for all fitness levels.</>}
             </p>
             <p>
               {language === 'lv' 
