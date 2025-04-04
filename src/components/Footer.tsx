@@ -22,20 +22,20 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
 
           {/* Contact Info - Center */}
-          <div className="flex flex-col items-center md:flex-row md:items-center space-y-1.5 md:space-y-0 md:space-x-2 text-white/80 text-xs md:text-sm text-center md:text-left">
-            <div className="flex items-center space-x-1.5 md:space-x-2">
+          <div className="flex flex-col items-center md:flex-row md:items-center space-y-1.5 md:space-y-0 text-white/80 text-xs md:text-sm text-center md:text-left">
+            <div className="flex items-center">
               <a href="tel:+37126858674" className="hover:text-[#FBBF24] transition-colors whitespace-nowrap">
                 +371 26 858 674
               </a>
-              <span className="text-[#FBBF24]">|</span>
-              <a href="mailto:aleksandra@batutufitness.lv" className="hover:text-[#FBBF24] transition-colors">
+              <span className="text-[#FBBF24] mx-4">|</span>
+              <span className="text-white/80">
                 aleksandra@batutufitness.lv
-              </a>
+              </span>
             </div>
-            <div className="flex items-center space-x-1.5 md:space-x-2">
-              <span className="text-[#FBBF24] hidden md:inline">|</span>
+            <div className="flex items-center">
+              <span className="text-[#FBBF24] mx-4 hidden md:inline">|</span>
               <span className="text-center md:text-left">
-                {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24]">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'}
+                {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24] mx-4">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'}
               </span>
             </div>
           </div>
@@ -62,13 +62,10 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             </a>
             <a
               href="tel:+37126858674"
-              className="text-white/70 hover:text-[#FBBF24] transition-colors group relative"
+              className="text-white/70 hover:text-[#FBBF24] transition-colors"
               aria-label="Phone"
             >
               <PhoneIcon className="w-5 h-5 md:w-5 md:h-5" />
-              <span className="absolute left-1/2 -translate-x-1/2 -bottom-6 text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-gray-900 px-2 py-1 rounded">
-                +371 26 858 674
-              </span>
             </a>
             <a
               href="https://wa.me/37126858674"
@@ -82,18 +79,18 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-green-500"></span>
               </span>
-              <span className="absolute left-1/2 -translate-x-1/2 -bottom-6 text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-gray-900 px-2 py-1 rounded">
-                +371 26 858 674
-              </span>
             </a>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-4 md:mt-8 pt-3 md:pt-4 border-t border-white/10 text-center">
-          <p className="text-xs md:text-sm text-white/50">
-            © 2025 Batutu Fitness / Aleksandra Kurusova
-          </p>
+        <div className="mt-4 md:mt-8">
+          <div className="border-t border-white/10 w-full md:max-w-[500px] mx-auto"></div>
+          <div className="text-center pt-3 md:pt-4">
+            <p className="text-xs md:text-sm text-white/50">
+              © 2025 Batutu Fitness / Aleksandra Kurusova
+            </p>
+          </div>
         </div>
       </div>
     </footer>
