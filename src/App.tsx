@@ -7,6 +7,7 @@ import { Schedule } from './components/Schedule';
 import Header from './components/Header';
 import AboutUsSection from './components/AboutUsSection';
 import HeroSection from './components/HeroSection';
+import { MaintenanceNotification } from './components/MaintenanceNotification';
 
 function App() {
   const [language, setLanguage] = useState<'lv' | 'en'>('lv');
@@ -34,6 +35,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
+        <MaintenanceNotification language={language} />
         <Header 
           language={language} 
           onLanguageToggle={onLanguageToggle}
