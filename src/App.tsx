@@ -1,12 +1,12 @@
 import React, { Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LoadingSpinner } from './components/LoadingSpinner';
-import { PricingTable } from './components/PricingTable';
 import { Footer } from './components/Footer';
 import { Schedule } from './components/Schedule';
 import Header from './components/Header';
 import AboutUsSection from './components/AboutUsSection';
 import HeroSection from './components/HeroSection';
+import FAQ from './components/FAQ';
 import { MaintenanceNotification } from './components/MaintenanceNotification';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
                 />
                 <AboutUsSection language={language} />
                 <Schedule language={language} />
-                <PricingTable language={language} />
+                <FAQ language={language} />
                 <Footer language={language} />
               </>
             } />
