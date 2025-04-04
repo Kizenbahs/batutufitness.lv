@@ -112,13 +112,13 @@ export default function HeroSection({ language, onScheduleClick, onContactClick 
               onClick={onScheduleClick}
               className="w-[80%] max-w-[300px] rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-primary/90 shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-6 sm:py-3.5"
             >
-              {language === 'lv' ? 'SĀKT TRENĒTIES' : 'BOOK NOW'}
+              {language === 'lv' ? 'GRIBU SĀKT' : 'BOOK NOW'}
             </button>
             <button
               onClick={onContactClick}
               className="w-[80%] max-w-[300px] rounded-lg border-2 border-white/30 bg-transparent px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-6 sm:py-3.5"
             >
-              {language === 'lv' ? 'SKATĪT GRAFIKU' : 'VIEW SCHEDULE'}
+              {language === 'lv' ? 'APSKATĪT GRAFIKU' : 'VIEW SCHEDULE'}
             </button>
           </div>
         </div>
