@@ -119,16 +119,18 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
               key={index}
               href={item.path}
               onClick={item.onClick}
-              className="text-white hover:text-[#FBBF24] transition-colors font-medium text-sm tracking-wider"
+              className="group relative text-white transition-colors font-medium text-sm tracking-wider hover:text-white"
             >
               {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           <button
             onClick={onLanguageToggle}
-            className="text-white hover:text-[#FBBF24] transition-colors font-medium text-sm ml-2"
+            className="group relative text-white transition-colors font-medium text-sm ml-2 hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
           </button>
         </div>
 
@@ -136,9 +138,10 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
         <div className="flex items-center space-x-4 md:hidden">
           <button
             onClick={onLanguageToggle}
-            className="text-white hover:text-[#FBBF24] transition-colors font-medium text-sm"
+            className="group relative text-white transition-colors font-medium text-sm hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
           </button>
           <button
             onClick={onMenuToggle}
@@ -180,9 +183,10 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-lg tracking-wider"
+                    className="group relative text-white transition-colors font-medium text-lg tracking-wider hover:text-white"
                   >
                     {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
                   </motion.a>
                 ))}
               </div>
