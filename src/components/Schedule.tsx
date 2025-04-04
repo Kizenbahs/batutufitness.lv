@@ -81,137 +81,158 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
           </p>
         </div>
 
-        {/* Location Toggle */}
-        <div className="flex justify-center mb-8">
-          <div className="bg-gray-900/90 backdrop-blur-sm p-1.5 rounded-2xl inline-flex shadow-xl">
-            {locations.map((loc) => (
+        {/* Main Content Container - Adding frame/background */}
+        <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-800/50">
+          {/* Location Toggle */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-gray-900/90 backdrop-blur-sm p-1.5 rounded-2xl inline-flex shadow-xl">
+              {locations.map((loc) => (
+                <button
+                  key={loc}
+                  onClick={() => setActiveLocation(loc)}
+                  className={`px-8 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                    activeLocation === loc
+                      ? 'bg-primary text-white shadow-lg scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                  }`}
+                >
+                  {loc}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Days Selection - Mobile Dropdown */}
+          <div className="md:hidden mb-8">
+            <div className="relative w-full max-w-xs mx-auto">
               <button
-                key={loc}
-                onClick={() => setActiveLocation(loc)}
-                className={`px-8 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                  activeLocation === loc
-                    ? 'bg-primary text-white shadow-lg scale-105'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800'
-                }`}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="w-full px-4 py-2.5 bg-gray-900 text-white rounded-xl flex items-center justify-between font-semibold"
               >
-                {loc}
+                <span>{activeDay}</span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-            ))}
+              {isDropdownOpen && (
+                <div className="absolute z-50 w-full mt-2 bg-gray-900 rounded-xl shadow-xl">
+                  {days.map((day) => (
+                    <button
+                      key={day}
+                      onClick={() => handleDaySelect(day)}
+                      className={`w-full px-4 py-2.5 text-left transition-colors ${
+                        activeDay === day
+                          ? 'bg-primary text-white'
+                          : 'text-gray-300 hover:bg-gray-800'
+                      } ${day === days[0] ? 'rounded-t-xl' : ''} ${
+                        day === days[days.length - 1] ? 'rounded-b-xl' : ''
+                      }`}
+                    >
+                      {day}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Days Selection - Mobile Dropdown */}
-        <div className="md:hidden mb-8">
-          <div className="relative w-full max-w-xs mx-auto">
-            <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="w-full px-4 py-2.5 bg-gray-900 text-white rounded-xl flex items-center justify-between font-semibold"
-            >
-              <span>{activeDay}</span>
-              <svg
-                className={`w-5 h-5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {isDropdownOpen && (
-              <div className="absolute z-50 w-full mt-2 bg-gray-900 rounded-xl shadow-xl">
-                {days.map((day) => (
-                  <button
-                    key={day}
-                    onClick={() => handleDaySelect(day)}
-                    className={`w-full px-4 py-2.5 text-left transition-colors ${
-                      activeDay === day
-                        ? 'bg-primary text-white'
-                        : 'text-gray-300 hover:bg-gray-800'
-                    } ${day === days[0] ? 'rounded-t-xl' : ''} ${
-                      day === days[days.length - 1] ? 'rounded-b-xl' : ''
-                    }`}
-                  >
-                    {day}
-                  </button>
-                ))}
-              </div>
-            )}
+          {/* Days Selection - Desktop Buttons */}
+          <div className="hidden md:block mb-8 overflow-x-auto hide-scrollbar">
+            <div className="flex space-x-2 pb-2 justify-center min-w-max mx-auto">
+              {days.map((day) => (
+                <button
+                  key={day}
+                  onClick={() => setActiveDay(day)}
+                  className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-300 ${
+                    activeDay === day
+                      ? 'bg-primary text-white shadow-lg scale-105'
+                      : 'bg-gray-900/90 backdrop-blur-sm text-gray-400 hover:text-white hover:bg-gray-800'
+                  }`}
+                >
+                  {day}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Days Selection - Desktop Buttons */}
-        <div className="hidden md:block mb-8 overflow-x-auto hide-scrollbar">
-          <div className="flex space-x-2 pb-2 justify-center min-w-max mx-auto">
-            {days.map((day) => (
-              <button
-                key={day}
-                onClick={() => setActiveDay(day)}
-                className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-300 ${
-                  activeDay === day
-                    ? 'bg-primary text-white shadow-lg scale-105'
-                    : 'bg-gray-900/90 backdrop-blur-sm text-gray-400 hover:text-white hover:bg-gray-800'
-                }`}
-              >
-                {day}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Sessions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto mb-16">
-          {scheduleData[activeLocation][activeDay].map((session, index) => {
-            const isSelected = selectedSessions.some(s => 
-              s.day === activeDay && 
-              s.time === session.time && 
-              s.location === activeLocation
-            );
-            
-            return (
-              <div
-                key={index}
-                onClick={() => handleSessionSelect(session)}
-                className={`group cursor-pointer rounded-xl transition-all duration-300 transform hover:scale-[1.02] ${
-                  isSelected
-                    ? 'bg-primary shadow-lg'
-                    : 'bg-gray-900/90 backdrop-blur-sm hover:bg-gray-800'
-                }`}
-              >
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className={`text-lg font-bold ${
-                      isSelected ? 'text-white' : 'text-white'
+          {/* Sessions Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto mb-16">
+            {scheduleData[activeLocation][activeDay].map((session, index) => {
+              const isSelected = selectedSessions.some(s => 
+                s.day === activeDay && 
+                s.time === session.time && 
+                s.location === activeLocation
+              );
+              
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleSessionSelect(session)}
+                  className={`group cursor-pointer rounded-xl transition-all duration-300 transform hover:scale-[1.02] ${
+                    isSelected
+                      ? 'bg-primary shadow-lg'
+                      : 'bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/80'
+                  }`}
+                >
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`text-lg font-bold ${
+                        isSelected ? 'text-white' : 'text-white'
+                      }`}>
+                        {session.time}
+                      </span>
+                      <span className={`text-sm px-3 py-1 rounded-full font-medium inline-flex items-center gap-1.5 ${
+                        isSelected ? 'bg-white/20 text-white' : 'bg-primary/20 text-primary'
+                      }`}>
+                        {session.duration} min
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                      </span>
+                    </div>
+                    <div className={`text-base font-semibold mb-2 ${
+                      isSelected ? 'text-white' : 'text-primary'
                     }`}>
-                      {session.time}
-                    </span>
-                    <span className={`text-sm px-3 py-1 rounded-full font-medium ${
-                      isSelected ? 'bg-white/20 text-white' : 'bg-primary/20 text-primary'
-                    }`}>
-                      {session.duration} min
-                    </span>
-                  </div>
-                  <div className={`text-base font-semibold mb-2 ${
-                    isSelected ? 'text-white' : 'text-primary'
-                  }`}>
-                    {session.type}
-                  </div>
-                  <div className={`text-sm font-medium ${
-                    isSelected ? 'text-white/90' : 'text-gray-300'
-                  }`}>
-                    {session.trainer}
+                      {session.type}
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className={`text-sm font-medium ${
+                        isSelected ? 'text-white/90' : 'text-gray-300'
+                      }`}>
+                        {session.trainer}
+                      </div>
+                      <svg 
+                        className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${
+                          isSelected ? 'text-white' : 'text-gray-400'
+                        }`}
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
 
-        {/* Additional Description */}
-        <p className="text-gray-400 text-center">
-          {language === 'lv' 
-            ? 'Izvēlies vienu vai vairākas nodarbības un piesakies tiešsaistē tagad!' 
-            : 'Select one or more sessions and book online now!'}
-        </p>
+          {/* Additional Description */}
+          <p className="text-gray-400 text-center">
+            {language === 'lv' 
+              ? 'Izvēlies vienu vai vairākas nodarbības un piesakies tiešsaistē tagad!' 
+              : 'Select one or more sessions and book online now!'}
+          </p>
+        </div>
       </div>
 
       {/* Selected Sessions Bar */}
