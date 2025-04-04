@@ -12,7 +12,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ language }) => {
   return (
-    <footer className="bg-black py-4 md:py-8" id="contact">
+    <footer className="bg-black py-8 md:py-12" id="contact">
       <div className="container mx-auto px-3 md:px-6">
         <div className="flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between">
           {/* Logo */}
@@ -81,16 +81,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
                 <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-green-500"></span>
               </span>
             </a>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-4 md:mt-8">
-          <div className="border-t border-white/10 w-full md:max-w-[500px] mx-auto"></div>
-          <div className="text-center pt-3 md:pt-4">
-            <p className="text-xs md:text-sm text-white/50">
-              © 2025 Batutu Fitness / Aleksandra Kurusova
-            </p>
           </div>
         </div>
       </div>
