@@ -25,8 +25,8 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           {/* Contact Info - Center */}
           <div className="flex flex-col items-center md:flex-row md:items-center space-y-1.5 md:space-y-0 text-white/80 text-xs md:text-sm text-center md:text-left">
             <div className="flex items-center">
-              <a href="tel:+37126858674" className="text-[#FBBF24] hover:text-[#FBBF24]/80 transition-colors whitespace-nowrap">
-                +371 26 858 674
+              <a href="tel:+37129664931" className="text-[#FBBF24] hover:text-[#FBBF24]/80 transition-colors whitespace-nowrap">
+                +371 29 664 931
               </a>
               <span className="text-[#FBBF24] mx-4">|</span>
               <span className="text-white/80">
@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center justify-center space-x-2 md:space-x-3 lg:space-x-4">
+          <div className="flex items-center space-x-4">
             <a
               href="https://www.facebook.com/aleksandra.kurusova"
               target="_blank"
@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               <FacebookIcon className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
-              href="https://www.instagram.com/aleksandrakurusova/"
+              href="https://www.instagram.com/batutu.fitness/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-[#FBBF24] transition-colors"
@@ -62,24 +62,20 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               <InstagramIcon className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
-              href="tel:+37126858674"
+              href="tel:+37129664931"
               className="text-white/70 hover:text-[#FBBF24] transition-colors"
               aria-label="Phone"
             >
               <PhoneIcon className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
-              href="https://wa.me/37126858674"
+              href="https://wa.me/37129664931"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-[#FBBF24] transition-colors relative group"
               aria-label="WhatsApp"
             >
               <MessageCircleIcon className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="absolute -top-0.5 -right-0.5 flex h-1.5 w-1.5 md:h-2 md:w-2 lg:h-3 lg:w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 lg:h-3 lg:w-3 bg-green-500"></span>
-              </span>
             </a>
           </div>
         </div>
