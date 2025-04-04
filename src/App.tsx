@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <MaintenanceNotification language={language} />
+        <MaintenanceNotification language={language} isEnabled={false} />
         <Header 
           language={language} 
           onLanguageToggle={onLanguageToggle}

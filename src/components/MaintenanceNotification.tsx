@@ -3,18 +3,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface MaintenanceNotificationProps {
   language: 'lv' | 'en';
+  isEnabled?: boolean;
 }
 
-export const MaintenanceNotification: React.FC<MaintenanceNotificationProps> = ({ language }) => {
-  const [isVisible, setIsVisible] = useState(true);
+export const MaintenanceNotification: React.FC<MaintenanceNotificationProps> = ({ 
+  language,
+  isEnabled = false
+}) => {
+  const [isVisible, setIsVisible] = useState(isEnabled);
 
   useEffect(() => {
+    if (!isEnabled) return;
+
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 10000); // 10 seconds
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isEnabled]);
 
   return (
     <AnimatePresence>
