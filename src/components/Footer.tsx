@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center justify-center space-x-3 md:space-x-4">
+          <div className="flex items-center justify-center space-x-2 md:space-x-3 lg:space-x-4">
             <a
               href="https://www.facebook.com/aleksandra.kurusova"
               target="_blank"
@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               className="text-white/70 hover:text-[#FBBF24] transition-colors"
               aria-label="Facebook"
             >
-              <FacebookIcon className="w-5 h-5 md:w-5 md:h-5" />
+              <FacebookIcon className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
               href="https://www.instagram.com/aleksandrakurusova/"
@@ -59,14 +59,14 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               className="text-white/70 hover:text-[#FBBF24] transition-colors"
               aria-label="Instagram"
             >
-              <InstagramIcon className="w-5 h-5 md:w-5 md:h-5" />
+              <InstagramIcon className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
               href="tel:+37126858674"
               className="text-white/70 hover:text-[#FBBF24] transition-colors"
               aria-label="Phone"
             >
-              <PhoneIcon className="w-5 h-5 md:w-5 md:h-5" />
+              <PhoneIcon className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
               href="https://wa.me/37126858674"
@@ -75,10 +75,10 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
               className="text-white/70 hover:text-[#FBBF24] transition-colors relative group"
               aria-label="WhatsApp"
             >
-              <MessageCircleIcon className="w-5 h-5 md:w-5 md:h-5" />
-              <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2 md:h-3 md:w-3">
+              <MessageCircleIcon className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="absolute -top-0.5 -right-0.5 flex h-1.5 w-1.5 md:h-2 md:w-2 lg:h-3 lg:w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-green-500"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 lg:h-3 lg:w-3 bg-green-500"></span>
               </span>
             </a>
           </div>
