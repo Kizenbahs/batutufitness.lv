@@ -75,7 +75,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kur un Kad?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kad un kur?</h3>
                     <p className="text-gray-300 mb-4">
                       Startējam: 15. aprīlī<br />
                       Ilgums: līdz 26. maijam
@@ -95,9 +95,9 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                       Vienkārši aizpildi pieteikuma formu vai uzraksti mums sociālajos tīklos – mēs ar Tevi sazināsimies personīgi.
                     </p>
                     <ul className="text-gray-300 space-y-2 list-disc pl-6">
-                      <li>Instagram / Facebook: @batutufitness</li>
-                      <li>Tālrunis: +371 XXXXXXXX</li>
-                      <li>E-pasts: info@batutufitness.lv</li>
+                      <li><a href="https://www.instagram.com/batutufitness" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Instagram</a> vai <a href="https://www.facebook.com/batutufitness" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Facebook</a></li>
+                      <li>Tālrunis: <a href="tel:+37129664931" className="text-yellow-400 hover:text-yellow-300">+371 29 664 931</a></li>
+                      <li>E-pasts: <a href="mailto:info@batutufitness.lv" className="text-yellow-400 hover:text-yellow-300">info@batutufitness.lv</a></li>
                     </ul>
                   </div>
                 </>
@@ -124,7 +124,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                   </div>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Where and When?</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">When and where?</h3>
                     <p className="text-gray-300 mb-4">
                       Start: April 15th<br />
                       Duration: until May 26th
@@ -144,9 +144,9 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                       Simply fill out the registration form or write to us on social media – we'll contact you personally.
                     </p>
                     <ul className="text-gray-300 space-y-2 list-disc pl-6">
-                      <li>Instagram / Facebook: @batutufitness</li>
-                      <li>Phone: +371 XXXXXXXX</li>
-                      <li>Email: info@batutufitness.lv</li>
+                      <li><a href="https://www.instagram.com/batutufitness" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Instagram</a> or <a href="https://www.facebook.com/batutufitness" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Facebook</a></li>
+                      <li>Phone: <a href="tel:+37129664931" className="text-yellow-400 hover:text-yellow-300">+371 29 664 931</a></li>
+                      <li>Email: <a href="mailto:info@batutufitness.lv" className="text-yellow-400 hover:text-yellow-300">info@batutufitness.lv</a></li>
                     </ul>
                   </div>
                 </>
