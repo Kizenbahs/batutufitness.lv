@@ -27,14 +27,6 @@ function App() {
     }
   };
 
-  const handleContactClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <Router>
       <div className="app-container">
@@ -52,7 +44,6 @@ function App() {
                 <HeroSection 
                   language={language} 
                   onScheduleClick={handleScheduleClick}
-                  onContactClick={handleContactClick}
                 />
                 <AboutUsSection language={language} />
                 <Schedule language={language} />

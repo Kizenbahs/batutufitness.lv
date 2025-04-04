@@ -6,10 +6,9 @@ import { useNavigate } from 'react-router-dom';
 interface HeroSectionProps {
   language: 'lv' | 'en';
   onScheduleClick: (e: React.MouseEvent) => void;
-  onContactClick: (e: React.MouseEvent) => void;
 }
 
-export default function HeroSection({ language, onScheduleClick, onContactClick }: HeroSectionProps) {
+export default function HeroSection({ language, onScheduleClick }: HeroSectionProps) {
   const navigate = useNavigate();
 
   const handleMarathonClick = (e: React.MouseEvent) => {
