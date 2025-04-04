@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MainLayout } from '../../components/Layout/MainLayout';
 import { motion } from 'framer-motion';
 
@@ -8,11 +8,21 @@ interface MarathonPageProps {
 }
 
 const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle }) => {
+  // Scroll to top when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <MainLayout language={language} onLanguageToggle={onLanguageToggle}>
       {/* Hero Section with H1 */}
-      <section className="pt-32 pb-20 relative">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-20 relative" style={{ 
+        backgroundImage: 'url("/batutu-fitness-maratons.webp")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div className="absolute inset-0 bg-black opacity-85"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -20,7 +30,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
             className="text-center"
           >
             <h1 className="text-4xl font-bold text-white mb-4">
-              {language === 'lv' ? 'Batutu Fitnesa Tievēšanas Maratons' : 'Trampoline Fitness Weight Loss Marathon'}
+              {language === 'lv' ? 'Batutu fitnesa tievēšanas maratons' : 'Trampoline Fitness Weight Loss Marathon'}
             </h1>
             <p className="text-yellow-400">
               {language === 'lv' 
