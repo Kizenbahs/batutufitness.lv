@@ -27,6 +27,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const formatSessionsForEmail = (sessions: SelectedSession[]) => {
     return sessions.map(session => 
@@ -34,8 +36,46 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     ).join('\n');
   };
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+    if (value.length <= 8) { // Only allow up to 8 digits
+      setFormData({ ...formData, phone: value });
+      setPhoneError('');
+    }
+  };
+
+  const validatePhone = () => {
+    if (formData.phone.length !== 8) {
+      setPhoneError(language === 'lv' 
+        ? 'Tālruņa numuram jābūt 8 ciparus garam'
+        : 'Phone number must be 8 digits long');
+      return false;
+    }
+    return true;
+  };
+
+  const validateEmail = () => {
+    if (!formData.email.includes('.')) {
+      setEmailError(language === 'lv' 
+        ? 'E-pasta adresei jāsatur punkts'
+        : 'Email address must contain a dot');
+      return false;
+    }
+    setEmailError('');
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validatePhone()) {
+      return;
+    }
+
+    if (!validateEmail()) {
+      return;
+    }
+
     setLoading(true);
     setError('');
 
@@ -196,9 +236,17 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 type="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  setEmailError('');
+                }}
                 className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"
               />
+              {emailError && (
+                <p className="mt-1 text-sm text-red-400">
+                  {emailError}
+                </p>
+              )}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">
@@ -208,9 +256,17 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 type="tel"
                 required
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={handlePhoneChange}
+                pattern="[0-9]{8}"
+                maxLength={8}
+                placeholder={language === 'lv' ? '12345678' : '12345678'}
                 className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"
               />
+              {phoneError && (
+                <p className="mt-1 text-sm text-red-400">
+                  {phoneError}
+                </p>
+              )}
             </div>
 
             {error && (
@@ -253,7 +309,9 @@ export const BookingForm: React.FC<BookingFormProps> = ({
             className="fixed inset-0 flex items-center justify-center z-50"
           >
             <div className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
-              Paldies, pieteikums saņemts! Mēs sazināsimies pavisam drīz!
+              {language === 'lv' 
+                ? 'Paldies, pieteikums saņemts! Mēs sazināsimies pavisam drīz!'
+                : 'Thank you, booking received! We will contact you very soon!'}
             </div>
           </motion.div>
         )}
