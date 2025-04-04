@@ -76,8 +76,8 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
           </h2>
           <p className="text-gray-400">
             {language === 'lv' 
-              ? 'Izvēlieties sev piemērotāko laiku un vietu' 
-              : 'Choose the most convenient time and location'}
+              ? 'Sporto sev izdevīgā laikā un vietā' 
+              : 'Exercise at your convenient time and place'}
           </p>
         </div>
 
@@ -159,7 +159,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
         </div>
 
         {/* Sessions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto mb-8">
           {scheduleData[activeLocation][activeDay].map((session, index) => {
             const isSelected = selectedSessions.some(s => 
               s.day === activeDay && 
@@ -205,6 +205,13 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
             );
           })}
         </div>
+
+        {/* Additional Description */}
+        <p className="text-gray-400 text-center mb-16">
+          {language === 'lv' 
+            ? 'Izvēlies vienu vai vairākas nodarbības un piesakies tiešsaistē tagad!' 
+            : 'Select one or more sessions and book online now!'}
+        </p>
       </div>
 
       {/* Selected Sessions Bar */}
