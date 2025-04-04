@@ -22,10 +22,10 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
             <h1 className="text-4xl font-bold text-white mb-4">
               {language === 'lv' ? 'Batutu Fitnesa Tievēšanas Maratons' : 'Trampoline Fitness Weight Loss Marathon'}
             </h1>
-            <p className="text-gray-400">
+            <p className="text-yellow-400">
               {language === 'lv' 
-                ? '6 nedēļas. 18 batuta treniņi. Jauns Tu!'
-                : '6 weeks. 18 trampoline workouts. New You!'}
+                ? '15. aprīlis - 26. maijs'
+                : 'April 15 - May 26'}
             </p>
           </motion.div>
         </div>
@@ -44,39 +44,101 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
             <div className="prose prose-lg prose-invert">
               {language === 'lv' ? (
                 <>
-                  <p className="text-gray-300 mb-6">
-                    Batutu maratons ir īpaši izstrādāts 2 stundu treniņš, kas apvieno kardio un spēka vingrinājumus uz batutiem. Šis intensīvais treniņš ir piemērots gan iesācējiem, gan pieredzējušiem sportistiem.
-                  </p>
-                  <p className="text-gray-300 mb-6">
-                    Ko sagaidīt no maratona:
-                  </p>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>Profesionālu treneru vadība</li>
-                    <li>Individuāla pieeja katram dalībniekam</li>
-                    <li>Dažādu intensitātes līmeņu vingrinājumi</li>
-                    <li>Enerģiska mūzika un pozitīva atmosfēra</li>
-                  </ul>
-                  <p className="text-gray-300 mt-6">
-                    Pēc maratona būs pieejami atspirdzinoši dzērieni un veselīgas uzkodas.
-                  </p>
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">6 nedēļas. 18 batuta treniņi. Jauns Tu</h3>
+                    <p className="text-gray-300 mb-4">
+                      Pievienojies mūsu Batutu Fitnesa Tievēšanas Maratonam – unikālam 6 nedēļu izaicinājumam, kas apvieno efektīvus batuta treniņus ar sabalansētu uzturu un profesionālu atbalstu. Tas nav tikai par kilogramiem – tas ir par vieglumu, enerģiju un pārliecību!
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Kas iekļauts maratonā?</h3>
+                    <ul className="text-gray-300 space-y-2 list-disc pl-6">
+                      <li>18 batuta fitnesa nodarbības (3x nedēļā)</li>
+                      <li>Individuāli izstrādāta ēdienkarte sadarbībā ar uztura speciālistu</li>
+                      <li>Iknedēļas svēršanās un apkārtmēru kontrole</li>
+                      <li>Atbalsts un motivācija visā maratona laikā</li>
+                    </ul>
+                    <p className="text-gray-300 mt-4">
+                      Piemērots visiem līmeņiem. Mēs kopā rūpēsimies par tavu labsajūtu, veselību un rezultātiem!
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Kur un Kad?</h3>
+                    <p className="text-gray-300 mb-4">
+                      Startējam: 15. aprīlī<br />
+                      Ilgums: līdz 26. maijam
+                    </p>
+                    <ul className="text-gray-300 space-y-2 list-disc pl-6">
+                      <li>Rīga – Joker klubs</li>
+                      <li>Piņķi – Lion Gym</li>
+                    </ul>
+                    <p className="text-gray-300 mt-4">
+                      Vietu skaits ir ierobežots – piesakies jau tagad!
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Kā pieteikties?</h3>
+                    <p className="text-gray-300 mb-4">
+                      Vienkārši aizpildi pieteikuma formu vai uzraksti mums sociālajos tīklos – mēs ar Tevi sazināsimies personīgi.
+                    </p>
+                    <ul className="text-gray-300 space-y-2 list-disc pl-6">
+                      <li>Instagram / Facebook: @batutufitness</li>
+                      <li>Tālrunis: +371 XXXXXXXX</li>
+                      <li>E-pasts: info@batutufitness.lv</li>
+                    </ul>
+                  </div>
                 </>
               ) : (
                 <>
-                  <p className="text-gray-300 mb-6">
-                    The Trampoline Marathon is a specially designed 2-hour workout that combines cardio and strength exercises on trampolines. This intensive training is suitable for both beginners and experienced athletes.
-                  </p>
-                  <p className="text-gray-300 mb-6">
-                    What to expect from the marathon:
-                  </p>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>Professional trainer guidance</li>
-                    <li>Individual approach to each participant</li>
-                    <li>Exercises of various intensity levels</li>
-                    <li>Energetic music and positive atmosphere</li>
-                  </ul>
-                  <p className="text-gray-300 mt-6">
-                    Refreshing drinks and healthy snacks will be available after the marathon.
-                  </p>
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">6 weeks. 18 trampoline workouts. New You</h3>
+                    <p className="text-gray-300 mb-4">
+                      Join our Trampoline Fitness Weight Loss Marathon – a unique 6-week challenge that combines effective trampoline workouts with balanced nutrition and professional support. It's not just about kilograms – it's about lightness, energy, and confidence!
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">What's included in the marathon?</h3>
+                    <ul className="text-gray-300 space-y-2 list-disc pl-6">
+                      <li>18 trampoline fitness classes (3x per week)</li>
+                      <li>Individually designed meal plan in collaboration with a nutrition specialist</li>
+                      <li>Weekly weigh-ins and circumference measurements</li>
+                      <li>Support and motivation throughout the marathon</li>
+                    </ul>
+                    <p className="text-gray-300 mt-4">
+                      Suitable for all levels. Together we'll take care of your well-being, health, and results!
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">Where and When?</h3>
+                    <p className="text-gray-300 mb-4">
+                      Start: April 15th<br />
+                      Duration: until May 26th
+                    </p>
+                    <ul className="text-gray-300 space-y-2 list-disc pl-6">
+                      <li>Riga – Joker Club</li>
+                      <li>Piņķi – Lion Gym</li>
+                    </ul>
+                    <p className="text-gray-300 mt-4">
+                      Limited spots available – register now!
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-white mb-4">How to register?</h3>
+                    <p className="text-gray-300 mb-4">
+                      Simply fill out the registration form or write to us on social media – we'll contact you personally.
+                    </p>
+                    <ul className="text-gray-300 space-y-2 list-disc pl-6">
+                      <li>Instagram / Facebook: @batutufitness</li>
+                      <li>Phone: +371 XXXXXXXX</li>
+                      <li>Email: info@batutufitness.lv</li>
+                    </ul>
+                  </div>
                 </>
               )}
             </div>
