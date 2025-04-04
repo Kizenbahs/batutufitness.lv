@@ -19,7 +19,7 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-pattern': "linear-gradient(135deg, rgba(251, 165, 24, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%), url('/hero-bg.jpg')",
+        'hero-pattern': "linear-gradient(135deg, rgba(251, 165, 24, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%)",
       },
     },
     container: {
