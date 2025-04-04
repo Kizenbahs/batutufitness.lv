@@ -26,18 +26,18 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div className="max-w-4xl w-full px-4 md:px-8">
             <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-1.5 md:space-y-0 text-white/80 text-xs md:text-sm text-center">
               <div className="flex items-center whitespace-nowrap">
-                <a href="tel:+37129664931" className="text-[#FBBF24] hover:text-[#FBBF24]/80 transition-colors whitespace-nowrap">
-                  +371 29 664 931
+                <a href="mailto:aleksandra@batutufitness.lv" className="text-gray-400 hover:text-white transition-colors">
+                  aleksandra@batutufitness.lv
                 </a>
                 <span className="text-[#FBBF24] mx-4">|</span>
-                <span className="text-white/80">
-                  aleksandra@batutufitness.lv
-                </span>
+                <a href="tel:+37129664931" className="text-gray-400 hover:text-white transition-colors">
+                  +371 29 664 931
+                </a>
               </div>
               <div className="flex items-center whitespace-nowrap">
                 <span className="text-[#FBBF24] mx-4">|</span>
                 <span className="text-center">
-                  {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24] mx-4">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'} <span className="text-[#FBBF24] mx-4">|</span> V.0-38
+                  {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24] mx-4">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'}
                 </span>
               </div>
             </div>
