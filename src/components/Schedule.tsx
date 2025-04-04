@@ -187,7 +187,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
                     <span className={`text-sm px-3 py-1 rounded-full font-medium ${
                       isSelected ? 'bg-white/20 text-white' : 'bg-primary/20 text-primary'
                     }`}>
-                      {session.duration}
+                      {session.duration} min
                     </span>
                   </div>
                   <div className={`text-base font-semibold mb-2 ${
