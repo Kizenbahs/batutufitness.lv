@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
@@ -23,20 +22,6 @@ export default defineConfig({
       open: false,
       gzipSize: true,
       brotliSize: true,
-    }),
-    ViteImageOptimizer({
-      png: {
-        quality: 70,
-      },
-      jpeg: {
-        quality: 70,
-      },
-      jpg: {
-        quality: 70,
-      },
-      webp: {
-        lossless: true,
-      }
     }),
     VitePWA({
       registerType: 'autoUpdate',
