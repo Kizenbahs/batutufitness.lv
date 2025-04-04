@@ -9,14 +9,14 @@ interface ScheduleProps {
 }
 
 export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
-  const [activeLocation, setActiveLocation] = useState<string>(Object.keys(scheduleData)[0]);
+  const [activeLocation, setActiveLocation] = useState<string>("PIŅĶI");
   const [activeDay, setActiveDay] = useState<string>(Object.keys(scheduleData[activeLocation])[0]);
   const [selectedSessions, setSelectedSessions] = useState<SelectedSession[]>([]);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const days = ['Pirmdiena', 'Otrdiena', 'Trešdiena', 'Ceturtdiena', 'Piektdiena', 'Sestdiena', 'Svētdiena'];
-  const locations = Object.keys(scheduleData);
+  const locations = ['PIŅĶI', 'RĪGA'];
 
   const handleDaySelect = (day: string) => {
     setActiveDay(day);
