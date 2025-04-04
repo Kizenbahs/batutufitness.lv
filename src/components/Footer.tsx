@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           {/* Logo */}
           <div className="flex items-center">
             <span className="text-white font-bold text-lg md:text-2xl">BATUTU</span>
-            <span className="text-[#FBBF24] font-bold text-lg md:text-2xl">FITNESS</span>
+            <span className="text-[#FBBF24] font-bold text-lg md:text-2xl">.FITNESS</span>
           </div>
 
           {/* Contact Info - Center */}

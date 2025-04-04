@@ -103,7 +103,7 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
             BATUTU
           </span>
           <span className="text-[#FBBF24] font-bold text-xl md:text-2xl">
-            FITNESS
+            .FITNESS
           </span>
         </a>
 
