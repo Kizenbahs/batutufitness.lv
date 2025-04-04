@@ -128,7 +128,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
               </button>
               <div 
                 className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-40 pb-4' : 'max-h-0'
+                  openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
                 }`}
               >
                 <p className="text-gray-400" dangerouslySetInnerHTML={{ __html: language === 'lv' ? item.answer.lv : item.answer.en }}>
