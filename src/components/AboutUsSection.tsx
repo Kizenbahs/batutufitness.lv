@@ -26,11 +26,13 @@ export default function AboutUsSection({ language }: AboutUsSectionProps) {
           className="mb-12 md:mb-16 text-center"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {language === 'lv' ? 'Par mums' : 'About'}{" "}
-            <span className="text-[#FBBF24]">
-              {language === 'lv' ? 'BATUTU FITNESS' : 'BATUTU FITNESS'}
-            </span>
+            {language === 'lv' ? 'Par mums' : 'About'}
           </h2>
+          <p className="text-gray-400">
+            {language === 'lv' 
+              ? 'Pirmais batutu fitnesa centrs Latvijā' 
+              : 'The first trampoline fitness center in Latvia'}
+          </p>
         </motion.div>
 
         {/* Main Content */}
