@@ -9,7 +9,7 @@ export default function AboutUsSection({ language }: AboutUsSectionProps) {
   return (
     <section
       id="about"
-      className="relative bg-white py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-white pt-24 pb-16 sm:pt-16 md:py-20 lg:py-24 overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">

@@ -20,7 +20,7 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
   return (
     <section
       className="relative w-screen overflow-hidden bg-gray-950"
-      style={{ height: "100svh" }}
+      style={{ height: "100svh", minHeight: "800px" }}
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
@@ -34,7 +34,7 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center">
-        <div className="w-full max-w-[85rem] px-4 text-center pt-16 sm:pt-20 md:pt-24">
+        <div className="w-full max-w-[85rem] px-4 text-center pt-28 pb-8 sm:pt-32 md:pt-36 lg:pt-40">
           {/* Main Heading */}
           <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl sm:mb-8 md:mb-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
             <div className="relative flex flex-col items-center justify-center space-y-2 sm:block sm:space-y-0">
@@ -59,7 +59,7 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
                   ease: "easeOut"
                 }}
               >
-                {language === 'lv' ? 'Enerģija²' : 'Energy²'}
+                {language === 'lv' ? 'Enerģija².' : 'Energy².'}
               </motion.span>
               <motion.span 
                 className="block text-white mt-2 sm:mt-0 sm:inline"
@@ -151,7 +151,7 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
           </div>
 
           {/* Two Buttons */}
-          <div className="flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-6 sm:space-y-0">
+          <div className="flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-6 sm:space-y-0 mb-8 sm:mb-0">
             <button
               onClick={onScheduleClick}
               className="w-[85%] max-w-[300px] rounded-xl bg-[#FBBF24] px-6 py-3.5 text-base font-bold text-black transition-all hover:scale-105 hover:bg-[#FBBF24]/90 shadow-md shadow-[#FBBF24]/30 hover:shadow-lg hover:shadow-[#FBBF24]/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-8 sm:py-4"
