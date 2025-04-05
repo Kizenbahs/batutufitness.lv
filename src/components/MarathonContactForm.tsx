@@ -239,7 +239,7 @@ const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) =
 
             <div className="mt-8">
               <p className="text-center text-white/80 mb-2">
-                {language === 'lv' ? 'Līdz maratona sākumam:' : 'Time until marathon starts:'}
+                {language === 'lv' ? 'Līdz maratona sākumam:' : 'Time until marathon:'}
               </p>
               <div className="grid auto-cols-max grid-flow-col gap-1 sm:gap-2 text-center justify-center">
                 <div className="bg-black/50 rounded-lg text-white flex flex-col p-1 min-w-[60px]">

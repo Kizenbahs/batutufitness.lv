@@ -15,34 +15,32 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
     <footer className="bg-black py-8 md:py-12" id="contact">
       <div className="container mx-auto px-3 md:px-6">
         <div className="flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between">
-          {/* Logo */}
-          <div className="flex items-center shrink-0">
-            <span className="text-white font-bold text-xs md:text-sm">BATUTU</span>
-            <span className="text-[#FBBF24] font-bold text-xs md:text-sm">.FITNESS</span>
-          </div>
+          {/* Logo and Contact Info - Left */}
+          <div className="flex flex-col md:flex-row items-center md:items-start space-y-2 md:space-y-0 md:space-x-6">
+            {/* Logo */}
+            <div className="flex items-center shrink-0">
+              <span className="text-white font-bold text-xs md:text-sm">BATUTU</span>
+              <span className="text-[#FBBF24] font-bold text-xs md:text-sm">.FITNESS</span>
+            </div>
 
-          {/* Contact Info - Center */}
-          <div className="max-w-4xl w-full px-4 md:px-8">
-            <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center space-y-1.5 md:space-y-0 text-white/80 text-xs md:text-sm text-center">
-              <div className="flex items-center whitespace-nowrap">
-                <a href="mailto:aleksandra@batutufitness.lv" className="text-gray-400 hover:text-white transition-colors">
-                  aleksandra@batutufitness.lv
-                </a>
-                <span className="text-[#FBBF24] mx-4">|</span>
+            {/* Divider between logo and contact info */}
+            <span className="text-[#FBBF24] hidden md:inline mx-2 h-4 flex items-center">|</span>
+
+            {/* Contact Info - Left */}
+            <div className="text-white/80 text-xs md:text-sm text-center md:text-left">
+              <div className="flex flex-col md:flex-row items-center md:items-start space-y-1 md:space-y-0 md:space-x-4">
                 <a href="tel:+37129664931" className="text-gray-400 hover:text-white transition-colors">
                   +371 29 664 931
                 </a>
-              </div>
-              <div className="flex items-center whitespace-nowrap">
-                <span className="text-[#FBBF24] mx-4">|</span>
-                <span className="text-center">
-                  {language === 'lv' ? 'Jūrmalas iela 14, Piņķi' : 'Jurmalas street 14, Pinki'} <span className="text-[#FBBF24] mx-4">|</span> {language === 'lv' ? 'Katrīnas iela 12, Rīga' : 'Katrinas street 12, Riga'}
+                <span className="text-[#FBBF24] hidden md:inline mx-2 h-4 flex items-center">|</span>
+                <span className="text-gray-400">
+                  aleksandra@batutufitness.lv
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Social Icons */}
+          {/* Social Icons - Right */}
           <div className="flex items-center space-x-4 shrink-0">
             <a
               href="https://www.facebook.com/aleksandra.kurusova"

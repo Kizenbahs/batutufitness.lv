@@ -5,6 +5,7 @@ import { MenuIcon, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
+import { routes, isAnchorRoute } from "../routes/routes";
 
 interface HeaderProps {
   onMenuToggle: () => void;
@@ -33,87 +34,34 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
     };
   }, []);
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     if (isMenuOpen) {
       onMenuToggle();
     }
-    if (location.pathname !== '/') {
-      navigate('/#contact');
+
+    if (isAnchorRoute(path)) {
+      const cleanPath = path.replace('/', '');
+      if (location.pathname !== '/') {
+        navigate(`/#${cleanPath}`);
+      } else {
+        setTimeout(() => {
+          const section = document.getElementById(cleanPath);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 300);
+      }
     } else {
-      setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
+      navigate(path);
     }
   };
 
-  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (isMenuOpen) {
-      onMenuToggle();
-    }
-    if (location.pathname !== '/') {
-      navigate('/#about');
-    } else {
-      setTimeout(() => {
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-          aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
-    }
-  };
-
-  const handleScheduleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (isMenuOpen) {
-      onMenuToggle();
-    }
-    if (location.pathname !== '/') {
-      navigate('/#schedule');
-    } else {
-      setTimeout(() => {
-        const scheduleSection = document.getElementById('schedule');
-        if (scheduleSection) {
-          scheduleSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
-    }
-  };
-
-  const handleMarathonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (isMenuOpen) {
-      onMenuToggle();
-    }
-    navigate('/marathon');
-  };
-
-  const menuItems = [
-    { 
-      label: language === 'lv' ? 'NODARBĪBAS' : 'SCHEDULE', 
-      path: "#schedule",
-      onClick: handleScheduleClick 
-    },
-    { 
-      label: language === 'lv' ? 'PAR MUMS' : 'ABOUT US', 
-      path: "#about",
-      onClick: handleAboutClick 
-    },
-    { 
-      label: language === 'lv' ? 'MARATONI' : 'MARATHONS', 
-      path: "/marathon",
-      onClick: handleMarathonClick
-    },
-    { 
-      label: language === 'lv' ? 'KONTAKTI' : 'CONTACTS', 
-      path: "#contact",
-      onClick: handleContactClick 
-    },
-  ];
+  const menuItems = routes.map(route => ({
+    label: language === 'lv' ? route.labelLv : route.labelEn,
+    path: route.path,
+    onClick: (e: React.MouseEvent<HTMLAnchorElement>) => handleNavigation(e, route.path)
+  }));
 
   return (
     <>
@@ -126,7 +74,18 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
         )}
       >
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a 
+          href="/" 
+          onClick={(e) => {
+            e.preventDefault();
+            if (location.pathname !== '/') {
+              navigate('/');
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+          className="flex items-center"
+        >
           <span className="text-white font-bold text-xl md:text-2xl">
             BATUTU.
           </span>
@@ -199,18 +158,14 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
             >
               <div className="flex flex-col items-center py-6 space-y-6">
                 {menuItems.map((item, index) => (
-                  <motion.a
+                  <a
                     key={index}
                     href={item.path}
                     onClick={item.onClick}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group relative text-white transition-colors font-medium text-lg tracking-wider hover:text-white"
+                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-lg"
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </motion.div>
