@@ -258,7 +258,7 @@ const Sessions: React.FC<SessionsProps> = ({ language, toggleLanguage }) => {
       </section>
 
       {/* Footer */}
-      <Footer language={language} />
+      <Footer />
     </div>
   );
 };

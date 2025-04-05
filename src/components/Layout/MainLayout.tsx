@@ -29,7 +29,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <main className="flex-grow">
         {children}
       </main>
-      <Footer language={language} />
+      <Footer />
     </div>
   );
 }; 

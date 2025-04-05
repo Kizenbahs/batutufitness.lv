@@ -29,15 +29,15 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
           alt="Trampoline fitness experience"
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/80 to-black/95"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center">
-        <div className="w-full max-w-[85rem] px-4 text-center pt-12 sm:pt-20 md:pt-24">
+        <div className="w-full max-w-[85rem] px-4 text-center pt-16 sm:pt-20 md:pt-24">
           {/* Main Heading */}
-          <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl lg:text-6xl sm:mb-6 md:mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-            <div className="relative flex items-center justify-center space-x-2 sm:block">
+          <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl sm:mb-8 md:mb-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            <div className="relative flex flex-col items-center justify-center space-y-2 sm:block sm:space-y-0">
               <motion.span 
                 className="text-white inline-block"
                 initial={{ y: 20, opacity: 0 }}
@@ -61,24 +61,24 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
               >
                 {language === 'lv' ? 'Enerģija²' : 'Energy²'}
               </motion.span>
+              <motion.span 
+                className="block text-white mt-2 sm:mt-0 sm:inline"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+              >
+                {language === 'lv' ? 'Rezultāti!' : 'Results!'}
+              </motion.span>
             </div>
-            <motion.span 
-              className="block text-white mt-1 sm:mt-0 sm:inline"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ 
-                duration: 0.5,
-                delay: 0.3,
-                ease: "easeOut"
-              }}
-            >
-              {language === 'lv' ? 'Rezultāti!' : 'Results!'}
-            </motion.span>
           </h1>
 
           {/* Description */}
-          <motion.div 
-            className="mx-auto mb-6 w-full max-w-4xl text-xs leading-relaxed text-white/90 sm:text-sm md:text-lg sm:mb-10 md:mb-12 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
+          <motion.div
+            className="mx-auto mb-8 w-full max-w-2xl px-2 text-base leading-relaxed text-white/90 sm:text-lg md:text-xl sm:mb-12 md:mb-16 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ 
@@ -87,29 +87,29 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
               ease: "easeOut"
             }}
           >
-            <p className="mb-2">
+            <p className="mb-4 font-medium">
               {language === 'lv' 
-                ? <>Latvijas vadošais batutu fitnesa centrs <span className="text-[#FBBF24]">ar Aleksandru Kurusovu</span> piedāvā efektīvas un jautras treniņa pieredzes visiem fiziskās sagatavotības līmeņiem.</>
+                ? <>Pirmais batutu fitness Latvijā – kopā ar <span className="text-[#FBBF24]">Aleksandru Kurusovu</span>!</>
                 : <>Latvia's premier trampoline fitness center <span className="text-[#FBBF24]">with Alexandra Kurusova</span> offers effective and fun workout experiences for all fitness levels.</>}
             </p>
-            <p>
+            <p className="leading-relaxed">
               {language === 'lv' 
-                ? <>Enerģiskas grupu <span className="text-[#FBBF24]">nodarbības Rīgā un Piņķos</span> – lēkā, sporto un baudi kustību kā vēl nekad!</>
+                ? <>Enerģiskākās grupu <span className="text-[#FBBF24]">nodarbības Rīgā un Piņķos</span>. Lēkā, sporto un baudi kustību kā vēl nekad!</>
                 : 'The most energetic group classes in Riga and Pinki – jump, exercise and enjoy movement like never before!'}
             </p>
           </motion.div>
 
           {/* Three Feature Points with Icons */}
-          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8 md:gap-12 lg:gap-16 sm:mb-10 md:mb-12">
-            <div className="flex flex-row items-start space-x-3 sm:flex-col sm:items-center sm:space-x-0 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-3 md:mb-4 sm:h-12 sm:w-12 shadow-lg shadow-primary/20">
-                <Users className="h-5 w-5 sm:h-6 sm:w-6" />
+          <div className="mb-10 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 md:gap-8 lg:gap-12 sm:mb-12 md:mb-16">
+            <div className="flex flex-row items-center space-x-4 sm:flex-col sm:items-center sm:space-x-0 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-4 md:mb-5 sm:h-14 sm:w-14 shadow-lg shadow-primary/20">
+                <Users className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
               <div className="min-w-0 flex-1 text-left sm:text-center">
-                <h3 className="mb-1 text-sm font-bold text-white sm:text-base md:text-lg">
+                <h3 className="mb-1 text-base font-bold text-white sm:text-lg md:text-xl">
                   {language === 'lv' ? 'Profesionāli treneri' : 'Expert Trainers'}
                 </h3>
-                <p className="text-xs text-white/70 sm:text-sm">
+                <p className="text-sm text-white/80 sm:text-base">
                   {language === 'lv' 
                     ? 'Nodarbības profesionāļu vadībā'
                     : 'Certified professionals guiding your fitness journey'}
@@ -117,15 +117,15 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
               </div>
             </div>
 
-            <div className="flex flex-row items-start space-x-3 sm:flex-col sm:items-center sm:space-x-0 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-3 md:mb-4 sm:h-12 sm:w-12 shadow-lg shadow-primary/20 pulse-effect">
-                <Target className="h-5 w-5 sm:h-6 sm:w-6" />
+            <div className="flex flex-row items-center space-x-4 sm:flex-col sm:items-center sm:space-x-0 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-4 md:mb-5 sm:h-14 sm:w-14 shadow-lg shadow-primary/20 pulse-effect">
+                <Target className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
               <div className="min-w-0 flex-1 text-left sm:text-center">
-                <h3 className="mb-1 text-sm font-bold text-white sm:text-base md:text-lg">
+                <h3 className="mb-1 text-base font-bold text-white sm:text-lg md:text-xl">
                   {language === 'lv' ? 'Visiem līmeņiem' : 'All Fitness Levels'}
                 </h3>
-                <p className="text-xs text-white/70 sm:text-sm">
+                <p className="text-sm text-white/80 sm:text-base">
                   {language === 'lv'
                     ? 'Piemērotas gan sievietēm, gan vīriešiem'
                     : 'Classes designed for beginners to enthusiasts'}
@@ -133,15 +133,15 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
               </div>
             </div>
 
-            <div className="flex flex-row items-start space-x-3 sm:flex-col sm:items-center sm:space-x-0 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-3 md:mb-4 sm:h-12 sm:w-12 shadow-lg shadow-primary/20">
-                <Clock className="h-5 w-5 sm:h-6 sm:w-6" />
+            <div className="flex flex-row items-center space-x-4 sm:flex-col sm:items-center sm:space-x-0 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 text-primary sm:mb-4 md:mb-5 sm:h-14 sm:w-14 shadow-lg shadow-primary/20">
+                <Clock className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
               <div className="min-w-0 flex-1 text-left sm:text-center">
-                <h3 className="mb-1 text-sm font-bold text-white sm:text-base md:text-lg">
+                <h3 className="mb-1 text-base font-bold text-white sm:text-lg md:text-xl">
                   {language === 'lv' ? 'Elastīgs grafiks' : 'Flexible Schedule'}
                 </h3>
-                <p className="text-xs text-white/70 sm:text-sm">
+                <p className="text-sm text-white/80 sm:text-base">
                   {language === 'lv'
                     ? 'Sporto sev izdevīgā laikā un vietā'
                     : 'Multiple classes daily to fit your busy lifestyle'}
@@ -151,16 +151,16 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
           </div>
 
           {/* Two Buttons */}
-          <div className="flex w-full flex-col items-center space-y-3 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
+          <div className="flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-6 sm:space-y-0">
             <button
               onClick={onScheduleClick}
-              className="w-[80%] max-w-[300px] rounded-lg bg-[#FBBF24] px-4 py-2.5 text-sm font-bold text-black transition-all hover:scale-105 hover:bg-[#FBBF24]/90 shadow-md shadow-[#FBBF24]/30 hover:shadow-lg hover:shadow-[#FBBF24]/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-6 sm:py-3.5"
+              className="w-[85%] max-w-[300px] rounded-xl bg-[#FBBF24] px-6 py-3.5 text-base font-bold text-black transition-all hover:scale-105 hover:bg-[#FBBF24]/90 shadow-md shadow-[#FBBF24]/30 hover:shadow-lg hover:shadow-[#FBBF24]/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-8 sm:py-4"
             >
               {language === 'lv' ? 'NODARBĪBAS' : 'CLASSES'}
             </button>
             <button
               onClick={handleMarathonClick}
-              className="w-[80%] max-w-[300px] rounded-lg border-2 border-white/30 bg-transparent px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-6 sm:py-3.5 flex items-center justify-center"
+              className="w-[85%] max-w-[300px] rounded-xl border-2 border-white/40 bg-black/30 backdrop-blur-sm px-6 py-3.5 text-base font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-8 sm:py-4 flex items-center justify-center"
             >
               {language === 'lv' ? 'PIESAKIES MARATONAM' : 'JOIN MARATHON'}
               <FaArrowRight className="ml-2 mt-0 inline-block" />

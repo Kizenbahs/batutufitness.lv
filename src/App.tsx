@@ -1,5 +1,5 @@
 import React, { Suspense, useState, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { LoadingSpinner } from './components/LoadingSpinner';
 import { Footer } from './components/Footer';
 import { Schedule } from './components/Schedule';
@@ -27,6 +27,19 @@ function App() {
     }
   };
 
+  const MainContent = () => (
+    <>
+      <HeroSection 
+        language={language} 
+        onScheduleClick={handleScheduleClick}
+      />
+      <AboutUsSection language={language} />
+      <Schedule language={language} />
+      <FAQ language={language} />
+      <Footer />
+    </>
+  );
+
   return (
     <Router>
       <div className="app-container">
@@ -39,23 +52,18 @@ function App() {
         />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            <Route path="/" element={
-              <>
-                <HeroSection 
-                  language={language} 
-                  onScheduleClick={handleScheduleClick}
-                />
-                <AboutUsSection language={language} />
-                <Schedule language={language} />
-                <FAQ language={language} />
-                <Footer language={language} />
-              </>
-            } />
+            <Route path="/" element={<MainContent />} />
             <Route path="/marathon" element={
               <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
                 <MarathonPage language={language} onLanguageToggle={onLanguageToggle} />
               </Suspense>
             } />
+            {/* Redirect anchor routes to home with hash */}
+            <Route path="/schedule" element={<Navigate to="/#schedule" replace />} />
+            <Route path="/about" element={<Navigate to="/#about" replace />} />
+            <Route path="/contact" element={<Navigate to="/#contact" replace />} />
+            {/* Catch all route - redirect to home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </div>

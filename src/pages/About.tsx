@@ -245,7 +245,7 @@ const About: React.FC<AboutProps> = ({ language, toggleLanguage }) => {
       </section>
 
       {/* Footer */}
-      <Footer language={language} />
+      <Footer />
     </div>
   );
 };
