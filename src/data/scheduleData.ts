@@ -3,7 +3,7 @@ export interface TrainingSession {
   duration: string;
   type: string;
   trainer: string;
-  maxParticipants?: number;
+  maxParticipants: number;
   currentParticipants?: number;
 }
 

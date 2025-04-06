@@ -4,16 +4,6 @@ const SHEET_ID = '1gEtFLPVR58Oy45Nl_Ly_pfQv8n2gUF3DH9UxElATsbw';
 const SHEET_RANGE = 'A1:G1000';
 const API_KEY = 'AIzaSyDnmKJjBqcB40sWHX04szUP9gBjABTZ0I4';
 
-interface SheetRow {
-  location: string;
-  day: string;
-  time: string;
-  type: string;
-  duration: string;
-  trainer: string;
-  maxParticipants?: string;
-}
-
 export async function fetchScheduleData(): Promise<ScheduleData> {
   try {
     const response = await fetch(
