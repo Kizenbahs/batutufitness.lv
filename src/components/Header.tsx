@@ -148,20 +148,20 @@ export default function Header() {
         <div className="flex items-center space-x-4 md:hidden">
           <button
             onClick={toggleLanguage}
-            className="group relative text-white transition-colors font-medium text-sm hover:text-white"
+            className="group relative text-white transition-colors font-medium text-base hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
           </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white hover:text-[#FBBF24] transition-colors p-1"
+            className="text-white hover:text-[#FBBF24] transition-colors p-2"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
-              <X className="h-8 w-8" />
+              <X className="h-10 w-10" />
             ) : (
-              <MenuIcon className="h-8 w-8" />
+              <MenuIcon className="h-10 w-10" />
             )}
           </button>
         </div>
@@ -184,13 +184,13 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="bg-black/95 backdrop-blur-md shadow-lg overflow-hidden"
             >
-              <div className="flex flex-col items-center py-6 space-y-6">
+              <div className="flex flex-col items-center py-8 space-y-8">
                 {menuItems.map((item, index) => (
                   <a
                     key={index}
                     href={item.path}
                     onClick={item.onClick}
-                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-sm tracking-wider"
+                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-xl tracking-wider px-6 py-3"
                   >
                     {item.label}
                   </a>
