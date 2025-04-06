@@ -141,11 +141,13 @@ export default defineConfig({
         skipWaiting: true,
         clientsClaim: true,
         cleanupOutdatedCaches: true,
-        navigationPreload: true
+        navigationPreload: false,
+        navigateFallback: 'index.html'
       },
       devOptions: {
         enabled: true,
-        type: 'module'
+        type: 'module',
+        navigateFallback: 'index.html'
       }
     })
   ],
