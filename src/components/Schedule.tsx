@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BookingForm } from './BookingForm';
-import { SelectedSession } from '../types';
-import type { TrainingSession, ScheduleData } from '../data/scheduleData';
+import type { ScheduleData } from '../data/scheduleData';
 import { useLanguage } from '../context/LanguageContext';
 import { fetchScheduleData } from '../utils/sheetsFetcher';
 
@@ -12,8 +10,6 @@ export const Schedule: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [activeLocation, setActiveLocation] = useState<string>("PIŅĶI");
   const [activeDay, setActiveDay] = useState<string>("Pirmdiena");
-  const [selectedSessions, setSelectedSessions] = useState<SelectedSession[]>([]);
-  const [showBookingForm, setShowBookingForm] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const days = ['Pirmdiena', 'Otrdiena', 'Trešdiena', 'Ceturtdiena', 'Piektdiena', 'Sestdiena', 'Svētdiena'];
@@ -43,43 +39,6 @@ export const Schedule: React.FC = () => {
   const handleDaySelect = (day: string) => {
     setActiveDay(day);
     setIsDropdownOpen(false);
-  };
-
-  const handleSessionSelect = (session: TrainingSession) => {
-    const newSession: SelectedSession = {
-      id: `${session.time}-${activeDay}-${activeLocation}`,
-      time: session.time,
-      type: session.type,
-      duration: session.duration,
-      trainer: session.trainer,
-      maxParticipants: session.maxParticipants,
-      day: activeDay,
-      location: activeLocation,
-      selected: true
-    };
-
-    setSelectedSessions(prev => {
-      const exists = prev.find(s => s.id === newSession.id);
-      if (exists) {
-        return prev.filter(s => s.id !== newSession.id);
-      }
-      return [...prev, newSession];
-    });
-  };
-
-  const handleSubmit = () => {
-    if (selectedSessions.length > 0) {
-      setShowBookingForm(true);
-    }
-  };
-
-  const handleBookingSuccess = () => {
-    setSelectedSessions([]);
-    setShowBookingForm(false);
-  };
-
-  const handleRemoveSession = (session: SelectedSession) => {
-    setSelectedSessions(prev => prev.filter(s => s.id !== session.id));
   };
 
   if (loading) {
@@ -238,20 +197,6 @@ export const Schedule: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Booking Form Modal */}
-      {showBookingForm && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-gray-900 rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
-            <BookingForm
-              selectedSessions={selectedSessions}
-              onSuccess={handleBookingSuccess}
-              onClose={() => setShowBookingForm(false)}
-              onRemoveSession={handleRemoveSession}
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
-}; 
+};
