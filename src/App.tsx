@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { lazy, Suspense } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { MainLayout } from './components/Layout/MainLayout';
-import { LoadingSpinner } from './components/LoadingSpinner';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home.tsx'));
@@ -15,7 +14,7 @@ function App() {
     <LanguageProvider>
       <Router>
         <MainLayout>
-          <Suspense fallback={<LoadingSpinner />}>
+          <Suspense fallback={null}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
