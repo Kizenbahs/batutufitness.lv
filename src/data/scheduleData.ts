@@ -196,14 +196,21 @@ export const scheduleData: ScheduleData = {
     ],
     "Otrdiena": [
       { 
-        time: "12:00-13:00",
+        time: "09:00",
         type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
         maxParticipants: 10
       },
       { 
-        time: "20:00-21:00",
+        time: "15:00",
+        type: "Grupu treniņš",
+        duration: "60",
+        trainer: "Aleksandra K.",
+        maxParticipants: 10
+      },
+      { 
+        time: "18:00",
         type: "Grupu treniņš",
         duration: "60",
         trainer: "Aleksandra K.",
@@ -212,17 +219,24 @@ export const scheduleData: ScheduleData = {
     ],
     "Trešdiena": [
       { 
-        time: "19:30-20:30",
+        time: "10:00",
         type: "Grupu treniņš",
         duration: "60",
-        trainer: "Dagnija",
+        trainer: "Aleksandra K.",
         maxParticipants: 10
       },
       { 
-        time: "20:30-21:30",
+        time: "14:00",
         type: "Grupu treniņš",
         duration: "60",
-        trainer: "Dagnija",
+        trainer: "Aleksandra K.",
+        maxParticipants: 10
+      },
+      { 
+        time: "17:00",
+        type: "Grupu treniņš",
+        duration: "60",
+        trainer: "Aleksandra K.",
         maxParticipants: 10
       }
     ],
