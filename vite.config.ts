@@ -138,35 +138,38 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: ({ url }) => url.pathname.startsWith('/'),
-            handler: 'StaleWhileRevalidate',
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkFirst',
             options: {
               cacheName: 'pages-cache',
-              expiration: {
-                maxEntries: 20,
-                maxAgeSeconds: 60 * 60 * 24 // 24 hours
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
-            }
-          },
-          {
-            urlPattern: ({ request }) => request.mode === 'navigate',
-            handler: 'NetworkOnly',
-            options: {
               plugins: [
                 {
+                  // Handle navigation preload
+                  requestWillFetch: async ({ request, event }) => {
+                    if (event.preloadResponse) {
+                      try {
+                        const preloadResponsePromise = event.preloadResponse;
+                        const preloadResponse = await preloadResponsePromise;
+                        if (preloadResponse) {
+                          return preloadResponse;
+                        }
+                      } catch (error) {
+                        // Ignore preload errors
+                      }
+                    }
+                    return request;
+                  },
                   handlerDidError: async () => Response.redirect('/offline.html', 302)
                 }
-              ]
+              ],
+              networkTimeoutSeconds: 3
             }
           }
         ],
         skipWaiting: false,
         clientsClaim: false,
         cleanupOutdatedCaches: true,
-        navigationPreload: false,
+        navigationPreload: true,
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/^\/api\//],
         sourcemap: false
