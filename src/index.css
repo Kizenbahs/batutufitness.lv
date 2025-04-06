@@ -5,14 +5,22 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    background-color: #000000;
+  }
+
   html, body {
-    @apply overflow-x-hidden;
+    @apply overflow-x-hidden bg-black text-white;
     width: 100%;
     position: relative;
   }
   
   body {
-    @apply font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white;
+    @apply font-sans min-h-screen;
+  }
+
+  #root {
+    @apply min-h-screen bg-black;
   }
 }
 
@@ -26,7 +34,7 @@
   }
   
   .nav-link {
-    @apply text-gray-700 font-medium hover:text-primary transition-colors;
+    @apply text-gray-300 font-medium hover:text-primary transition-colors;
   }
 
   .hero-section {
@@ -40,9 +48,9 @@
   }
 
   .feature-card {
-    @apply p-8 rounded-2xl bg-white dark:bg-gray-800
+    @apply p-8 rounded-2xl bg-gray-900/70 backdrop-blur-sm
            transform hover:scale-105 transition-transform duration-300
-           shadow-lg hover:shadow-xl;
+           shadow-lg hover:shadow-xl border border-gray-800/50;
   }
 
   .hide-scrollbar {

@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       <HeroSection />
       <AboutUsSection />
       <Schedule />
