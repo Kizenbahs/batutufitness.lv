@@ -25,13 +25,20 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'image.webp'],
+      includeAssets: [
+        'favicon.svg',
+        'favicon-16x16.png',
+        'favicon-32x32.png',
+        'apple-touch-icon.png',
+        'batutu-fitness-icon.png',
+        'image.webp'
+      ],
       manifest: {
         name: 'Batutu Fitness',
         short_name: 'Batutu Fitness',
         description: 'Batutu fitness grupu nodarbības Rīgā un Piņķos',
         theme_color: '#FBA518',
-        background_color: '#ffffff',
+        background_color: '#000000',
         display: 'standalone',
         icons: [
           {
@@ -48,6 +55,12 @@ export default defineConfig({
             src: 'apple-touch-icon.png',
             sizes: '180x180',
             type: 'image/png'
+          },
+          {
+            src: 'batutu-fitness-icon.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       },
@@ -75,10 +88,30 @@ export default defineConfig({
               expiration: {
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/batutufitness\.lv\/.*/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'api-cache',
+              networkTimeoutSeconds: 5,
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 // 24 hours
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
               }
             }
           }
-        ]
+        ],
+        skipWaiting: true,
+        clientsClaim: true
       }
     })
   ],
