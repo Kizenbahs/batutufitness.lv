@@ -2,20 +2,18 @@ import React, { useEffect } from 'react';
 import { MainLayout } from '../../components/Layout/MainLayout';
 import { motion } from 'framer-motion';
 import MarathonContactForm from '../../components/MarathonContactForm';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface MarathonPageProps {
-  language: 'lv' | 'en';
-  onLanguageToggle: () => void;
-}
+const MarathonPage: React.FC = () => {
+  const { language } = useLanguage();
 
-const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle }) => {
   // Scroll to top when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <MainLayout language={language} onLanguageToggle={onLanguageToggle}>
+    <MainLayout>
       {/* Hero Section with H1 */}
       <section className="pt-32 pb-20 relative" style={{ 
         backgroundImage: 'url("/batutu-fitness-maratons.webp")',
@@ -169,7 +167,7 @@ const MarathonPage: React.FC<MarathonPageProps> = ({ language, onLanguageToggle 
                 <h3 className="text-xl font-semibold text-yellow-400 mb-6 pl-0 sm:pl-12">
                   {language === 'lv' ? 'Piesakies maratonam' : 'Register for the marathon'}
                 </h3>
-                <MarathonContactForm language={language} />
+                <MarathonContactForm />
               </div>
             </motion.div>
           </div>

@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { Users, Heart, Star } from "lucide-react";
+import { useLanguage } from '../context/LanguageContext';
 
-interface AboutUsSectionProps {
-  language: 'lv' | 'en';
-}
+export default function AboutUsSection() {
+  const { language } = useLanguage();
 
-export default function AboutUsSection({ language }: AboutUsSectionProps) {
   return (
     <section
       id="about"
@@ -51,12 +50,12 @@ export default function AboutUsSection({ language }: AboutUsSectionProps) {
                 <Star className="h-6 w-6 text-[#FBBF24]" />
               </div>
               <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                {language === 'lv' ? 'Pirmie Latvijā' : 'First in Latvia'}
+                {language === 'lv' ? 'Kustība, kas aizrauj' : 'Movement that captivates'}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 {language === 'lv'
-                  ? 'Pirmais šāda veida treniņš Latvijā. Intensīvs kardio, spēka un līdzsvara treniņš apvienots ar lēkāšanas prieku.'
-                  : 'The first training of its kind in Latvia. Intensive cardio, strength and balance training combined with the joy of jumping.'}
+                  ? 'Batutu Fitness ar Aleksandru Kurusovu ir pirmais šāda veida treniņu koncepts Latvijā. Šeit mēs apvienojam intensīvu kardio, spēka un līdzsvara vingrinājumus ar prieku, ko sniedz lēkāšana uz batuta.'
+                  : 'Batutu Fitness with Aleksandrs Kurusovs is the first training concept of its kind in Latvia. Here we combine intense cardio, strength and balance exercises with the joy of jumping on a trampoline.'}
               </p>
             </div>
           </motion.div>
@@ -75,7 +74,7 @@ export default function AboutUsSection({ language }: AboutUsSectionProps) {
                 <Heart className="h-6 w-6 text-[#FBBF24]" />
               </div>
               <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                {language === 'lv' ? 'Harizmātiska trenere' : 'Charismatic trainer'}
+                {language === 'lv' ? 'Enerģija, kas iedvesmo' : 'Energy that inspires'}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 {language === 'lv'
@@ -99,12 +98,12 @@ export default function AboutUsSection({ language }: AboutUsSectionProps) {
                 <Users className="h-6 w-6 text-[#FBBF24]" />
               </div>
               <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                {language === 'lv' ? 'Piemērots visiem' : 'Suitable for everyone'}
+                {language === 'lv' ? 'Rezultāti, kas pārsteidz' : 'Results that amaze'}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 {language === 'lv'
-                  ? 'Piemērots visiem – jebkurā vecumā un sagatavotībā. Enerģiskas grupu nodarbības Rīgā un Piņķos.'
-                  : 'Suitable for everyone – at any age and fitness level. Energetic group workouts in Riga and Pinki.'}
+                  ? 'Mūsu nodarbības piemērotas gan sievietēm, gan vīriešiem – jebkurā vecumā un sagatavotības līmenī.'
+                  : 'Our classes are suitable for both women and men – at any age and fitness level.'}
               </p>
             </div>
           </motion.div>

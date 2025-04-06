@@ -5,16 +5,12 @@ import { MenuIcon, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
-interface HeaderProps {
-  onMenuToggle: () => void;
-  isMenuOpen: boolean;
-  language: 'lv' | 'en';
-  onLanguageToggle: () => void;
-}
-
-export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageToggle }: HeaderProps) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,7 +32,7 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (isMenuOpen) {
-      onMenuToggle();
+      setIsMenuOpen(false);
     }
     if (location.pathname !== '/') {
       navigate('/#contact');
@@ -53,24 +49,15 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (isMenuOpen) {
-      onMenuToggle();
+      setIsMenuOpen(false);
     }
-    if (location.pathname !== '/') {
-      navigate('/#about');
-    } else {
-      setTimeout(() => {
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-          aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
-    }
+    navigate('/about');
   };
 
   const handleScheduleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (isMenuOpen) {
-      onMenuToggle();
+      setIsMenuOpen(false);
     }
     if (location.pathname !== '/') {
       navigate('/#schedule');
@@ -87,7 +74,7 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
   const handleMarathonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (isMenuOpen) {
-      onMenuToggle();
+      setIsMenuOpen(false);
     }
     navigate('/marathon');
   };
@@ -100,7 +87,7 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
     },
     { 
       label: language === 'lv' ? 'PAR MUMS' : 'ABOUT US', 
-      path: "#about",
+      path: "/about",
       onClick: handleAboutClick 
     },
     { 
@@ -127,8 +114,8 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
       >
         {/* Logo */}
         <a href="/" className="flex items-center">
-          <span className="text-white font-bold text-xl md:text-2xl">
-            BATUTU.
+          <span className="text-white font-bold text-xl md:text-2xl mr-1">
+            BATUTU
           </span>
           <span className="text-[#FBBF24] font-bold text-xl md:text-2xl">
             FITNESS
@@ -149,7 +136,7 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
             </a>
           ))}
           <button
-            onClick={onLanguageToggle}
+            onClick={toggleLanguage}
             className="group relative text-white transition-colors font-medium text-sm ml-2 hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
@@ -160,14 +147,14 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
         {/* Mobile Controls */}
         <div className="flex items-center space-x-4 md:hidden">
           <button
-            onClick={onLanguageToggle}
+            onClick={toggleLanguage}
             className="group relative text-white transition-colors font-medium text-sm hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
           </button>
           <button
-            onClick={onMenuToggle}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white hover:text-[#FBBF24] transition-colors p-1"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -199,18 +186,14 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
             >
               <div className="flex flex-col items-center py-6 space-y-6">
                 {menuItems.map((item, index) => (
-                  <motion.a
+                  <a
                     key={index}
                     href={item.path}
                     onClick={item.onClick}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group relative text-white transition-colors font-medium text-lg tracking-wider hover:text-white"
+                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-sm tracking-wider"
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </motion.div>

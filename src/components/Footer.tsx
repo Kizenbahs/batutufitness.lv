@@ -19,8 +19,8 @@ export const Footer: React.FC<FooterProps> = () => {
           <div className="flex flex-col md:flex-row items-center md:items-start space-y-2 md:space-y-0 md:space-x-6">
             {/* Logo */}
             <div className="flex items-center shrink-0">
-              <span className="text-white font-bold text-sm">BATUTU</span>
-              <span className="text-[#FBBF24] font-bold text-sm">.FITNESS</span>
+              <span className="text-white font-bold text-sm mr-1">BATUTU</span>
+              <span className="text-[#FBBF24] font-bold text-sm">FITNESS</span>
             </div>
 
             {/* Divider between logo and contact info */}

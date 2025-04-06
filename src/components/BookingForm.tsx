@@ -3,12 +3,12 @@ import { SelectedSession } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../config/email';
+import { useLanguage } from '../context/LanguageContext';
 
 interface BookingFormProps {
   selectedSessions: SelectedSession[];
   onClose: () => void;
   onSuccess: () => void;
-  language: string;
   onRemoveSession: (session: SelectedSession) => void;
 }
 
@@ -16,9 +16,9 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   selectedSessions,
   onClose,
   onSuccess,
-  language,
   onRemoveSession
 }) => {
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -200,119 +200,115 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       {session.trainer}
                     </div>
                   </div>
-                  <button
-                    onClick={() => onRemoveSession(session)}
-                    className="absolute top-2 right-2 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                    aria-label={language === 'lv' ? 'Dzēst treniņu' : 'Remove session'}
-                  >
-                    <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="p-4 space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">
-                {language === 'lv' ? 'Vārds, Uzvārds' : 'Full Name'}
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">
-                {language === 'lv' ? 'E-pasts' : 'Email'}
-              </label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => {
-                  setFormData({ ...formData, email: e.target.value });
-                  setEmailError('');
-                }}
-                className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"
-              />
-              {emailError && (
-                <p className="mt-1 text-sm text-red-400">
-                  {emailError}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-400 mb-1">
-                {language === 'lv' ? 'Telefons' : 'Phone'}
-              </label>
-              <input
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                pattern="[0-9]{8}"
-                maxLength={8}
-                placeholder={language === 'lv' ? '12345678' : '12345678'}
-                className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"
-              />
-              {phoneError && (
-                <p className="mt-1 text-sm text-red-400">
-                  {phoneError}
-                </p>
-              )}
+          <form onSubmit={handleSubmit} className="p-4">
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1">
+                  {language === 'lv' ? 'Vārds' : 'Name'}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1">
+                  {language === 'lv' ? 'E-pasts' : 'Email'}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={`w-full px-4 py-2 bg-gray-800 border ${
+                    emailError ? 'border-red-500' : 'border-gray-700'
+                  } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary`}
+                  required
+                />
+                {emailError && (
+                  <p className="mt-1 text-sm text-red-500">{emailError}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1">
+                  {language === 'lv' ? 'Telefons' : 'Phone'}
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  className={`w-full px-4 py-2 bg-gray-800 border ${
+                    phoneError ? 'border-red-500' : 'border-gray-700'
+                  } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary`}
+                  required
+                />
+                {phoneError && (
+                  <p className="mt-1 text-sm text-red-500">{phoneError}</p>
+                )}
+              </div>
             </div>
 
             {error && (
-              <div className="p-3 bg-red-500/10 text-red-400 rounded-lg text-sm">
-                {error}
+              <div className="mt-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+                <p className="text-sm text-red-500">{error}</p>
               </div>
             )}
-            
-            {/* Actions */}
-            <div className="flex items-center justify-end gap-3 mt-6">
+
+            <div className="mt-6 flex justify-end space-x-3">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2.5 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition-all"
-                disabled={loading}
+                className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors"
               >
                 {language === 'lv' ? 'Atcelt' : 'Cancel'}
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-all disabled:opacity-50"
+                className={`px-6 py-2 bg-primary text-white rounded-lg font-medium transition-all duration-300 ${
+                  loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/90'
+                }`}
               >
-                {loading 
-                  ? (language === 'lv' ? 'Notiek pieteikšanās...' : 'Booking...') 
-                  : (language === 'lv' ? 'Apstiprināt' : 'Confirm')}
+                {loading ? (
+                  <span className="flex items-center">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    {language === 'lv' ? 'Nosūta...' : 'Sending...'}
+                  </span>
+                ) : (
+                  language === 'lv' ? 'Pieteikties' : 'Submit'
+                )}
               </button>
             </div>
           </form>
         </div>
       </div>
 
-      {/* Success Popup */}
+      {/* Success Message */}
       <AnimatePresence>
         {showSuccess && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed inset-0 flex items-center justify-center z-50"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50"
           >
-            <div className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
-              {language === 'lv' 
-                ? 'Paldies, pieteikums saņemts! Mēs sazināsimies pavisam drīz!'
-                : 'Thank you, booking received! We will contact you very soon!'}
-            </div>
+            {language === 'lv' ? 'Pieteikums veiksmīgi nosūtīts!' : 'Booking submitted successfully!'}
           </motion.div>
         )}
       </AnimatePresence>

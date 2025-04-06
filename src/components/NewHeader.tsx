@@ -87,7 +87,7 @@ export default function Header({ onMenuToggle, isMenuOpen, language, onLanguageT
           className="flex items-center"
         >
           <span className="text-white font-bold text-xl md:text-2xl">
-            BATUTU.
+            BATUTU
           </span>
           <span className="text-[#FBBF24] font-bold text-xl md:text-2xl">
             FITNESS

@@ -3,12 +3,10 @@ import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../config/email';
 import { FaArrowRight } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 
-interface MarathonContactFormProps {
-  language: 'lv' | 'en';
-}
-
-const MarathonContactForm: React.FC<MarathonContactFormProps> = ({ language }) => {
+const MarathonContactForm: React.FC = () => {
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

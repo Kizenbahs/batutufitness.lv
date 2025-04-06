@@ -3,12 +3,10 @@ import { scheduleData } from '../data/scheduleData';
 import { BookingForm } from './BookingForm';
 import { SelectedSession } from '../types';
 import type { TrainingSession } from '../data/scheduleData';
+import { useLanguage } from '../context/LanguageContext';
 
-interface ScheduleProps {
-  language: 'lv' | 'en';
-}
-
-export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
+export const Schedule: React.FC = () => {
+  const { language } = useLanguage();
   const [activeLocation, setActiveLocation] = useState<string>("PIŅĶI");
   const [activeDay, setActiveDay] = useState<string>(Object.keys(scheduleData[activeLocation])[0]);
   const [selectedSessions, setSelectedSessions] = useState<SelectedSession[]>([]);
@@ -198,27 +196,8 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
                     }`}>
                       {session.type}
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div className={`text-sm font-medium ${
-                        isSelected ? 'text-white/90' : 'text-gray-300'
-                      }`}>
-                        {session.trainer}
-                      </div>
-                      <svg 
-                        className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${
-                          isSelected ? 'text-white' : 'text-gray-400'
-                        }`}
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                      >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          strokeWidth={2} 
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                    <div className="text-sm text-gray-400">
+                      {session.trainer}
                     </div>
                   </div>
                 </div>
@@ -226,50 +205,51 @@ export const Schedule: React.FC<ScheduleProps> = ({ language }) => {
             })}
           </div>
 
-          {/* Additional Description */}
-          <p className="text-gray-400 text-center">
-            {language === 'lv' 
-              ? 'Izvēlies vienu vai vairākas nodarbības un piesakies tiešsaistē tagad!' 
-              : 'Select one or more sessions and book online now!'}
-          </p>
-        </div>
-      </div>
-
-      {/* Selected Sessions Bar */}
-      {selectedSessions.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm border-t border-gray-800 shadow-2xl z-50">
-          <div className="w-full max-w-[95%] lg:max-w-6xl mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <span className="text-white font-semibold">
-                  {language === 'lv' 
-                    ? `${selectedSessions.length} izvēlēt${selectedSessions.length === 1 ? 's' : 'i'} treniņ${selectedSessions.length === 1 ? 's' : 'i'}`
-                    : `${selectedSessions.length} session${selectedSessions.length === 1 ? '' : 's'} selected`}
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
+          {/* Selected Sessions Summary */}
+          {selectedSessions.length > 0 && (
+            <div className="max-w-5xl mx-auto mb-8">
+              <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-6">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {language === 'lv' ? 'Izvēlētās nodarbības' : 'Selected classes'}
+                </h3>
+                <div className="space-y-3">
+                  {selectedSessions.map((session) => (
+                    <div key={session.id} className="flex items-center justify-between bg-gray-900/50 rounded-lg p-3">
+                      <div>
+                        <div className="text-white font-medium">{session.time} - {session.type}</div>
+                        <div className="text-sm text-gray-400">{session.day} - {session.location}</div>
+                      </div>
+                      <button
+                        onClick={() => handleRemoveSession(session)}
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  ))}
+                </div>
                 <button
                   onClick={handleSubmit}
-                  className="px-8 py-2.5 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                  className="mt-6 w-full bg-primary text-white py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors"
                 >
-                  {language === 'lv' ? 'Pieteikties' : 'Book Now'}
+                  {language === 'lv' ? 'Pieteikties' : 'Book now'}
                 </button>
               </div>
             </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Booking Form Modal */}
       {showBookingForm && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="w-full max-w-lg bg-gray-900 rounded-2xl shadow-2xl">
+          <div className="bg-gray-900 rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <BookingForm
               selectedSessions={selectedSessions}
-              language={language}
               onSuccess={handleBookingSuccess}
               onClose={() => setShowBookingForm(false)}
-              onRemoveSession={handleRemoveSession}
             />
           </div>
         </div>

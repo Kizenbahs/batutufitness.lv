@@ -3,18 +3,23 @@ import { Users, Target, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 
-interface HeroSectionProps {
-  language: 'lv' | 'en';
-  onScheduleClick: (e: React.MouseEvent) => void;
-}
-
-export default function HeroSection({ language, onScheduleClick }: HeroSectionProps) {
+export default function HeroSection() {
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   const handleMarathonClick = (e: React.MouseEvent) => {
     e.preventDefault();
     navigate('/marathon');
+  };
+
+  const handleScheduleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const scheduleSection = document.getElementById('schedule');
+    if (scheduleSection) {
+      scheduleSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -153,7 +158,7 @@ export default function HeroSection({ language, onScheduleClick }: HeroSectionPr
           {/* Two Buttons */}
           <div className="flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-6 sm:space-y-0 mb-8 sm:mb-0">
             <button
-              onClick={onScheduleClick}
+              onClick={handleScheduleClick}
               className="w-[85%] max-w-[300px] rounded-xl bg-[#FBBF24] px-6 py-3.5 text-base font-bold text-black transition-all hover:scale-105 hover:bg-[#FBBF24]/90 shadow-md shadow-[#FBBF24]/30 hover:shadow-lg hover:shadow-[#FBBF24]/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-8 sm:py-4"
             >
               {language === 'lv' ? 'NODARBĪBAS' : 'CLASSES'}
