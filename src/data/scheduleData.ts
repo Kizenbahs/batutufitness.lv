@@ -180,24 +180,17 @@ export const scheduleData: ScheduleData = {
   "PIŅĶI": {
     "Pirmdiena": [
       { 
-        time: "10:00",
+        time: "19:00-20:30",
         type: "Grupu treniņš",
-        duration: "60",
+        duration: "90",
         trainer: "Aleksandra K.",
         maxParticipants: 10
       },
       { 
-        time: "14:00",
+        time: "20:30-21:30",
         type: "Grupu treniņš",
         duration: "60",
-        trainer: "Aleksandra K.",
-        maxParticipants: 10
-      },
-      { 
-        time: "17:00",
-        type: "Grupu treniņš",
-        duration: "60",
-        trainer: "Aleksandra K.",
+        trainer: "Dagnija",
         maxParticipants: 10
       }
     ],
