@@ -24,14 +24,15 @@ export default defineConfig({
       brotliSize: true,
     }),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       includeAssets: [
         'favicon.svg',
         'favicon-16x16.png',
         'favicon-32x32.png',
         'apple-touch-icon.png',
         'batutu-fitness-icon.png',
-        'image.webp'
+        'image.webp',
+        'offline.html'
       ],
       manifest: {
         name: 'Batutu Fitness',
@@ -123,13 +124,26 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: /^https:\/\/batutufitness\.lv\/.*/,
-            handler: 'NetworkFirst',
+            urlPattern: /\.(js|css)$/i,
+            handler: 'StaleWhileRevalidate',
             options: {
-              cacheName: 'api-cache',
-              networkTimeoutSeconds: 5,
+              cacheName: 'static-resources',
               expiration: {
                 maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 7 // 1 week
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'pages-cache',
+              expiration: {
+                maxEntries: 20,
                 maxAgeSeconds: 60 * 60 * 24 // 24 hours
               },
               cacheableResponse: {
@@ -149,8 +163,8 @@ export default defineConfig({
             }
           }
         ],
-        skipWaiting: true,
-        clientsClaim: true,
+        skipWaiting: false,
+        clientsClaim: false,
         cleanupOutdatedCaches: true,
         navigationPreload: false,
         navigateFallback: 'index.html',
