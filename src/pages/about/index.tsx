@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { MainLayout } from '../../components/Layout/MainLayout';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -12,7 +11,7 @@ const AboutPage: React.FC = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <div className="min-h-screen bg-black">
       {/* Hero Section with H1 */}
       <section className="pt-32 pb-20 relative" style={{ 
         backgroundImage: 'url("/batutu-fitness-maratons.webp")',
@@ -54,14 +53,14 @@ const AboutPage: React.FC = () => {
                     <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kustība, kas aizrauj</h3>
                     <div className="text-gray-300 space-y-6">
                       <p>
-                        Batutu Fitness ir vairāk nekā tikai fitnesa studija – tā ir vieta, kur katrs var atrast savu ceļu uz veselīgu un aktīvu dzīvesveidu. Mēs ticam, ka fitness var būt aizraujošs un patīkams process, kas sniedz gan fizisko, gan emocionālo labsajūtu.
-                      </p>
-                      <p>
                         Batutu Fitness ar Aleksandru Kurusovu ir pirmais šāda veida treniņu koncepts Latvijā. Šeit mēs apvienojam intensīvu kardio, spēka un līdzsvara vingrinājumus ar prieku, ko sniedz lēkāšana uz batuta.
                       </p>
                       <h3 className="text-xl font-semibold text-yellow-400 mb-4">Rezultāti, kas pārsteidz</h3>
                       <p>
                         Aleksandra ir mūsu galvenā trenere – harizmātiska, pieredzējusi un ar neizsīkstošu enerģiju, kas aizrauj ikvienu. Katra nodarbība ir kā neliels svētku brīdis, kur ķermenis strādā, bet dvēsele priecājas!
+                      </p>
+                      <p>
+                        Mūsu nodarbības piemērotas gan sievietēm, gan vīriešiem – jebkurā vecumā un sagatavotības līmenī.
                       </p>
                     </div>
                   </div>
@@ -89,7 +88,7 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </MainLayout>
+    </div>
   );
 };
 

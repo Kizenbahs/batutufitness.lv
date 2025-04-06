@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { MainLayout } from '../../components/Layout/MainLayout';
 import { motion } from 'framer-motion';
 import MarathonContactForm from '../../components/MarathonContactForm';
 import { useLanguage } from '../../context/LanguageContext';
@@ -13,7 +12,7 @@ const MarathonPage: React.FC = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <>
       {/* Hero Section with H1 */}
       <section className="pt-32 pb-20 relative" style={{ 
         backgroundImage: 'url("/batutu-fitness-maratons.webp")',
@@ -173,7 +172,7 @@ const MarathonPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </>
   );
 };
 

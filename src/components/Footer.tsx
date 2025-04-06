@@ -12,8 +12,8 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = () => {
   return (
-    <footer className="bg-black py-8 md:py-12" id="contact">
-      <div className="container mx-auto px-3 md:px-6">
+    <footer className="bg-black py-8 md:py-12 border-t border-gray-800" id="contact">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between">
           {/* Logo and Contact Info - Left */}
           <div className="flex flex-col md:flex-row items-center md:items-start space-y-2 md:space-y-0 md:space-x-6">
@@ -33,9 +33,9 @@ export const Footer: React.FC<FooterProps> = () => {
                   +371 29 664 931
                 </a>
                 <span className="text-[#FBBF24] hidden md:inline mx-2 h-4 flex items-center text-sm">|</span>
-                <span className="text-gray-400 text-sm">
+                <a href="mailto:aleksandra@batutufitness.lv" className="text-gray-400 hover:text-white transition-colors text-sm">
                   aleksandra@batutufitness.lv
-                </span>
+                </a>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = () => {
               href="https://www.facebook.com/aleksandra.kurusova"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-[#FBBF24] transition-colors"
+              className="text-gray-400 hover:text-[#FBBF24] transition-colors"
               aria-label="Facebook"
             >
               <FacebookIcon className="w-6 h-6 md:w-5 md:h-5" />
@@ -55,14 +55,14 @@ export const Footer: React.FC<FooterProps> = () => {
               href="https://www.instagram.com/batutu.fitness/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-[#FBBF24] transition-colors"
+              className="text-gray-400 hover:text-[#FBBF24] transition-colors"
               aria-label="Instagram"
             >
               <InstagramIcon className="w-6 h-6 md:w-5 md:h-5" />
             </a>
             <a
               href="tel:+37129664931"
-              className="text-white/70 hover:text-[#FBBF24] transition-colors"
+              className="text-gray-400 hover:text-[#FBBF24] transition-colors"
               aria-label="Phone"
             >
               <PhoneIcon className="w-6 h-6 md:w-5 md:h-5" />
@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = () => {
               href="https://wa.me/37129664931"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-[#FBBF24] transition-colors relative group"
+              className="text-gray-400 hover:text-[#FBBF24] transition-colors relative group"
               aria-label="WhatsApp"
             >
               <MessageCircleIcon className="w-6 h-6 md:w-5 md:h-5" />

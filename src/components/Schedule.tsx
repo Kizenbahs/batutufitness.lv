@@ -250,6 +250,7 @@ export const Schedule: React.FC = () => {
               selectedSessions={selectedSessions}
               onSuccess={handleBookingSuccess}
               onClose={() => setShowBookingForm(false)}
+              onRemoveSession={handleRemoveSession}
             />
           </div>
         </div>
