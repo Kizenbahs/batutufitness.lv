@@ -145,6 +145,23 @@ export default defineConfig({
               networkTimeoutSeconds: 3,
               plugins: [
                 {
+                  requestWillFetch: async ({ request, event }) => {
+                    if (event.preloadResponse) {
+                      try {
+                        const preloadResponse = await event.preloadResponse;
+                        if (preloadResponse) {
+                          return preloadResponse;
+                        }
+                      } catch (error) {
+                        // Ignore preload errors
+                      }
+                    }
+                    return request;
+                  },
+                  fetchDidFail: async ({ error }) => {
+                    // Log fetch failures for debugging
+                    console.error('Navigation fetch failed:', error);
+                  },
                   handlerDidError: async () => Response.redirect('/offline.html', 302)
                 }
               ],
@@ -160,7 +177,7 @@ export default defineConfig({
         skipWaiting: false,
         clientsClaim: false,
         cleanupOutdatedCaches: true,
-        navigationPreload: false,
+        navigationPreload: true,
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/^\/api\//],
         sourcemap: false
