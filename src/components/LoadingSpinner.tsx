@@ -1,9 +1,19 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 
-export const LoadingSpinner: React.FC = () => {
+export const LoadingSpinner = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50">
+      <motion.div
+        className="w-16 h-16 border-4 border-yellow-400 rounded-full"
+        animate={{
+          rotate: 360
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
     </div>
   );
 }; 
