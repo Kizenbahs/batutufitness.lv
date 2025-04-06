@@ -136,14 +136,28 @@ export default defineConfig({
                 statuses: [0, 200]
               }
             }
+          },
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkOnly',
+            options: {
+              plugins: [
+                {
+                  handlerDidError: async () => Response.redirect('/offline.html', 302)
+                }
+              ]
+            }
           }
         ],
         skipWaiting: true,
         clientsClaim: true,
         cleanupOutdatedCaches: true,
         navigationPreload: false,
-        navigateFallback: 'index.html'
+        navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/^\/api\//],
+        sourcemap: false
       },
+      injectRegister: 'auto',
       devOptions: {
         enabled: true,
         type: 'module',
