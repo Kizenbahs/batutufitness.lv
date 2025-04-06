@@ -40,6 +40,9 @@ export default defineConfig({
         theme_color: '#FBA518',
         background_color: '#000000',
         display: 'standalone',
+        orientation: 'portrait',
+        scope: '/',
+        start_url: '/',
         icons: [
           {
             src: 'favicon-16x16.png',
@@ -60,7 +63,32 @@ export default defineConfig({
             src: 'batutu-fitness-icon.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: 'batutu-fitness-icon.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
+            src: 'batutu-fitness-icon.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any'
+          }
+        ],
+        categories: ['fitness', 'health', 'lifestyle'],
+        shortcuts: [
+          {
+            name: 'Nodarbības',
+            url: '/sessions',
+            icons: [{ src: 'favicon-32x32.png', sizes: '32x32' }]
+          },
+          {
+            name: 'Maratons',
+            url: '/marathon',
+            icons: [{ src: 'favicon-32x32.png', sizes: '32x32' }]
           }
         ]
       },
@@ -111,7 +139,13 @@ export default defineConfig({
           }
         ],
         skipWaiting: true,
-        clientsClaim: true
+        clientsClaim: true,
+        cleanupOutdatedCaches: true,
+        navigationPreload: true
+      },
+      devOptions: {
+        enabled: true,
+        type: 'module'
       }
     })
   ],
