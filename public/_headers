@@ -1,0 +1,26 @@
+# All pages
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Service worker
+/sw.js
+  Cache-Control: no-cache
+  Clear-Site-Data: "cache"
+
+# 404 page
+/404.html
+  X-Robots-Tag: noindex
+
+# Offline page
+/offline.html
+  X-Robots-Tag: noindex
+  Cache-Control: no-store 

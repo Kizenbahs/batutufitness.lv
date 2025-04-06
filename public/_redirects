@@ -1,0 +1,17 @@
+# Redirect www to non-www
+www.batutufitness.lv/* https://batutufitness.lv/:splat 301!
+
+# Redirect URLs with trailing slash to non-trailing slash
+/*/ /:splat 301
+
+# Handle old index files
+/index.html / 301!
+/index.php / 301!
+
+# Handle 404
+/* /404.html 404
+
+# Prevent direct access to special pages
+/offline.html / 302
+/_headers / 302
+/_redirects / 302 
