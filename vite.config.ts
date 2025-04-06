@@ -142,39 +142,30 @@ export default defineConfig({
             handler: 'NetworkFirst',
             options: {
               cacheName: 'pages-cache',
+              networkTimeoutSeconds: 3,
               plugins: [
                 {
-                  // Handle navigation preload
-                  requestWillFetch: async ({ request, event }) => {
-                    if (event.preloadResponse) {
-                      try {
-                        const preloadResponsePromise = event.preloadResponse;
-                        const preloadResponse = await preloadResponsePromise;
-                        if (preloadResponse) {
-                          return preloadResponse;
-                        }
-                      } catch (error) {
-                        // Ignore preload errors
-                      }
-                    }
-                    return request;
-                  },
                   handlerDidError: async () => Response.redirect('/offline.html', 302)
                 }
               ],
-              networkTimeoutSeconds: 3
+              matchOptions: {
+                ignoreSearch: true
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
             }
           }
         ],
         skipWaiting: false,
         clientsClaim: false,
         cleanupOutdatedCaches: true,
-        navigationPreload: true,
+        navigationPreload: false,
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/^\/api\//],
         sourcemap: false
       },
-      injectRegister: 'auto',
+      injectRegister: 'script-defer',
       devOptions: {
         enabled: true,
         type: 'module',
