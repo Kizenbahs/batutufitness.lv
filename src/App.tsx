@@ -9,6 +9,7 @@ const About = lazy(() => import('./pages/about/index.tsx'));
 const Sessions = lazy(() => import('./pages/Sessions.tsx'));
 const Marathon = lazy(() => import('./pages/marathon/index.tsx'));
 const BUJ = lazy(() => import('./pages/BUJ.tsx'));
+const Kontakti = lazy(() => import('./pages/Kontakti.tsx'));
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/sessions" element={<Sessions />} />
               <Route path="/marathon" element={<Marathon />} />
               <Route path="/buj" element={<BUJ />} />
+              <Route path="/kontakti" element={<Kontakti />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>

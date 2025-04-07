@@ -87,6 +87,14 @@ export default function Header() {
     navigate('/buj');
   };
 
+  const handleKontaktiClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+    navigate('/kontakti');
+  };
+
   const menuItems = [
     { 
       label: language === 'lv' ? 'NODARBĪBAS' : 'SCHEDULE', 
@@ -101,18 +109,18 @@ export default function Header() {
     { 
       label: language === 'lv' ? 'BUJ' : 'FAQ', 
       path: "/buj",
-      onClick: handleBUJClick
+      onClick: handleBUJClick 
     },
     { 
-      label: language === 'lv' ? 'MARATONI' : 'MARATHONS', 
+      label: language === 'lv' ? 'MARATONS' : 'MARATHON', 
       path: "/marathon",
-      onClick: handleMarathonClick
+      onClick: handleMarathonClick 
     },
     { 
-      label: language === 'lv' ? 'KONTAKTI' : 'CONTACTS', 
-      path: "#contact",
-      onClick: handleContactClick 
-    },
+      label: language === 'lv' ? 'KONTAKTI' : 'CONTACT', 
+      path: "/kontakti",
+      onClick: handleKontaktiClick 
+    }
   ];
 
   return (
