@@ -13,12 +13,6 @@ export default function Header() {
   const { language, toggleLanguage } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
-  const [audio] = useState(new Audio('/click.mp3'));
-
-  const playSound = () => {
-    audio.currentTime = 0;
-    audio.play().catch(error => console.log('Audio playback failed:', error));
-  };
 
   useEffect(() => {
     const handleScroll = () => {
