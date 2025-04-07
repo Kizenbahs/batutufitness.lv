@@ -13,6 +13,12 @@ export default function Header() {
   const { language, toggleLanguage } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
+  const [audio] = useState(new Audio('/click.mp3'));
+
+  const playSound = () => {
+    audio.currentTime = 0;
+    audio.play().catch(error => console.log('Audio playback failed:', error));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +37,7 @@ export default function Header() {
 
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -39,6 +46,7 @@ export default function Header() {
 
   const handleScheduleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -56,6 +64,7 @@ export default function Header() {
 
   const handleMarathonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -64,6 +73,7 @@ export default function Header() {
 
   const handleBUJClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -72,6 +82,7 @@ export default function Header() {
 
   const handleKontaktiClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -117,7 +128,15 @@ export default function Header() {
         )}
       >
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a 
+          href="/" 
+          className="flex items-center"
+          onClick={(e) => {
+            e.preventDefault();
+            playSound();
+            navigate('/');
+          }}
+        >
           <span className="text-white font-bold text-xl md:text-2xl mr-1">
             BATUTU
           </span>
@@ -140,7 +159,10 @@ export default function Header() {
             </a>
           ))}
           <button
-            onClick={toggleLanguage}
+            onClick={() => {
+              playSound();
+              toggleLanguage();
+            }}
             className="group relative text-white transition-colors font-medium text-sm ml-2 hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
@@ -151,14 +173,20 @@ export default function Header() {
         {/* Mobile Controls */}
         <div className="flex items-center space-x-4 md:hidden">
           <button
-            onClick={toggleLanguage}
+            onClick={() => {
+              playSound();
+              toggleLanguage();
+            }}
             className="group relative text-white transition-colors font-medium text-base hover:text-white"
           >
             {language === 'lv' ? 'EN' : 'LV'}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FBBF24] transition-all duration-300 group-hover:w-full"></span>
           </button>
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => {
+              playSound();
+              setIsMenuOpen(!isMenuOpen);
+            }}
             className="text-white hover:text-[#FBBF24] transition-colors p-2"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
