@@ -82,10 +82,10 @@ export const Schedule: React.FC = () => {
           <h2 className="text-4xl font-bold text-white mb-4">
             {language === 'lv' ? 'Nodarbību grafiks' : 'Class schedule'}
           </h2>
-          <p className="text-gray-400">
+          <p className="text-red-500 font-medium">
             {language === 'lv' 
-              ? 'Sporto sev izdevīgā laikā un vietā' 
-              : 'Exercise at your convenient time and place'}
+              ? 'Sporto sev izdevīgā laikā un vietā - šobrīd atjaunojam tabulu' 
+              : 'Exercise at your convenient time and place - updating schedule'}
           </p>
         </div>
 
