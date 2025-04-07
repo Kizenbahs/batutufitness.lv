@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
-import { FacebookIcon, InstagramIcon, PhoneIcon, MessageCircleIcon, MailIcon, MapPinIcon } from 'lucide-react';
+import { FacebookIcon, InstagramIcon, PhoneIcon, MessageCircleIcon, MailIcon } from 'lucide-react';
 
 const Kontakti: React.FC = () => {
   const { language } = useLanguage();
@@ -62,20 +62,15 @@ const Kontakti: React.FC = () => {
                       
                       <div className="flex items-center space-x-3">
                         <MailIcon className="h-5 w-5 text-[#FBBF24]" />
-                        <a href="mailto:aleksandra@batutufitness.lv" className="hover:text-[#FBBF24]">
+                        <span className="hover:text-[#FBBF24]">
                           aleksandra@batutufitness.lv
-                        </a>
-                      </div>
-                      
-                      <div className="flex items-center space-x-3">
-                        <MapPinIcon className="h-5 w-5 text-[#FBBF24]" />
-                        <span>Rīga un Piņķi, Latvija</span>
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Seko mums</h3>
+                    <h3 className="text-xl font-semibold text-yellow-400 mb-4">Sazinies arī</h3>
                     <div className="flex space-x-4">
                       <a
                         href="https://www.facebook.com/aleksandra.kurusova"
@@ -121,14 +116,9 @@ const Kontakti: React.FC = () => {
                       
                       <div className="flex items-center space-x-3">
                         <MailIcon className="h-5 w-5 text-[#FBBF24]" />
-                        <a href="mailto:aleksandra@batutufitness.lv" className="hover:text-[#FBBF24]">
+                        <span className="hover:text-[#FBBF24]">
                           aleksandra@batutufitness.lv
-                        </a>
-                      </div>
-                      
-                      <div className="flex items-center space-x-3">
-                        <MapPinIcon className="h-5 w-5 text-[#FBBF24]" />
-                        <span>Riga and Pinki, Latvia</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -169,6 +159,13 @@ const Kontakti: React.FC = () => {
               )}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Blue spacer section */}
+      <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4">
+          {/* Empty section for spacing */}
         </div>
       </section>
     </div>

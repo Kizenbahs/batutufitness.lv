@@ -201,13 +201,13 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="bg-black/95 backdrop-blur-md shadow-lg overflow-hidden"
             >
-              <div className="flex flex-col items-center py-8 space-y-8">
+              <div className="flex flex-col items-center py-6 space-y-4">
                 {menuItems.map((item, index) => (
                   <a
                     key={index}
                     href={item.path}
                     onClick={item.onClick}
-                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-xl tracking-wider px-6 py-3"
+                    className="text-white hover:text-[#FBBF24] transition-colors font-medium text-lg tracking-wider px-6 py-2"
                   >
                     {item.label}
                   </a>
