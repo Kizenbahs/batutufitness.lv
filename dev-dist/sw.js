@@ -67,14 +67,10 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-e4fe8c5e'], (function (workbox) { 'use strict';
+define(['./workbox-6c6c3b19'], (function (workbox) { 'use strict';
 
-  workbox.enable();
-  self.addEventListener('message', event => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-      self.skipWaiting();
-    }
-  });
+  self.skipWaiting();
+  workbox.clientsClaim();
 
   /**
    * The precacheAndRoute() method efficiently caches and responds to
@@ -86,7 +82,7 @@ define(['./workbox-e4fe8c5e'], (function (workbox) { 'use strict';
     "revision": "3ca0b8505b4bec776b69afdba2768812"
   }, {
     "url": "index.html",
-    "revision": "0.tojcgcnu988"
+    "revision": "0.4hgl70r2a4g"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
@@ -130,24 +126,8 @@ define(['./workbox-e4fe8c5e'], (function (workbox) { 'use strict';
     },
     plugins: [{
       requestWillFetch: async ({
-        request,
-        event
-      }) => {
-        if (event.preloadResponse) {
-          try {
-            const preloadResponse = await event.preloadResponse;
-            if (preloadResponse) {
-              return preloadResponse;
-            }
-          } catch (error) {}
-        }
-        return request;
-      },
-      fetchDidFail: async ({
-        error
-      }) => {
-        console.error("Navigation fetch failed:", error);
-      },
+        request
+      }) => request,
       handlerDidError: async () => Response.redirect("/offline.html", 302)
     }, new workbox.CacheableResponsePlugin({
       statuses: [0, 200]

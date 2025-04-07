@@ -24,7 +24,7 @@ export default defineConfig({
       brotliSize: true,
     }),
     VitePWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       includeAssets: [
         'favicon.svg',
         'favicon-16x16.png',
@@ -40,7 +40,7 @@ export default defineConfig({
         description: 'Batutu fitness grupu nodarbības Rīgā un Piņķos',
         theme_color: '#FBA518',
         background_color: '#000000',
-        display: 'standalone',
+        display: 'minimal-ui',
         orientation: 'portrait',
         scope: '/',
         start_url: '/',
@@ -145,23 +145,7 @@ export default defineConfig({
               networkTimeoutSeconds: 3,
               plugins: [
                 {
-                  requestWillFetch: async ({ request, event }) => {
-                    if (event.preloadResponse) {
-                      try {
-                        const preloadResponse = await event.preloadResponse;
-                        if (preloadResponse) {
-                          return preloadResponse;
-                        }
-                      } catch (error) {
-                        // Ignore preload errors
-                      }
-                    }
-                    return request;
-                  },
-                  fetchDidFail: async ({ error }) => {
-                    // Log fetch failures for debugging
-                    console.error('Navigation fetch failed:', error);
-                  },
+                  requestWillFetch: async ({ request }) => request,
                   handlerDidError: async () => Response.redirect('/offline.html', 302)
                 }
               ],
@@ -174,10 +158,10 @@ export default defineConfig({
             }
           }
         ],
-        skipWaiting: false,
-        clientsClaim: false,
+        skipWaiting: true,
+        clientsClaim: true,
         cleanupOutdatedCaches: true,
-        navigationPreload: true,
+        navigationPreload: false,
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/^\/api\//],
         sourcemap: false
