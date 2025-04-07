@@ -6,6 +6,14 @@ import { PostHogProvider } from 'posthog-js/react';
 
 const options = {
   api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
+  persistence: 'memory' as const, // This will avoid cookie-related issues
+  bootstrap: {
+    distinctID: 'anonymous-user',
+    isIdentifiedID: false
+  },
+  capture_pageview: true,
+  capture_pageleave: true,
+  autocapture: true
 };
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
