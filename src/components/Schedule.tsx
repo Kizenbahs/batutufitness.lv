@@ -226,7 +226,7 @@ export const Schedule: React.FC = () => {
 
           {/* WhatsApp Sign Up */}
           <div className="text-center mt-8">
-            <p className="text-[#FBBF24] text-xl font-semibold">
+            <p className="text-[#FBBF24] text-xl font-semibold inline-flex items-center justify-center gap-2">
               {language === 'lv' 
                 ? <span>Piesakies nodarbībai uz <a href="https://wa.me/37129664931" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">WhatsApp</a></span>
                 : <span>Sign up for a class on <a href="https://wa.me/37129664931" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">WhatsApp</a></span>}
