@@ -146,10 +146,10 @@ export default function HeroSection() {
                 <h3 className="mb-1 text-base font-bold text-white sm:text-lg md:text-xl">
                   {language === 'lv' ? 'Elastīgs grafiks' : 'Flexible Schedule'}
                 </h3>
-                <p className="text-sm text-red-500 font-medium sm:text-base">
+                <p className="text-sm text-white/80 sm:text-base">
                   {language === 'lv'
-                    ? 'Sporto sev izdevīgā laikā un vietā - šobrīd atjaunojam tabulu'
-                    : 'Multiple classes daily to fit your busy lifestyle - updating schedule'}
+                    ? 'Sporto sev izdevīgā laikā un vietā'
+                    : 'Multiple classes daily to fit your busy lifestyle'}
                 </p>
               </div>
             </div>
