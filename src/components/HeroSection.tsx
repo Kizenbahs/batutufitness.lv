@@ -33,7 +33,7 @@ export default function HeroSection() {
           alt="Trampoline fitness experience"
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/80 to-black/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
       </div>
 
       {/* Content */}
