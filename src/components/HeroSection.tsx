@@ -51,10 +51,10 @@ export default function HeroSection() {
                   ease: "easeOut"
                 }}
               >
-                {language === 'lv' ? 'Kustība.' : 'Movement.'}
+                {language === 'lv' ? 'Kustība' : 'Movement'}
               </motion.span>
               <motion.span 
-                className="text-[#FBBF24] inline-block"
+                className="text-white inline-block mx-2"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ 
@@ -63,7 +63,31 @@ export default function HeroSection() {
                   ease: "easeOut"
                 }}
               >
-                {language === 'lv' ? 'Enerģija².' : 'Energy².'}
+                +
+              </motion.span>
+              <motion.span 
+                className="text-[#FBBF24] inline-block"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+              >
+                {language === 'lv' ? 'Enerģija²' : 'Energy²'}
+              </motion.span>
+              <motion.span 
+                className="text-white inline-block mx-2"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: 0.45,
+                  ease: "easeOut"
+                }}
+              >
+                =
               </motion.span>
               <motion.span 
                 className="block text-white mt-2 sm:mt-0 sm:inline"
@@ -71,7 +95,7 @@ export default function HeroSection() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ 
                   duration: 0.5,
-                  delay: 0.3,
+                  delay: 0.6,
                   ease: "easeOut"
                 }}
               >
