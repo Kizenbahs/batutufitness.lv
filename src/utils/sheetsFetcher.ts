@@ -1,8 +1,8 @@
 import { TrainingSession, ScheduleData } from '../data/scheduleData';
 
-const SHEET_ID = '1gEtFLPVR58Oy45Nl_Ly_pfQv8n2gUF3DH9UxElATsbw';
-const SHEET_RANGE = 'A1:G1000';
-const API_KEY = 'AIzaSyCpLZv1YXhqg0W3ZFtKe1GNsSXtZpAeR4A';
+const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+const SHEET_ID = import.meta.env.VITE_SHEET_ID;
+const SHEET_RANGE = import.meta.env.VITE_SHEET_RANGE;
 
 export async function fetchScheduleData(): Promise<ScheduleData> {
   try {
@@ -69,4 +69,4 @@ export async function fetchScheduleData(): Promise<ScheduleData> {
       }
     };
   }
-} 
+}
