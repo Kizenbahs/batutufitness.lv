@@ -10,7 +10,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <HeroSection language={language} onScheduleClick={() => {}} onContactClick={() => {}} />
+      <HeroSection />
       <AboutUsSection />
       <Schedule />
       <FAQ language={language} />
