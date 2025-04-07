@@ -29,23 +29,6 @@ export default function Header() {
     };
   }, []);
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-    if (location.pathname !== '/') {
-      navigate('/#contact');
-    } else {
-      setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 300);
-    }
-  };
-
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (isMenuOpen) {
