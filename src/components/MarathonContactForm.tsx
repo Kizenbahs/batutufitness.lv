@@ -87,6 +87,11 @@ const MarathonContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Prevent duplicate submissions
+    if (isLoading) {
+      return;
+    }
+    
     if (!validatePhone()) {
       return;
     }
@@ -110,7 +115,9 @@ const MarathonContactForm: React.FC = () => {
                 `Vārds / Name: ${formData.name}\n` +
                 `E-pasts / Email: ${formData.email}\n` +
                 `Telefons / Phone: ${formData.phone}`,
-        reply_to: formData.email
+        reply_to: formData.email,
+        // Add a unique identifier to prevent duplicate submissions
+        timestamp: new Date().toISOString()
       };
 
       const result = await emailjs.send(
