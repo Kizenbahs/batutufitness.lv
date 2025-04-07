@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
 
           {/* Social Icons - Right */}
-          <div className="flex items-center space-x-4 shrink-0">
+          <div className="flex items-center space-x-6">
             <a
               href="https://www.facebook.com/aleksandra.kurusova"
               target="_blank"
@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = () => {
               <FacebookIcon className="w-6 h-6 md:w-5 md:h-5" />
             </a>
             <a
-              href="https://www.instagram.com/batutu.fitness/"
+              href="https://www.instagram.com/aleksandrakurusova/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-[#FBBF24] transition-colors"
