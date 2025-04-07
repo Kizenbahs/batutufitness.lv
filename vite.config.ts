@@ -230,9 +230,9 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    strictPort: true,
-    host: 'localhost',
-    open: false,
+    strictPort: false,
+    host: true,
+    open: true,
     hmr: {
       protocol: 'ws',
       host: 'localhost',
@@ -247,9 +247,9 @@ export default defineConfig({
   },
   preview: {
     port: 3000,
-    strictPort: true,
-    host: 'localhost',
-    open: false
+    strictPort: false,
+    host: true,
+    open: true
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],

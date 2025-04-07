@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-
-interface FAQProps {
-  language: string;
-}
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 interface FAQItem {
   question: {
@@ -15,8 +13,8 @@ interface FAQItem {
   };
 }
 
-const FAQ: React.FC<FAQProps> = ({ language }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export const FAQ: React.FC = () => {
+  const { language } = useLanguage();
 
   const faqItems: FAQItem[] = [
     {
@@ -81,62 +79,30 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
     }
   ];
 
-  const toggleQuestion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section className="py-16 bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            {language === 'lv' ? 'Biežāk uzdotie jautājumi' : 'Frequently Asked Questions'}
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            {language === 'lv' 
-              ? 'Atbildes uz populārākajiem jautājumiem batutu fitnesa nodarbībām'
-              : 'Answers to the most common questions about trampoline fitness classes'}
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto">
-          {faqItems.map((item, index) => (
-            <div 
-              key={index}
-              className="mb-4 bg-gray-800 rounded-lg shadow-sm border border-gray-700 hover:border-primary/30 transition-all duration-300"
-            >
-              <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center"
-                onClick={() => toggleQuestion(index)}
-              >
-                <span className="font-semibold text-white">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
+        >
+          <div className="space-y-12">
+            {faqItems.map((item, index) => (
+              <div key={index}>
+                <h3 className="text-xl font-semibold text-yellow-400 mb-4">
                   {language === 'lv' ? item.question.lv : item.question.en}
-                </span>
-                <span className={`transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
-                  <svg 
-                    className="w-5 h-5 text-gray-400" 
-                    fill="none" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-              <div 
-                className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
-                }`}
-              >
-                <p className="text-gray-400" dangerouslySetInnerHTML={{ __html: language === 'lv' ? item.answer.lv : item.answer.en }}>
-                </p>
+                </h3>
+                <div className="text-gray-300 space-y-6">
+                  <p dangerouslySetInnerHTML={{ __html: language === 'lv' ? item.answer.lv : item.answer.en }}>
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -2,7 +2,6 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import AboutUsSection from '../components/AboutUsSection';
 import { Schedule } from '../components/Schedule';
-import FAQ from '../components/FAQ';
 import { useLanguage } from '../context/LanguageContext';
 
 const Home: React.FC = () => {
@@ -13,7 +12,6 @@ const Home: React.FC = () => {
       <HeroSection />
       <AboutUsSection />
       <Schedule />
-      <FAQ language={language} />
     </div>
   );
 };

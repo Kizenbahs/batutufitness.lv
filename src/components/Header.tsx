@@ -79,6 +79,14 @@ export default function Header() {
     navigate('/marathon');
   };
 
+  const handleBUJClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+    navigate('/buj');
+  };
+
   const menuItems = [
     { 
       label: language === 'lv' ? 'NODARBĪBAS' : 'SCHEDULE', 
@@ -89,6 +97,11 @@ export default function Header() {
       label: language === 'lv' ? 'PAR MUMS' : 'ABOUT US', 
       path: "/about",
       onClick: handleAboutClick 
+    },
+    { 
+      label: language === 'lv' ? 'BUJ' : 'FAQ', 
+      path: "/buj",
+      onClick: handleBUJClick
     },
     { 
       label: language === 'lv' ? 'MARATONI' : 'MARATHONS', 
