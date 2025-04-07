@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
               {language === 'lv' ? 'Par mums' : 'About Us'}
             </h1>
             <p className="text-xl font-semibold text-yellow-400">
-              Enerģija, kas iedvesmo
+              {language === 'lv' ? 'Enerģija, kas iedvesmo' : 'Energy that inspires'}
             </p>
           </motion.div>
         </div>
