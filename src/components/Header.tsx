@@ -37,7 +37,6 @@ export default function Header() {
 
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -46,7 +45,6 @@ export default function Header() {
 
   const handleScheduleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -64,7 +62,6 @@ export default function Header() {
 
   const handleMarathonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -73,7 +70,6 @@ export default function Header() {
 
   const handleBUJClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -82,7 +78,6 @@ export default function Header() {
 
   const handleKontaktiClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    playSound();
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -133,7 +128,6 @@ export default function Header() {
           className="flex items-center"
           onClick={(e) => {
             e.preventDefault();
-            playSound();
             navigate('/');
           }}
         >
@@ -160,7 +154,6 @@ export default function Header() {
           ))}
           <button
             onClick={() => {
-              playSound();
               toggleLanguage();
             }}
             className="group relative text-white transition-colors font-medium text-sm ml-2 hover:text-white"
@@ -174,7 +167,6 @@ export default function Header() {
         <div className="flex items-center space-x-4 md:hidden">
           <button
             onClick={() => {
-              playSound();
               toggleLanguage();
             }}
             className="group relative text-white transition-colors font-medium text-base hover:text-white"
@@ -184,7 +176,6 @@ export default function Header() {
           </button>
           <button
             onClick={() => {
-              playSound();
               setIsMenuOpen(!isMenuOpen);
             }}
             className="text-white hover:text-[#FBBF24] transition-colors p-2"
