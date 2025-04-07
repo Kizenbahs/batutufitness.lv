@@ -133,7 +133,7 @@ export default function HeroSection() {
               onClick={handleMarathonClick}
               className="w-[85%] max-w-[300px] rounded-xl border-2 border-white/40 bg-black/30 backdrop-blur-sm px-6 py-3.5 text-base font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-8 sm:py-4 flex items-center justify-center"
             >
-              {language === 'lv' ? 'PIESAKIES MARATONAM' : 'JOIN MARATHON'}
+              {language === 'lv' ? 'PIETEIKTIES MARATONAM' : 'JOIN MARATHON'}
               <FaArrowRight className="ml-2 mt-0 inline-block" />
             </button>
           </div>
