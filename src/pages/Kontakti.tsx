@@ -31,7 +31,7 @@ const Kontakti: React.FC = () => {
               {language === 'lv' ? 'Kontakti' : 'Contact Us'}
             </h1>
             <p className="text-xl font-semibold text-yellow-400">
-              {language === 'lv' ? 'Sazinieties ar mums' : 'Get in touch with us'}
+              {language === 'lv' ? 'Sazinies ar mums' : 'Get in touch with us'}
             </p>
           </motion.div>
         </div>
