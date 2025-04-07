@@ -1,11 +1,19 @@
 import { useState, useEffect } from 'react';
-import type { ScheduleData } from '../data/scheduleData';
 import { useLanguage } from '../context/LanguageContext';
-import { fetchScheduleData } from '../utils/sheetsFetcher';
+import { loadExcelFile } from '../utils/excelLoader';
+
+interface ScheduleEntry {
+  time: string;
+  type: string;
+  trainer?: string;
+  duration: string;
+  location: string;
+  day: string;
+}
 
 export const Schedule: React.FC = () => {
   const { language } = useLanguage();
-  const [scheduleData, setScheduleData] = useState<ScheduleData | null>(null);
+  const [scheduleData, setScheduleData] = useState<ScheduleEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeLocation, setActiveLocation] = useState<string>("PIŅĶI");
@@ -19,14 +27,30 @@ export const Schedule: React.FC = () => {
     const loadScheduleData = async () => {
       try {
         setLoading(true);
-        const data = await fetchScheduleData();
-        if (data) {
-          setScheduleData(data);
-          setError(null);
+        setError(null);
+        console.log('Loading schedule data...');
+        
+        const data = await loadExcelFile('batutufitness-grafiks.xlsx');
+        console.log('Loaded data:', data);
+        
+        if (data && data.length > 0) {
+          // Transform the data to match our ScheduleEntry interface
+          const transformedData = data.map((entry: any) => ({
+            time: entry.Time || '',
+            type: entry.Type || '',
+            trainer: entry.Trainer || '',
+            duration: entry.Duration || '',
+            location: entry.Location || '',
+            day: entry.Day || ''
+          }));
+          
+          console.log('Transformed data:', transformedData);
+          setScheduleData(transformedData);
         } else {
-          setError(language === 'lv' ? 'Neizdevās ielādēt grafiku' : 'Failed to load schedule');
+          throw new Error('No data found in Excel file');
         }
       } catch (err) {
+        console.error('Error in loadScheduleData:', err);
         setError(language === 'lv' ? 'Kļūda ielādējot grafiku' : 'Error loading schedule');
       } finally {
         setLoading(false);
@@ -41,6 +65,10 @@ export const Schedule: React.FC = () => {
     setIsDropdownOpen(false);
   };
 
+  const filteredSchedule = scheduleData.filter(
+    entry => entry.location === activeLocation && entry.day === activeDay
+  );
+
   if (loading) {
     return (
       <div className="w-full py-16 sm:py-24" id="schedule">
@@ -52,7 +80,7 @@ export const Schedule: React.FC = () => {
     );
   }
 
-  if (error || !scheduleData) {
+  if (error || !scheduleData.length) {
     return (
       <div className="w-full py-16 sm:py-24" id="schedule">
         <div className="text-center">
@@ -170,7 +198,7 @@ export const Schedule: React.FC = () => {
 
           {/* Sessions Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
-            {scheduleData[activeLocation][activeDay].map((session, index) => (
+            {filteredSchedule.map((session, index) => (
               <div
                 key={index}
                 className="bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/80 rounded-xl transition-all duration-300 transform hover:scale-[1.02]"
