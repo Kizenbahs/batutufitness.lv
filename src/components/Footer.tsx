@@ -5,7 +5,6 @@ import {
   PhoneIcon,
   MessageCircleIcon,
 } from "lucide-react";
-import { OnlineCounter } from './OnlineCounter';
 
 interface FooterProps {
   // Removing the unused language prop
@@ -34,11 +33,9 @@ export const Footer: React.FC<FooterProps> = () => {
                   +371 29 664 931
                 </a>
                 <span className="text-[#FBBF24] hidden md:inline mx-2 h-4 flex items-center text-sm">|</span>
-                <a href="mailto:aleksandra@batutufitness.lv" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <span className="text-gray-400 text-sm">
                   aleksandra@batutufitness.lv
-                </a>
-                <span className="text-[#FBBF24] hidden md:inline mx-2 h-4 flex items-center text-sm">|</span>
-                <OnlineCounter />
+                </span>
               </div>
             </div>
           </div>
