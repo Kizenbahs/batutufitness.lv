@@ -17,22 +17,22 @@ export const videos: Video[] = [
   {
     id: '1',
     title: {
-      lv: 'Batutu Fitness Nodarbība',
-      en: 'Trampoline Fitness Class'
+      lv: '1. Batutu Fitness Nodarbība',
+      en: '1. Trampoline Fitness Class'
     },
     description: {
       lv: 'Enerģiska nodarbība ar Aleksandru Kurusovu - kardio, spēks un līdzsvars!',
       en: 'Energetic class with Alexandra Kurusova - cardio, strength and balance!'
     },
-    thumbnailUrl: '/batutu-fitness-maratons.webp',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    thumbnailUrl: '/batutu-fitness-thumb-001.webp',
+    videoUrl: 'https://www.youtube.com/embed/pXdcwbWd5qU',
     date: '2024-03-20'
   },
   {
     id: '2',
     title: {
-      lv: 'Batutu Maratons',
-      en: 'Trampoline Marathon'
+      lv: '2. Batutu Maratons',
+      en: '2. Trampoline Marathon'
     },
     description: {
       lv: 'Pilns batutu maratona apraksts un ieteikumi',
@@ -45,8 +45,8 @@ export const videos: Video[] = [
   {
     id: '3',
     title: {
-      lv: 'Batutu Treniņš',
-      en: 'Trampoline Training'
+      lv: '3. Batutu Treniņš',
+      en: '3. Trampoline Training'
     },
     description: {
       lv: 'Profesionāls batutu treniņš ar Aleksandru',
