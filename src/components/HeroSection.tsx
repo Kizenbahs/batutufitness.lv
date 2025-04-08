@@ -1,11 +1,9 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { useNavigate } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function HeroSection() {
-  const navigate = useNavigate();
   const { language } = useLanguage();
 
   const handleScheduleClick = (e: React.MouseEvent) => {
