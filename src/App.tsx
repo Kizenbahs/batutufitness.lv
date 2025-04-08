@@ -25,7 +25,7 @@ function App() {
               <Route path="/marathon" element={<Marathon />} />
               <Route path="/buj" element={<BUJ />} />
               <Route path="/kontakti" element={<Kontakti />} />
-              <Route path="/video" element={<Video />} />
+              <Route path="/batutu-fitness-video" element={<Video />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>

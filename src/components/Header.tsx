@@ -83,7 +83,7 @@ export default function Header() {
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
-    navigate('/video');
+    navigate('/batutu-fitness-video');
   };
 
   const menuItems = [
@@ -94,7 +94,7 @@ export default function Header() {
     },
     { 
       label: language === 'lv' ? 'VIDEO' : 'VIDEO', 
-      path: "/video",
+      path: "/batutu-fitness-video",
       onClick: handleVideoClick 
     },
     { 

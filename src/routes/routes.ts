@@ -13,7 +13,7 @@ export const routes: Route[] = [
     isAnchor: true
   },
   {
-    path: '/video',
+    path: '/batutu-fitness-video',
     labelLv: 'VIDEO',
     labelEn: 'VIDEO',
     isAnchor: true
