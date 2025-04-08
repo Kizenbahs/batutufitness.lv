@@ -17,12 +17,12 @@ export const videos: Video[] = [
   {
     id: '1',
     title: {
-      lv: 'Batutu fitnesa nodarbība',
-      en: 'Trampoline Fitness Class'
+      lv: 'Vakara treniņš Piņķos',
+      en: 'Evening Training in Pinki'
     },
     description: {
-      lv: 'Enerģiska nodarbība ar Aleksandru Kurusovu - kardio, spēks un līdzsvars!',
-      en: 'Energetic class with Alexandra Kurusova - cardio, strength and balance!'
+      lv: 'Intensīvs un motivējošs noslēgums darba dienai',
+      en: 'Intensive and motivating end to the workday'
     },
     thumbnailUrl: '/batutu-fitness-thumb-001.webp',
     videoUrl: 'https://www.youtube.com/embed/pXdcwbWd5qU',
@@ -31,12 +31,12 @@ export const videos: Video[] = [
   {
     id: '2',
     title: {
-      lv: 'Ieskats batutu nodarbībā',
-      en: 'Trampoline Class Preview'
+      lv: 'Dienas treniņš Piņķos',
+      en: 'Daytime Training in Pinki'
     },
     description: {
-      lv: 'Pilns batutu maratona apraksts un ieteikumi',
-      en: 'Full trampoline marathon description and tips'
+      lv: 'Lielisks veids, kā izkustēties dienas vidū!',
+      en: 'A great way to get moving in the middle of the day!'
     },
     thumbnailUrl: '/batutu-fitness-thumb-002.webp',
     videoUrl: 'https://www.youtube.com/embed/CCBfoWdJdbE',
@@ -45,12 +45,12 @@ export const videos: Video[] = [
   {
     id: '3',
     title: {
-      lv: 'Batutu fitnesa treniņš',
-      en: 'Trampoline Fitness Training'
+      lv: 'Vakara treniņš Rīgā',
+      en: 'Evening Training in Riga'
     },
     description: {
-      lv: 'Profesionāls batutu treniņš ar Aleksandru',
-      en: 'Professional trampoline training with Alexandra'
+      lv: 'Enerģisks grupas treniņš galvaspilsētā!',
+      en: 'Energetic group training in the capital city!'
     },
     thumbnailUrl: '/batutu-fitness-thumb-003.webp',
     videoUrl: 'https://www.youtube.com/embed/W982zF2ELSE',
