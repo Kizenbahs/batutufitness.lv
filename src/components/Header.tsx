@@ -93,6 +93,11 @@ export default function Header() {
       onClick: handleScheduleClick 
     },
     { 
+      label: language === 'lv' ? 'MARATONS' : 'MARATHON', 
+      path: "/marathon",
+      onClick: handleMarathonClick 
+    },
+    { 
       label: language === 'lv' ? 'VIDEO' : 'VIDEO', 
       path: "/batutu-fitness-video",
       onClick: handleVideoClick 
@@ -106,11 +111,6 @@ export default function Header() {
       label: language === 'lv' ? 'BUJ' : 'FAQ', 
       path: "/buj",
       onClick: handleBUJClick 
-    },
-    { 
-      label: language === 'lv' ? 'MARATONS' : 'MARATHON', 
-      path: "/marathon",
-      onClick: handleMarathonClick 
     },
     { 
       label: language === 'lv' ? 'KONTAKTI' : 'CONTACT', 
