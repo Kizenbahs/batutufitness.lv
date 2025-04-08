@@ -17,8 +17,8 @@ export const videos: Video[] = [
   {
     id: '1',
     title: {
-      lv: '1. Batutu Fitness Nodarbība',
-      en: '1. Trampoline Fitness Class'
+      lv: 'Batutu fitness Nodarbība',
+      en: 'Trampoline Fitness Class'
     },
     description: {
       lv: 'Enerģiska nodarbība ar Aleksandru Kurusovu - kardio, spēks un līdzsvars!',
