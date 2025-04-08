@@ -125,16 +125,17 @@ export default function HeroSection() {
           <div className="flex w-full flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-6 sm:space-y-0 mb-8 sm:mb-0">
             <button
               onClick={handleScheduleClick}
-              className="w-[80%] max-w-[300px] rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-primary/90 shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-6 sm:py-3.5"
+              className="w-[80%] max-w-[300px] rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-primary/90 shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-6 sm:py-3.5 flex items-center justify-center"
             >
-              {language === 'lv' ? 'GRIBU SĀKT' : 'BOOK NOW'}
+              {language === 'lv' ? 'PIETEIKTIES NODARBĪBAI' : 'BOOK NOW'}
+              <FaArrowRight className="ml-2 mt-0 inline-block" />
             </button>
+            <span className="text-white/80 text-lg font-medium sm:mx-2">vai</span>
             <button
               onClick={handleMarathonClick}
               className="w-[85%] max-w-[300px] rounded-xl border-2 border-white/40 bg-black/30 backdrop-blur-sm px-6 py-3.5 text-base font-bold text-white transition-transform hover:scale-105 hover:border-primary hover:text-primary sm:w-auto sm:px-8 sm:py-4 flex items-center justify-center"
             >
               {language === 'lv' ? 'PIETEIKTIES MARATONAM' : 'JOIN MARATHON'}
-              <FaArrowRight className="ml-2 mt-0 inline-block" />
             </button>
           </div>
         </div>
