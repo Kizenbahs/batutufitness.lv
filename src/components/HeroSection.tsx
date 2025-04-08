@@ -24,9 +24,9 @@ export default function HeroSection() {
         <img
           src="/image.webp"
           alt="Trampoline fitness experience"
-          className="h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
 
       {/* Content */}
