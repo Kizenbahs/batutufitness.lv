@@ -116,7 +116,7 @@ export default function HeroSection() {
           >
             <p className="font-medium">
               {language === 'lv' 
-               ? <>Pirmais batutu fitness Latvijā – kopā ar <span className="text-[#FBBF24]">Aleksandru Kurusovu</span>! Enerģiskākās grupu <span className="text-[#FBBF24]">nodarbības Rīgā un Piņķos</span>. Lēkā, sporto un baudi kustību kā vēl nekad!</>
+               ? <>Jaudīgākais batutu fitness Latvijā – kopā ar <span className="text-[#FBBF24]">Aleksandru Kurusovu</span>! Enerģiskākās grupu <span className="text-[#FBBF24]">nodarbības Rīgā un Piņķos</span>. Lēkā, sporto un baudi kustību kā vēl nekad!</>
                : <>Latvia's premier trampoline fitness center <span className="text-[#FBBF24]">with Alexandra Kurusova</span>. The most energetic group classes in Riga and Pinki – jump, exercise and enjoy movement like never before!</>}
             </p>
           </motion.div>
