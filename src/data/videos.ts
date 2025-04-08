@@ -17,7 +17,7 @@ export const videos: Video[] = [
   {
     id: '1',
     title: {
-      lv: 'Batutu fitness Nodarbība',
+      lv: 'Batutu fitnesa nodarbība',
       en: 'Trampoline Fitness Class'
     },
     description: {
@@ -31,29 +31,29 @@ export const videos: Video[] = [
   {
     id: '2',
     title: {
-      lv: '2. Batutu Maratons',
-      en: '2. Trampoline Marathon'
+      lv: 'Ieskats batutu nodarbībā',
+      en: 'Trampoline Class Preview'
     },
     description: {
       lv: 'Pilns batutu maratona apraksts un ieteikumi',
       en: 'Full trampoline marathon description and tips'
     },
-    thumbnailUrl: '/batutu-fitness-maratons.webp',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    thumbnailUrl: '/batutu-fitness-thumb-002.webp',
+    videoUrl: 'https://www.youtube.com/embed/CCBfoWdJdbE',
     date: '2024-03-19'
   },
   {
     id: '3',
     title: {
-      lv: '3. Batutu Treniņš',
-      en: '3. Trampoline Training'
+      lv: 'Batutu fitnesa treniņš',
+      en: 'Trampoline Fitness Training'
     },
     description: {
       lv: 'Profesionāls batutu treniņš ar Aleksandru',
       en: 'Professional trampoline training with Alexandra'
     },
-    thumbnailUrl: '/batutu-fitness-maratons.webp',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    thumbnailUrl: '/batutu-fitness-thumb-003.webp',
+    videoUrl: 'https://www.youtube.com/embed/W982zF2ELSE',
     date: '2024-03-18'
   }
 ]; 
