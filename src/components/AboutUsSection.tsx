@@ -29,8 +29,8 @@ export default function AboutUsSection() {
           </h2>
           <p className="text-gray-400">
             {language === 'lv' 
-              ? 'Pirmais batutu fitnesa centrs Latvijā' 
-              : 'The first trampoline fitness center in Latvia'}
+              ? 'Batutu fitnesa centrs Latvijā' 
+              : 'Trampoline fitness center in Latvia'}
           </p>
         </motion.div>
 

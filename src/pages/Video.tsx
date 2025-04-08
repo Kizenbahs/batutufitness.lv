@@ -110,10 +110,10 @@ const VideoPage: React.FC = () => {
             className="text-center"
           >
             <h1 className="text-4xl font-bold text-white mb-4">
-              {language === 'lv' ? 'Video' : 'Video'}
+              {language === 'lv' ? 'Ielūkojies mūsu treniņos' : 'Take a look at our training'}
             </h1>
             <p className="text-xl font-semibold text-yellow-400">
-              {language === 'lv' ? 'Mūsu video' : 'Our videos'}
+              {language === 'lv' ? 'Skaties, kā notiek mūsu reālās nodarbības!' : 'Watch how our real classes happen!'}
             </p>
           </motion.div>
         </div>
