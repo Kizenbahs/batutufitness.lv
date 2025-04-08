@@ -13,6 +13,12 @@ export const routes: Route[] = [
     isAnchor: true
   },
   {
+    path: '/video',
+    labelLv: 'VIDEO',
+    labelEn: 'VIDEO',
+    isAnchor: true
+  },
+  {
     path: '/about',
     labelLv: 'PAR MUMS',
     labelEn: 'ABOUT US',

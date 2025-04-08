@@ -78,11 +78,24 @@ export default function Header() {
     navigate('/kontakti');
   };
 
+  const handleVideoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+    navigate('/video');
+  };
+
   const menuItems = [
     { 
       label: language === 'lv' ? 'NODARBĪBAS' : 'SCHEDULE', 
       path: "#schedule",
       onClick: handleScheduleClick 
+    },
+    { 
+      label: language === 'lv' ? 'VIDEO' : 'VIDEO', 
+      path: "/video",
+      onClick: handleVideoClick 
     },
     { 
       label: language === 'lv' ? 'PAR MUMS' : 'ABOUT US', 
