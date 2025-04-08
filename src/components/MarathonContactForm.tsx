@@ -24,8 +24,8 @@ const MarathonContactForm: React.FC = () => {
   });
 
   useEffect(() => {
-    // Set target date to April 14, 2025 at 23:59:59 in local timezone
-    const targetDate = new Date('2025-04-14T23:59:59');
+    // Set target date to May 26, 2024 at 23:59:59 in local timezone
+    const targetDate = new Date('2024-05-26T23:59:59');
     
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -214,15 +214,10 @@ const MarathonContactForm: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={isLoading}
-                className={`w-full py-3 px-6 rounded-lg bg-[#128c7e] text-white font-bold uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-[#0a6b5f] shadow-lg shadow-[#128c7e]/30 hover:shadow-xl hover:shadow-[#128c7e]/40 active:shadow-md active:scale-[0.98] ${
-                  isLoading ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                disabled={true}
+                className={`w-full py-3 px-6 rounded-lg bg-gray-500 text-white font-bold uppercase transition-all duration-300 opacity-50 cursor-not-allowed`}
               >
-                {isLoading
-                  ? (language === 'lv' ? 'SŪTA...' : 'SENDING...')
-                  : (language === 'lv' ? 'GRIBU PIETEIKTIES' : 'REGISTER')}
-                {!isLoading && <FaArrowRight className="ml-2 -mt-1 inline-block" />}
+                {language === 'lv' ? 'PIETEIKŠANĀS NEAKTĪVA' : 'REGISTRATION INACTIVE'}
               </button>
 
               {submitStatus === 'success' && (

@@ -77,15 +77,15 @@ const MarathonPage: React.FC = () => {
                     <div className="mb-8">
                       <h3 className="text-xl font-semibold text-yellow-400 mb-4">Kad un kur?</h3>
                       <p className="text-gray-300 mb-4">
-                        Startējam: 15. aprīlī<br />
-                        Ilgums: līdz 26. maijam
+                        Tuvāk nekā domā!
                       </p>
                       <ul className="text-gray-300 space-y-2 list-disc pl-6">
                         <li>Rīga – Joker klubs</li>
                         <li>Piņķi – Lion Gym</li>
                       </ul>
                       <p className="text-gray-300 mt-4">
-                        Vietu skaits ir ierobežots – piesakies jau tagad!
+                        Jaunais maratons tiek plānots, un mēs paziņosim precīzu starta datumu! Seko līdzi jaunumiem un esi viens no pirmajiem, kurš uzzina, kad sākt tievēt!<br /><br />
+                        Vietu skaits būs ierobežots – sāc gatavoties jau tagad un neaizgulies uz starta!
                       </p>
                     </div>
 
@@ -126,15 +126,15 @@ const MarathonPage: React.FC = () => {
                     <div className="mb-8">
                       <h3 className="text-xl font-semibold text-yellow-400 mb-4">When and where?</h3>
                       <p className="text-gray-300 mb-4">
-                        Start: April 15th<br />
-                        Duration: until May 26th
+                        Closer than you think!
                       </p>
                       <ul className="text-gray-300 space-y-2 list-disc pl-6">
                         <li>Riga – Joker Club</li>
                         <li>Piņķi – Lion Gym</li>
                       </ul>
                       <p className="text-gray-300 mt-4">
-                        Limited spots available – register now!
+                        The new marathon is being planned, and we will announce the exact start date! Follow the news and be one of the first to know when to start losing weight!<br /><br />
+                        Limited spots will be available – start preparing now and don't oversleep at the start!
                       </p>
                     </div>
 
