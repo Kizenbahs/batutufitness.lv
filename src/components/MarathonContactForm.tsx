@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../config/email';
-import { FaArrowRight } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 
 const MarathonContactForm: React.FC = () => {
