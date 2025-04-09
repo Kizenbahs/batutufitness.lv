@@ -53,7 +53,7 @@ export const videos: Video[] = [
       en: 'Energetic group training in the capital city!'
     },
     thumbnailUrl: '/batutu-fitness-thumb-003.webp',
-    videoUrl: 'https://www.youtube.com/embed/W982zF2ELSE',
+    videoUrl: 'https://www.youtube.com/embed/ERYFJos43bs',
     date: '2024-03-18'
   }
 ]; 
