@@ -93,15 +93,18 @@ const AboutPage: React.FC = () => {
                         Batutu Fitness is more than just a fitness studio – it's a place where everyone can find their path to a healthy and active lifestyle. We believe that fitness can be an exciting and enjoyable process that provides both physical and emotional well-being.
                       </p>
                       <p>
-                        Batutu Fitness with Aleksandrs Kurusovs is the first training concept of its kind in Latvia. Here we combine intense cardio, strength and balance exercises with the joy of jumping on a trampoline.
+                        Batutu Fitness with Aleksandra Kurusova is the first training concept of its kind in Latvia. Here we combine intense cardio, strength and balance exercises with the joy of jumping on a trampoline.
                       </p>
                       <h3 className="text-xl font-semibold text-yellow-400 mb-4">Results that amaze</h3>
                       <p>
-                        Mūsu nodarbības piemērotas gan sievietēm, gan vīriešiem – jebkurā vecumā un sagatavotības līmenī.
+                        Our classes are suitable for both women and men - regardless of age or fitness level.
                       </p>
-                      <p className="text-yellow-400 font-semibold">Aleksandra Kurusova</p>
+                      <p className="text-xl font-semibold text-yellow-400 mb-4">Aleksandra Kurusova</p>
                       <p>
-                        Aleksandra is our head trainer – charismatic, experienced and with inexhaustible energy that captivates everyone. Each class is like a small celebration where the body works and the soul rejoices!
+                        Aleksandra is a multiple Latvian ballroom dance champion and winner of international competitions, as well as an experienced ballroom dance coach. She is a <a href="https://lsfp.lv/sporta_registrs/sertificetie_sporta_specialisti?name=aleksandra+kurusova&category=0&sport=0&type=0" className="text-yellow-400" target="_blank" rel="noopener noreferrer">Category C certified sports coach</a> – see certification – with extensive professional experience both in Latvia and abroad.
+                      </p>
+                      <p>
+                        Aleksandra leads dynamic and energetically charging group trampoline workouts that combine rhythmic movement, dance elements, and effective cardio exercises. Under her guidance, training becomes not only an excellent way to improve physical fitness but also a source of positive energy that motivates you to return again and again.
                       </p>
                     </div>
                   </div>
