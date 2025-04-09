@@ -95,9 +95,9 @@ const MarathonPage: React.FC = () => {
                         Vienkārši aizpildi pieteikuma formu vai uzraksti mums sociālajos tīklos – mēs ar Tevi sazināsimies personīgi.
                       </p>
                       <ul className="text-gray-300 space-y-2 list-disc pl-6">
-                        <li><a href="https://www.instagram.com/aleksandrakurusova/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Instagram</a> vai <a href="https://www.facebook.com/batutufitness" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/aleksandrakurusova/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Instagram</a> vai <a href="https://www.facebook.com/aleksandra.kurusova" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Facebook</a></li>
                         <li>Tālrunis: <a href="tel:+37129664931" className="text-yellow-400 hover:text-yellow-300">+371 29 664 931</a></li>
-                        <li>E-pasts: <a href="mailto:info@batutufitness.lv" className="text-yellow-400 hover:text-yellow-300">info@batutufitness.lv</a></li>
+                        <li>E-pasts: info@batutufitness.lv</li>
                       </ul>
                     </div>
                   </>
@@ -144,9 +144,9 @@ const MarathonPage: React.FC = () => {
                         Simply fill out the registration form or write to us on social media – we'll contact you personally.
                       </p>
                       <ul className="text-gray-300 space-y-2 list-disc pl-6">
-                        <li><a href="https://www.instagram.com/aleksandrakurusova/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Instagram</a> or <a href="https://www.facebook.com/batutufitness" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/aleksandrakurusova/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Instagram</a> or <a href="https://www.facebook.com/aleksandra.kurusova" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300">Facebook</a></li>
                         <li>Phone: <a href="tel:+37129664931" className="text-yellow-400 hover:text-yellow-300">+371 29 664 931</a></li>
-                        <li>Email: <a href="mailto:info@batutufitness.lv" className="text-yellow-400 hover:text-yellow-300">info@batutufitness.lv</a></li>
+                        <li>E-pasts: info@batutufitness.lv</li>
                       </ul>
                     </div>
                   </>
