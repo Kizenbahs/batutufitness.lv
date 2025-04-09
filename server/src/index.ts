@@ -120,6 +120,16 @@ Batutu Fitness Team
   }
 });
 
+// Serve static files with caching
+app.use(express.static('public', {
+  maxAge: '1d', // Cache for 1 day
+  setHeaders: (res, path) => {
+    if (path.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  }
+}));
+
 const server = app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
