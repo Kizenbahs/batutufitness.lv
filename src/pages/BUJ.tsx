@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { FAQ } from '../components/FAQ';
 import { useNavigate } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
 
 const BUJPage: React.FC = () => {
   const { language } = useLanguage();
@@ -13,18 +12,6 @@ const BUJPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Function to handle button click - navigates to schedule
-  const handleScheduleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate('/'); 
-    setTimeout(() => {
-      const scheduleSection = document.getElementById('schedule');
-      if (scheduleSection) {
-        scheduleSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100); // Small delay
-  };
 
   return (
     <div className="min-h-screen bg-black">
