@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { FaArrowRight } from 'react-icons/fa';
+import { BsMouse } from 'react-icons/bs';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function HeroSection() {
@@ -124,8 +125,9 @@ export default function HeroSection() {
               <FaArrowRight className="ml-2 mt-0 inline-block" />
             </button>
           </div>
-        </div>
-      </div>
+
+        </div> { /* End of content container (w-full max-w-[85rem]...) */ }
+      </div> { /* End of relative z-10 container */ }
     </section>
   );
 } 

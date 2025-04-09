@@ -1,14 +1,29 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
   const { language } = useLanguage();
+  const navigate = useNavigate();
 
   // Scroll to top when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Function to handle button click - navigates to schedule
+  const handleScheduleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/'); 
+    setTimeout(() => {
+      const scheduleSection = document.getElementById('schedule');
+      if (scheduleSection) {
+        scheduleSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // Small delay
+  };
 
   return (
     <div className="min-h-screen bg-black">
@@ -86,6 +101,21 @@ const AboutPage: React.FC = () => {
               )}
             </div>
           </motion.div>
+
+          {/* Orange CTA Button - Adjusting spacing */}
+          <div className="mt-12 text-center">
+            <motion.button
+              onClick={handleScheduleClick}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-[80%] max-w-[300px] rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 hover:bg-primary/90 shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/40 active:shadow-sm active:scale-95 sm:w-auto sm:px-6 sm:py-3.5 flex items-center justify-center mx-auto"
+            >
+              {language === 'lv' ? 'PIETEIKTIES NODARBĪBAI' : 'BOOK NOW'}
+              <FaArrowRight className="ml-2 mt-0 inline-block" />
+            </motion.button>
+          </div>
         </div>
       </section>
     </div>

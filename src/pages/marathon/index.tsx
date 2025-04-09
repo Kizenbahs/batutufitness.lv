@@ -32,8 +32,8 @@ const MarathonPage: React.FC = () => {
             </h1>
             <p className="text-xl font-semibold text-yellow-400">
               {language === 'lv' 
-                ? '15. aprīlis - 26. maijs'
-                : 'April 15 - May 26'}
+                ? 'Drīzumā atkal sāksim'
+                : 'Coming soon'}
             </p>
           </motion.div>
         </div>
