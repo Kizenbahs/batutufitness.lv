@@ -2,11 +2,9 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { FAQ } from '../components/FAQ';
-import { useNavigate } from 'react-router-dom';
 
 const BUJPage: React.FC = () => {
   const { language } = useLanguage();
-  const navigate = useNavigate();
 
   // Scroll to top when the component mounts
   useEffect(() => {
