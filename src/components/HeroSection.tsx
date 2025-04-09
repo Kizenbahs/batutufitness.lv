@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { FaArrowRight } from 'react-icons/fa';
-import { BsMouse } from 'react-icons/bs';
+// import { BsMouse } from 'react-icons/bs'; // Removed unused import
 import { useLanguage } from '../context/LanguageContext';
 
 export default function HeroSection() {
