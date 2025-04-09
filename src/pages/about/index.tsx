@@ -74,7 +74,7 @@ const AboutPage: React.FC = () => {
                       <p>
                         Mūsu nodarbības piemērotas gan sievietēm, gan vīriešiem – jebkurā vecumā un sagatavotības līmenī.
                       </p>
-                      <p className="text-yellow-400 font-semibold">Aleksandra Kurusova</p>
+                      <p className="text-xl font-semibold text-yellow-400 mb-4">Aleksandra Kurusova</p>
                       <p>
                         Aleksandra ir daudzkārtēja Latvijas sporta deju čempione un starptautisku sacensību uzvarētāja, kā arī pieredzējusi sporta deju trenere. Viņa ir <a href="https://lsfp.lv/sporta_registrs/sertificetie_sporta_specialisti?name=aleksandra+kurusova&category=0&sport=0&type=0" className="text-yellow-400" target="_blank" rel="noopener noreferrer">C kategorijas sertificēta sporta trenere</a> – skatīt sertifikāciju – ar plašu profesionālo pieredzi gan Latvijā, gan ārvalstīs.
                       </p>
