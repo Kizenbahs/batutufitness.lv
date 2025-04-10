@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { MainLayout } from './components/Layout/MainLayout';
 
@@ -12,7 +12,19 @@ const BUJ = lazy(() => import('./pages/BUJ.tsx'));
 const Kontakti = lazy(() => import('./pages/Kontakti.tsx'));
 const Video = lazy(() => import('./pages/Video.tsx'));
 
-function App() {
+function App(): JSX.Element {
+  useEffect(() => {
+    const handleContextMenu = (event: MouseEvent): void => {
+      event.preventDefault();
+    };
+
+    window.addEventListener('contextmenu', handleContextMenu);
+
+    return () => {
+      window.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
+
   return (
     <LanguageProvider>
       <Router>
