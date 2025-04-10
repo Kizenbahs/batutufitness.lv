@@ -32,7 +32,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center">
-        <div className="w-full max-w-[85rem] px-4 text-center pt-28 pb-8 sm:pt-32 md:pt-36 lg:pt-40">
+        <div className="w-full max-w-[85rem] px-4 text-center -mt-8 sm:mt-0 pt-28 pb-8 sm:pt-32 md:pt-36 lg:pt-40">
           {/* Main Heading */}
           <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl sm:mb-8 md:mb-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
             <div className="relative flex flex-col items-center justify-center space-y-2 sm:block sm:space-y-0">
