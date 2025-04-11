@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App';
 import './index.css';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { routes } from './routes';
 
 // Check if PostHog is already loaded
 const isPostHogLoaded = typeof window !== 'undefined' && (window as any).posthog;
@@ -37,17 +36,15 @@ const options = {
   }
 };
 
-const router = createBrowserRouter(routes);
-
-// Wrap the RouterProvider with PostHog if needed
+// Wrap the App with PostHog if needed
 const AppWithAnalytics = isPostHogLoaded ? (
-  <RouterProvider router={router} />
+  <App />
 ) : (
   <PostHogProvider 
     apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY}
     options={options}
   >
-    <RouterProvider router={router} />
+    <App />
   </PostHogProvider>
 );
 
