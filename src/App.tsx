@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { lazy, Suspense, useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { MainLayout } from './components/Layout/MainLayout';
+import { Analytics } from '@vercel/analytics/react';
+import posthog from 'posthog-js';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home.tsx'));
@@ -19,6 +21,12 @@ function App(): JSX.Element {
     };
 
     window.addEventListener('contextmenu', handleContextMenu);
+
+    // Test PostHog event
+    posthog.capture('app_loaded', {
+      timestamp: new Date().toISOString(),
+      url: window.location.href
+    });
 
     return () => {
       window.removeEventListener('contextmenu', handleContextMenu);
@@ -42,6 +50,7 @@ function App(): JSX.Element {
             </Routes>
           </Suspense>
         </MainLayout>
+        <Analytics />
       </Router>
     </LanguageProvider>
   );

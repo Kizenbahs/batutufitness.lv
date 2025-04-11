@@ -213,14 +213,14 @@ export default defineConfig({
     target: 'esnext',
   },
   server: {
-    port: 3000,
-    strictPort: false,
+    port: 3002,
+    strictPort: true,
     host: true,
     open: true,
     hmr: {
       protocol: 'ws',
       host: 'localhost',
-      port: 3000,
+      port: 3002,
       timeout: 120000,
     }
   },
@@ -230,8 +230,8 @@ export default defineConfig({
     },
   },
   preview: {
-    port: 3000,
-    strictPort: false,
+    port: 3002,
+    strictPort: true,
     host: true,
     open: true
   },

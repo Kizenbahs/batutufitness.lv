@@ -1,4 +1,4 @@
-import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 
 export interface ExcelData {
   [key: string]: any;
@@ -17,18 +17,30 @@ export const loadExcelFile = async (fileName: string): Promise<ExcelData[]> => {
     const arrayBuffer = await response.arrayBuffer();
     console.log('Successfully loaded array buffer');
     
-    // Read the Excel file
-    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-    console.log('Workbook loaded, sheets:', workbook.SheetNames);
+    // Create a new workbook and load the file
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.load(arrayBuffer);
+    console.log('Workbook loaded, sheets:', workbook.worksheets.map(ws => ws.name));
     
     // Get the first worksheet
-    const worksheetName = workbook.SheetNames[0];
-    const worksheet = workbook.Sheets[worksheetName];
+    const worksheet = workbook.worksheets[0];
+    if (!worksheet) {
+      throw new Error('No worksheets found in the Excel file');
+    }
     
-    // Convert to JSON with type assertion since we know the structure
-    const jsonData = XLSX.utils.sheet_to_json(worksheet) as ExcelData[];
+    // Convert to JSON
+    const jsonData: ExcelData[] = [];
+    worksheet.eachRow((row, rowNumber) => {
+      if (rowNumber === 1) return; // Skip header row
+      const rowData: ExcelData = {};
+      row.eachCell((cell, colNumber) => {
+        const header = worksheet.getRow(1).getCell(colNumber).value?.toString() || `column${colNumber}`;
+        rowData[header] = cell.value;
+      });
+      jsonData.push(rowData);
+    });
+    
     console.log('Converted to JSON, rows:', jsonData.length);
-    
     return jsonData;
   } catch (error) {
     console.error('Error loading Excel file:', error);
@@ -52,18 +64,30 @@ export const loadExcelSheet = async (fileName: string, sheetName: string): Promi
     const arrayBuffer = await response.arrayBuffer();
     console.log('Successfully loaded array buffer');
     
-    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-    console.log('Workbook loaded, sheets:', workbook.SheetNames);
+    // Create a new workbook and load the file
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.load(arrayBuffer);
+    console.log('Workbook loaded, sheets:', workbook.worksheets.map(ws => ws.name));
     
-    // Check if the requested sheet exists
-    if (!workbook.SheetNames.includes(sheetName)) {
+    // Get the specified worksheet
+    const worksheet = workbook.getWorksheet(sheetName);
+    if (!worksheet) {
       throw new Error(`Sheet "${sheetName}" not found in the Excel file`);
     }
     
-    const worksheet = workbook.Sheets[sheetName];
-    const jsonData = XLSX.utils.sheet_to_json(worksheet) as ExcelData[];
-    console.log('Converted to JSON, rows:', jsonData.length);
+    // Convert to JSON
+    const jsonData: ExcelData[] = [];
+    worksheet.eachRow((row, rowNumber) => {
+      if (rowNumber === 1) return; // Skip header row
+      const rowData: ExcelData = {};
+      row.eachCell((cell, colNumber) => {
+        const header = worksheet.getRow(1).getCell(colNumber).value?.toString() || `column${colNumber}`;
+        rowData[header] = cell.value;
+      });
+      jsonData.push(rowData);
+    });
     
+    console.log('Converted to JSON, rows:', jsonData.length);
     return jsonData;
   } catch (error) {
     console.error('Error loading Excel sheet:', error);

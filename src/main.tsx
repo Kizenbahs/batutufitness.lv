@@ -3,26 +3,62 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import { PostHogProvider } from 'posthog-js/react';
+import posthog from 'posthog-js';
+import { createBrowserRouter } from 'react-router-dom';
+import { routes } from './routes';
+
+// Check if PostHog is already loaded
+const isPostHogLoaded = typeof window !== 'undefined' && (window as any).posthog;
 
 const options = {
   api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
-  persistence: 'memory' as const, // This will avoid cookie-related issues
+  persistence: 'localStorage' as const,
   bootstrap: {
     distinctID: 'anonymous-user',
     isIdentifiedID: false
   },
   capture_pageview: true,
   capture_pageleave: true,
-  autocapture: true
+  autocapture: false,
+  disable_session_recording: true,
+  mask_all_text: true,
+  mask_all_element_attributes: true,
+  before_send: (event: any) => {
+    const { $current_url, $host, $pathname, ...rest } = event.properties;
+    return {
+      ...event,
+      properties: rest
+    };
+  },
+  loaded: (ph: typeof posthog) => {
+    if (process.env.NODE_ENV === 'development') {
+      // Log PostHog events in development
+      ph.debug(true);
+    }
+  }
 };
+
+// Only render PostHog provider if PostHog is not already loaded
+const AppWithAnalytics = isPostHogLoaded ? (
+  <App />
+) : (
+  <PostHogProvider 
+    apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY}
+    options={options}
+  >
+    <App />
+  </PostHogProvider>
+);
+
+const router = createBrowserRouter(routes, {
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true
+  }
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <PostHogProvider 
-      apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY}
-      options={options}
-    >
-      <App />
-    </PostHogProvider>
+    {AppWithAnalytics}
   </React.StrictMode>
 ); 

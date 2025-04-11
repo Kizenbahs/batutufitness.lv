@@ -1,4 +1,4 @@
-import XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -208,23 +208,50 @@ const scheduleData = [
   }
 ];
 
-// Create a new workbook
-const workbook = XLSX.utils.book_new();
+async function generateExcel() {
+  try {
+    // Create a new workbook
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Schedule');
 
-// Convert the data to a worksheet
-const worksheet = XLSX.utils.json_to_sheet(scheduleData);
+    // Add headers
+    const headers = Object.keys(scheduleData[0]);
+    worksheet.addRow(headers);
 
-// Add the worksheet to the workbook
-XLSX.utils.book_append_sheet(workbook, worksheet, 'Schedule');
+    // Add data rows
+    scheduleData.forEach(row => {
+      worksheet.addRow(Object.values(row));
+    });
 
-// Create the public directory if it doesn't exist
-const publicDir = path.join(__dirname, '..', 'public');
-if (!fs.existsSync(publicDir)) {
-  fs.mkdirSync(publicDir, { recursive: true });
+    // Style the header row
+    const headerRow = worksheet.getRow(1);
+    headerRow.font = { bold: true };
+    headerRow.fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FFE0E0E0' }
+    };
+
+    // Auto-fit columns
+    worksheet.columns.forEach(column => {
+      column.width = 15;
+    });
+
+    // Create the public directory if it doesn't exist
+    const publicDir = path.join(__dirname, '..', 'public');
+    if (!fs.existsSync(publicDir)) {
+      fs.mkdirSync(publicDir, { recursive: true });
+    }
+
+    // Write the workbook to a file
+    const filePath = path.join(publicDir, 'schedule.xlsx');
+    await workbook.xlsx.writeFile(filePath);
+
+    console.log(`Excel file created at: ${filePath}`);
+  } catch (error) {
+    console.error('Error generating Excel file:', error);
+    process.exit(1);
+  }
 }
 
-// Write the workbook to a file
-const filePath = path.join(publicDir, 'schedule.xlsx');
-XLSX.writeFile(workbook, filePath);
-
-console.log(`Excel file created at: ${filePath}`); 
+generateExcel(); 
