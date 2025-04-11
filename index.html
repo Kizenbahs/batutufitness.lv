@@ -49,8 +49,16 @@
       {
         "@context": "https://schema.org",
         "@type": "SportsActivityLocation",
-        "name": "Batutu fitness",
+        "name": "Batutu Fitness",
         "url": "https://batutufitness.lv",
+        "logo": "https://batutufitness.lv/batutu-fitness-icon.png",
+        "image": "https://batutufitness.lv/image.webp",
+        "description": "Batutu fitness studija Piņķos – jautri, aktīvi un efektīvi treniņi bērniem un pieaugušajiem!",
+        "priceRange": "€10-€25",
+        "openingHours": [
+          "Mo-Fr 09:00-21:00",
+          "Sa-Su 09:00-21:00"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Jūrmalas iela 14",
@@ -59,9 +67,13 @@
           "postalCode": "LV-2107",
           "addressCountry": {
             "@type": "Country",
-            "name": "Latvija",
-            "alternateName": "LV"
+            "name": "Latvia"
           }
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 56.9476,
+          "longitude": 23.9268
         },
         "telephone": "+371 29 664 931",
         "email": "aleksandra@batutufitness.lv",
@@ -69,10 +81,26 @@
           "https://www.facebook.com/aleksandra.kurusova",
           "https://www.instagram.com/aleksandrakurusova/"
         ],
-        "logo": "/batutu-fitness-icon.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Aleksandra Kurusova",
+          "sameAs": "https://www.instagram.com/aleksandrakurusova/"
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Bezmaksas autostāvvieta",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Bezmaksas WiFi",
+            "value": true
+          }
+        ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
+          "ratingValue": "4.9",
           "reviewCount": "783"
         }
       }
