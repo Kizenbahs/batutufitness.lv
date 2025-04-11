@@ -4,6 +4,7 @@ import App from './App';
 import './index.css';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Check if PostHog is already loaded
 const isPostHogLoaded = typeof window !== 'undefined' && (window as any).posthog;
@@ -51,5 +52,6 @@ const AppWithAnalytics = isPostHogLoaded ? (
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     {AppWithAnalytics}
+    <SpeedInsights />
   </React.StrictMode>
 ); 
