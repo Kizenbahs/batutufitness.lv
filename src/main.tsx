@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './routes';
 
 // Check if PostHog is already loaded
@@ -50,15 +50,10 @@ const AppWithAnalytics = isPostHogLoaded ? (
   </PostHogProvider>
 );
 
-const router = createBrowserRouter(routes, {
-  future: {
-    v7_startTransition: true,
-    v7_relativeSplatPath: true
-  }
-});
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {AppWithAnalytics}
+    <RouterProvider router={router} />
   </React.StrictMode>
 ); 
