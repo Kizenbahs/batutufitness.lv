@@ -38,22 +38,22 @@ const options = {
   }
 };
 
-// Only render PostHog provider if PostHog is not already loaded
+const router = createBrowserRouter(routes);
+
+// Wrap the RouterProvider with PostHog if needed
 const AppWithAnalytics = isPostHogLoaded ? (
-  <App />
+  <RouterProvider router={router} />
 ) : (
   <PostHogProvider 
     apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY}
     options={options}
   >
-    <App />
+    <RouterProvider router={router} />
   </PostHogProvider>
 );
 
-const router = createBrowserRouter(routes);
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {AppWithAnalytics}
   </React.StrictMode>
 ); 
