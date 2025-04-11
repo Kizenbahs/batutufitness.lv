@@ -28,7 +28,7 @@ const BUJPage: React.FC = () => {
             className="text-center"
           >
             <h1 className="text-4xl font-bold text-white mb-4">
-              {language === 'lv' ? 'BUJ' : 'FAQ'}
+              {language === 'lv' ? 'Jautājumi un atbildes' : 'FAQ'}
             </h1>
             <p className="text-xl font-semibold text-yellow-400">
               {language === 'lv' ? 'Atbildes uz jūsu jautājumiem' : 'Answers to your questions'}

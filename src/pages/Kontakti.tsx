@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import { FacebookIcon, InstagramIcon, PhoneIcon, MessageCircleIcon, MailIcon, MapPin } from 'lucide-react';
 
 const Kontakti: React.FC = () => {
@@ -15,7 +15,7 @@ const Kontakti: React.FC = () => {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative" style={{ 
-        backgroundImage: 'url("/image.webp")',
+        backgroundImage: 'url("/batutu-fitness-maratons.webp")',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
@@ -39,13 +39,13 @@ const Kontakti: React.FC = () => {
 
       {/* Content Section */}
       <section className="py-16 bg-gray-900">
-        <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+        <div className="relative mx-auto max-w-7xl px-6 md:px-12 lg:px-20 flex flex-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="w-full md:w-1/2"
           >
             <div className="space-y-12">
               {language === 'lv' ? (
@@ -59,7 +59,7 @@ const Kontakti: React.FC = () => {
                           +371 29 664 931
                         </a>
                       </div>
-                      
+
                       <div className="flex items-center space-x-3">
                         <MailIcon className="h-5 w-5 text-gray-400" />
                         <span className="hover:text-[#FBBF24]">
@@ -85,7 +85,7 @@ const Kontakti: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="mt-9">
+                    <div className="mt-12">
                       <h3 className="text-xl font-semibold text-yellow-400 mb-4">Sazinies arī</h3>
                       <div className="flex space-x-4">
                         <a
@@ -156,7 +156,7 @@ const Kontakti: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="mt-9">
+                    <div className="mt-12">
                       <h3 className="text-xl font-semibold text-yellow-400 mb-4">Follow Us</h3>
                       <div className="flex space-x-4">
                         <a
@@ -193,13 +193,18 @@ const Kontakti: React.FC = () => {
               )}
             </div>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Blue spacer section */}
-      <section className="py-16 bg-gray-900">
-        <div className="container mx-auto px-4">
-          {/* Empty section for spacing */}
+          <div className="w-full md:w-1/2 flex justify-center items-center">
+            <motion.img
+              src="/batutu-fitness-aleksandra-kurusova.webp"
+              alt={language === 'lv' ? 'Aleksandra Kurusova' : 'Aleksandra Kurusova'}
+              className="rounded-lg shadow-lg mt-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            />
+          </div>
         </div>
       </section>
     </div>
